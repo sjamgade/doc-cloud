@@ -15,8 +15,402 @@
             on controller nodes, compute nodes, or standalone storage nodes.</paragraph>
         <paragraph>For more information, see the
             <reference name="Configuration Reference" refuri="https://docs.openstack.org/ocata/config-reference/block-storage/volume-drivers.html">Configuration Reference</reference><target ids="configuration-reference" names="configuration\ reference" refuri="https://docs.openstack.org/ocata/config-reference/block-storage/volume-drivers.html"></target>.</paragraph>
-        <compound classes="toctree-wrapper">
-            <compact_paragraph toctree="True"><bullet_list><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="overview">Overview</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="#example-architecture" internal="True" refuri="overview#example-architecture">Example architecture</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#controller" internal="True" refuri="overview#controller">Controller</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#compute" internal="True" refuri="overview#compute">Compute</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#block-storage" internal="True" refuri="overview#block-storage">Block Storage</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#object-storage" internal="True" refuri="overview#object-storage">Object Storage</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="#networking" internal="True" refuri="overview#networking">Networking</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#networking-option-1-provider-networks" internal="True" refuri="overview#networking-option-1-provider-networks">Networking Option 1: Provider networks</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#networking-option-2-self-service-networks" internal="True" refuri="overview#networking-option-2-self-service-networks">Networking Option 2: Self-service networks</reference></compact_paragraph></list_item></bullet_list></list_item></bullet_list></list_item><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="index-obs">Cinder Installation Tutorial for openSUSE and SUSE Linux Enterprise</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-storage-install-obs">Install and configure a storage node</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#prerequisites" internal="True" refuri="cinder-storage-install-obs#prerequisites">Prerequisites</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-storage-install-obs#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-storage-install-obs#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-controller-install-obs">Install and configure controller node</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#prerequisites" internal="True" refuri="cinder-controller-install-obs#prerequisites">Prerequisites</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-controller-install-obs#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#configure-compute-to-use-block-storage" internal="True" refuri="cinder-controller-install-obs#configure-compute-to-use-block-storage">Configure Compute to use Block Storage</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-controller-install-obs#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-backup-install-obs">Install and configure the backup service</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-backup-install-obs#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-backup-install-obs#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-verify">Verify Cinder operation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="index-rdo">Cinder Installation Tutorial for Red Hat Enterprise Linux and CentOS</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-storage-install-rdo">Install and configure a storage node</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#prerequisites" internal="True" refuri="cinder-storage-install-rdo#prerequisites">Prerequisites</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-storage-install-rdo#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-storage-install-rdo#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-controller-install-rdo">Install and configure controller node</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#prerequisites" internal="True" refuri="cinder-controller-install-rdo#prerequisites">Prerequisites</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-controller-install-rdo#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#configure-compute-to-use-block-storage" internal="True" refuri="cinder-controller-install-rdo#configure-compute-to-use-block-storage">Configure Compute to use Block Storage</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-controller-install-rdo#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-backup-install-rdo">Install and configure the backup service</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-backup-install-rdo#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-backup-install-rdo#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-verify">Verify Cinder operation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="index-ubuntu">Cinder Installation Tutorial for Ubuntu</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-storage-install-ubuntu">Install and configure a storage node</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#prerequisites" internal="True" refuri="cinder-storage-install-ubuntu#prerequisites">Prerequisites</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-storage-install-ubuntu#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-storage-install-ubuntu#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-controller-install-ubuntu">Install and configure controller node</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#prerequisites" internal="True" refuri="cinder-controller-install-ubuntu#prerequisites">Prerequisites</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-controller-install-ubuntu#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#configure-compute-to-use-block-storage" internal="True" refuri="cinder-controller-install-ubuntu#configure-compute-to-use-block-storage">Configure Compute to use Block Storage</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-controller-install-ubuntu#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-backup-install-ubuntu">Install and configure the backup service</reference></compact_paragraph><bullet_list><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#install-and-configure-components" internal="True" refuri="cinder-backup-install-ubuntu#install-and-configure-components">Install and configure components</reference></compact_paragraph></list_item><list_item classes="toctree-l3"><compact_paragraph classes="toctree-l3"><reference anchorname="#finalize-installation" internal="True" refuri="cinder-backup-install-ubuntu#finalize-installation">Finalize installation</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cinder-verify">Verify Cinder operation</reference></compact_paragraph></list_item></bullet_list></list_item></bullet_list></compact_paragraph>
-        </compound>
+  <compound classes="toctree-wrapper">
+   <compact_paragraph toctree="True">
+    <bullet_list>
+     <list_item classes="toctree-l1">
+      <compact_paragraph classes="toctree-l1">
+       <reference anchorname="" internal="True" refuri="overview"
+        >Overview</reference>
+      </compact_paragraph>
+      <bullet_list>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="#example-architecture" internal="True"
+          refuri="overview#example-architecture">Example
+          architecture</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#controller" internal="True"
+            refuri="overview#controller">Controller</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#compute" internal="True"
+            refuri="overview#compute">Compute</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#block-storage" internal="True"
+            refuri="overview#block-storage">Block Storage</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#object-storage" internal="True"
+            refuri="overview#object-storage">Object Storage</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="#networking" internal="True"
+          refuri="overview#networking">Networking</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#networking-option-1-provider-networks"
+            internal="True"
+            refuri="overview#networking-option-1-provider-networks">Networking
+            Option 1: Provider networks</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#networking-option-2-self-service-networks"
+            internal="True"
+            refuri="overview#networking-option-2-self-service-networks"
+            >Networking Option 2: Self-service networks</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+      </bullet_list>
+     </list_item>
+     <list_item classes="toctree-l1">
+      <compact_paragraph classes="toctree-l1">
+       <reference anchorname="" internal="True" refuri="index-obs">Cinder
+        Installation Tutorial for openSUSE and SUSE Linux
+        Enterprise</reference>
+      </compact_paragraph>
+      <bullet_list>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-storage-install-obs">Install and configure a storage
+          node</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#prerequisites" internal="True"
+            refuri="cinder-storage-install-obs#prerequisites"
+            >Prerequisites</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-storage-install-obs#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-storage-install-obs#finalize-installation">Finalize
+            installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-controller-install-obs">Install and configure
+          controller node</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#prerequisites" internal="True"
+            refuri="cinder-controller-install-obs#prerequisites"
+            >Prerequisites</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-controller-install-obs#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#configure-compute-to-use-block-storage"
+            internal="True"
+            refuri="cinder-controller-install-obs#configure-compute-to-use-block-storage"
+            >Configure Compute to use Block Storage</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-controller-install-obs#finalize-installation"
+            >Finalize installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-backup-install-obs">Install and configure the backup
+          service</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-backup-install-obs#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-backup-install-obs#finalize-installation">Finalize
+            installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True" refuri="cinder-verify">Verify
+          Cinder operation</reference>
+        </compact_paragraph>
+       </list_item>
+      </bullet_list>
+     </list_item>
+     <list_item classes="toctree-l1">
+      <compact_paragraph classes="toctree-l1">
+       <reference anchorname="" internal="True" refuri="index-rdo">Cinder
+        Installation Tutorial for Red Hat Enterprise Linux and
+        CentOS</reference>
+      </compact_paragraph>
+      <bullet_list>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-storage-install-rdo">Install and configure a storage
+          node</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#prerequisites" internal="True"
+            refuri="cinder-storage-install-rdo#prerequisites"
+            >Prerequisites</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-storage-install-rdo#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-storage-install-rdo#finalize-installation">Finalize
+            installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-controller-install-rdo">Install and configure
+          controller node</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#prerequisites" internal="True"
+            refuri="cinder-controller-install-rdo#prerequisites"
+            >Prerequisites</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-controller-install-rdo#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#configure-compute-to-use-block-storage"
+            internal="True"
+            refuri="cinder-controller-install-rdo#configure-compute-to-use-block-storage"
+            >Configure Compute to use Block Storage</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-controller-install-rdo#finalize-installation"
+            >Finalize installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-backup-install-rdo">Install and configure the backup
+          service</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-backup-install-rdo#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-backup-install-rdo#finalize-installation">Finalize
+            installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True" refuri="cinder-verify">Verify
+          Cinder operation</reference>
+        </compact_paragraph>
+       </list_item>
+      </bullet_list>
+     </list_item>
+     <list_item classes="toctree-l1">
+      <compact_paragraph classes="toctree-l1">
+       <reference anchorname="" internal="True" refuri="index-ubuntu">Cinder
+        Installation Tutorial for Ubuntu</reference>
+      </compact_paragraph>
+      <bullet_list>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-storage-install-ubuntu">Install and configure a
+          storage node</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#prerequisites" internal="True"
+            refuri="cinder-storage-install-ubuntu#prerequisites"
+            >Prerequisites</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-storage-install-ubuntu#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-storage-install-ubuntu#finalize-installation"
+            >Finalize installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-controller-install-ubuntu">Install and configure
+          controller node</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#prerequisites" internal="True"
+            refuri="cinder-controller-install-ubuntu#prerequisites"
+            >Prerequisites</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-controller-install-ubuntu#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#configure-compute-to-use-block-storage"
+            internal="True"
+            refuri="cinder-controller-install-ubuntu#configure-compute-to-use-block-storage"
+            >Configure Compute to use Block Storage</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-controller-install-ubuntu#finalize-installation"
+            >Finalize installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True"
+          refuri="cinder-backup-install-ubuntu">Install and configure the
+          backup service</reference>
+        </compact_paragraph>
+        <bullet_list>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#install-and-configure-components"
+            internal="True"
+            refuri="cinder-backup-install-ubuntu#install-and-configure-components"
+            >Install and configure components</reference>
+          </compact_paragraph>
+         </list_item>
+         <list_item classes="toctree-l3">
+          <compact_paragraph classes="toctree-l3">
+           <reference anchorname="#finalize-installation" internal="True"
+            refuri="cinder-backup-install-ubuntu#finalize-installation"
+            >Finalize installation</reference>
+          </compact_paragraph>
+         </list_item>
+        </bullet_list>
+       </list_item>
+       <list_item classes="toctree-l2">
+        <compact_paragraph classes="toctree-l2">
+         <reference anchorname="" internal="True" refuri="cinder-verify">Verify
+          Cinder operation</reference>
+        </compact_paragraph>
+       </list_item>
+      </bullet_list>
+     </list_item>
+    </bullet_list>
+   </compact_paragraph>
+  </compound>
     </section>
 </document>
