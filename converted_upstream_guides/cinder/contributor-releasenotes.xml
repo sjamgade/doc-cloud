@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Release notes</title>
   <para>The release notes for a patch should be included in the patch.</para>
   <para>If the following applies to the patch, a release note is required:</para>
@@ -53,7 +53,7 @@
       </itemizedlist>
     </listitem>
   </itemizedlist>
-  <para>Cinder uses <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docs.openstack.org/developer/reno/usage.html">reno</link> to
+  <para>Cinder uses <link xlink:href="http://docs.openstack.org/developer/reno/usage.html">reno</link> to
             generate release notes. Please read the docs for details. In summary, use</para>
   <screen language="bash">$ tox -e venv -- reno new &lt;bug-,bp-,whatever&gt;</screen>
   <para>Then edit the sample file that was created and push it with your change.</para>

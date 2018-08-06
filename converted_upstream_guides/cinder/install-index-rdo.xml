@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Cinder Installation Tutorial for Red Hat Enterprise Linux and CentOS</title>
   <para>This section describes how to install and configure storage nodes
             for the Block Storage service. For simplicity, this configuration
@@ -11,8 +11,8 @@
             to instances via <xref linkend="term-iscsi-qualified-name-iqn"/> transport.
             You can follow these instructions with minor modifications to horizontally
             scale your environment with additional storage nodes.</para>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="install-index-rdocinder-storage-install-rdo.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="install-index-rdocinder-controller-install-rdo.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="install-index-rdocinder-backup-install-rdo.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="install-index-rdocinder-verify.xml"/>
+  <xi:include href="install-index-rdocinder-storage-install-rdo.xml"/>
+  <xi:include href="install-index-rdocinder-controller-install-rdo.xml"/>
+  <xi:include href="install-index-rdocinder-backup-install-rdo.xml"/>
+  <xi:include href="install-index-rdocinder-verify.xml"/>
 </section>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Overview</title>
   <para>The OpenStack project is an open source cloud computing platform that
             supports all types of cloud environments. The project aims for simple
@@ -42,7 +42,7 @@
                     provide a minimum proof-of-concept for the purpose of learning about
                     OpenStack. For information on creating architectures for specific
                     use cases, or how to determine which architecture is required, see the
-                    <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/arch-design/">Architecture Design Guide</link>.</para>
+                    <link xlink:href="https://docs.openstack.org/arch-design/">Architecture Design Guide</link>.</para>
     </important>
     <para>This example architecture differs from a minimal production architecture as
                 follows:</para>
@@ -57,9 +57,9 @@
       </listitem>
     </itemizedlist>
     <para>For more information on production architectures, see the
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/arch-design/">Architecture Design Guide</link>,
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/ops-guide/">OpenStack Operations Guide</link>, and
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/ocata/networking-guide/">OpenStack Networking Guide</link>.</para>
+                <link xlink:href="https://docs.openstack.org/arch-design/">Architecture Design Guide</link>,
+                <link xlink:href="https://docs.openstack.org/ops-guide/">OpenStack Operations Guide</link>, and
+                <link xlink:href="https://docs.openstack.org/ocata/networking-guide/">OpenStack Networking Guide</link>.</para>
     <figure>
       <title>Hardware requirements</title>
       <informalfigure>

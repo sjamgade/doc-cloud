@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Oversubscription in thin provisioning</title>
   <para>OpenStack Block Storage enables you to choose a volume back end based on
             virtual capacities for thin provisioning using the oversubscription ratio.</para>

@@ -89,5 +89,20 @@
     <xi:include href="configuration.xml"/>
     <xi:include href="sample_config.xml"/>
   </chapter>
+  <chapter>
+    <title>Indices and tables</title>
+    <info/>
+    <itemizedlist>
+      <listitem>
+        <para/>
+      </listitem>
+      <listitem>
+        <para/>
+      </listitem>
+      <listitem>
+        <para/>
+      </listitem>
+    </itemizedlist>
+  </chapter>
   <xi:include href="common.xml"/>
 </book>

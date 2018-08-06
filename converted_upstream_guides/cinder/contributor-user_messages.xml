@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>User Messages</title>
   <para>User messages are a way to inform users about the state of asynchronous
             operations. One example would be notifying the user of why a volume
@@ -44,6 +44,66 @@ self.message_api.create(
   <section>
     <title>The Message API Module</title>
     <para>Handles all requests related to user facing messages.</para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>API for handling user messages.</para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Create a message with the specified information.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Delete message with the specified id.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Return message with the specified id.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Return all messages for the given context.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </section>
   <section>
     <title>The Message Field Module</title>
@@ -62,5 +122,75 @@ self.message_api.create(
                 and not contain any sensitive information. A good rule-of-thumb is to be very
                 general in error messages unless the issue is due to a bad user action, then be
                 specific.</para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>object</literal></para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <function/>
+        </term>
+        <listitem>
+          <para/>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </section>
 </section>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Testing</title>
   <para>Cinder contains a few different test suites in the cinder/tests/ directory. The
             different test suites are Unit Tests, Functional Tests, and Tempest Tests.</para>
@@ -59,7 +59,7 @@
                     execution. To ensure the Cinder tests are picked up when running tempest, run:</para>
       <screen>cd /opt/stack/tempest
 tox -e all-plugin</screen>
-      <para>More information about tempest can be found in the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docs.openstack.org/developer/tempest/overview.html">Tempest Documentation</link>.</para>
+      <para>More information about tempest can be found in the <link xlink:href="http://docs.openstack.org/developer/tempest/overview.html">Tempest Documentation</link>.</para>
     </section>
     <section>
       <title>Database Setup</title>
@@ -78,7 +78,7 @@ tox -e all-plugin</screen>
     <para>You may also use regular expressions to run any matching tests:</para>
     <screen>tox -epy27 -- -r test_volume</screen>
     <para>For more information on these options and how to run tests, please see the
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docs.openstack.org/developer/os-testr/">ostestr documentation</link>.</para>
+                <link xlink:href="http://docs.openstack.org/developer/os-testr/">ostestr documentation</link>.</para>
   </section>
   <section>
     <title>Gotchas</title>

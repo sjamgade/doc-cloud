@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Threading model</title>
   <para>All OpenStack services use <emphasis>green thread</emphasis> model of threading, implemented
-            through using the Python <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://eventlet.net/">eventlet</link> and
-            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://packages.python.org/greenlet/">greenlet</link> libraries.</para>
+            through using the Python <link xlink:href="http://eventlet.net/">eventlet</link> and
+            <link xlink:href="http://packages.python.org/greenlet/">greenlet</link> libraries.</para>
   <para>Green threads use a cooperative model of threading: thread context
             switches can only occur when specific eventlet or greenlet library calls are
             made (e.g., sleep, certain I/O calls). From the operating system’s point of
@@ -31,15 +31,15 @@ greenthread.sleep(0)</screen>
   </section>
   <section>
     <title>MySQL access and eventlet</title>
-    <para>There are some MySQL DB API drivers for oslo.db, like <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/PyMySQL_evaluation">PyMySQL</link>, MySQL-python
+    <para>There are some MySQL DB API drivers for oslo.db, like <link xlink:href="https://wiki.openstack.org/wiki/PyMySQL_evaluation">PyMySQL</link>, MySQL-python
                 etc. PyMySQL is the default MySQL DB API driver for oslo.db, and it works well with
                 eventlet. MySQL-python uses an external C library for accessing the MySQL database.
                 Since eventlet cannot use monkey-patching to intercept blocking calls in a C library,
                 queries to the MySQL database using libraries like MySQL-python will block the main
                 thread of a service.</para>
     <para>The Diablo release contained a thread-pooling implementation that did not
-                block, but this implementation resulted in a <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://bugs.launchpad.net/cinder/+bug/838581">bug</link> and was removed.</para>
-    <para>See this <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://lists.launchpad.net/openstack/msg08118.html">mailing list thread</link> for a discussion of this issue, including
-                a discussion of the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://lists.launchpad.net/openstack/msg08217.html">impact on performance</link>.</para>
+                block, but this implementation resulted in a <link xlink:href="https://bugs.launchpad.net/cinder/+bug/838581">bug</link> and was removed.</para>
+    <para>See this <link xlink:href="https://lists.launchpad.net/openstack/msg08118.html">mailing list thread</link> for a discussion of this issue, including
+                a discussion of the <link xlink:href="https://lists.launchpad.net/openstack/msg08217.html">impact on performance</link>.</para>
   </section>
 </section>

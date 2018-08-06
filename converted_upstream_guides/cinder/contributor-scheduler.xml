@@ -1,19 +1,443 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Scheduler</title>
   <section>
     <title>The <xref linkend="module-cinder.scheduler.manager"/> Module</title>
     <para>Scheduler Service</para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <xref linkend="cinder.manager.CleanableManager"/>, <xref linkend="cinder.manager.Manager"/></para>
+          <para>Chooses a host to create volumes.</para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Get active pools from scheduler’s cache.</para>
+                <para>NOTE(dulek): There’s no self._wait_for_scheduler() because get_pools is
+                                an RPC call (is blocking for the c-api). Also this is admin-only API
+                                extension so it won’t hurt the user much to retry the request manually.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Ensure that the host exists and can accept the volume.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Ensure that the backend exists and can accept the volume.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Process a capability update from a service node.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Schedule the modification of a volume’s type.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Process a capability update from a service node.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Process request from API to do cleanup on services.</para>
+                <para>Here we retrieve from the DB which services we want to clean up based
+                                on the request from the user.</para>
+                <para>Then send individual cleanup requests to each of the services that are
+                                up, and we finally return a tuple with services that we have sent a
+                                cleanup request and those that were not up and we couldn’t send it.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </section>
   <section>
     <title>The <xref linkend="module-cinder.scheduler.driver"/> Module</title>
     <para>Scheduler base class that all Schedulers should inherit from</para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>object</literal></para>
+          <para>The base class that all Scheduler classes should inherit from.</para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Check if the specified backend passes the filters.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Find a backend that can accept the volume with its new type.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Find a backend that can accept the volume with its new type.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Must override schedule method for scheduler to work.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Check if the specified backend passes the filters.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Returns True if Scheduler is ready to accept requests.</para>
+                <para>This is to handle scheduler service startup when it has no volume hosts
+                                stats and will fail all the requests.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Notify capability update from a service node.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Reset volume RPC API object to load new version pins.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Must override schedule method for scheduler to work.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Must override schedule method for scheduler to work.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Must override schedule method for scheduler to work.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Process a capability update from a service node.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <function/>
+        </term>
+        <listitem>
+          <para>Set the host and the scheduled_at field of a group.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <function/>
+        </term>
+        <listitem>
+          <para>Set the host, cluster_name, and set the scheduled_at field of a volume.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </section>
   <section>
     <title>The <xref linkend="module-cinder.scheduler.filter_scheduler"/> Driver</title>
     <para>The FilterScheduler is for creating volumes.</para>
     <para>You can customize this scheduler by specifying your own volume Filters and
                 Weighing Functions.</para>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <xref linkend="cinder.scheduler.driver.Scheduler"/></para>
+          <para>Scheduler that can be used for filtering and weighing.</para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Check if the specified backend passes the filters.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Find a backend that can accept the volume with its new type.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Stuff things into filter_properties.</para>
+                <para>Can be overridden in a subclass to add more data.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para>Schedule contract that returns best-suited host for this request.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </section>
   <section>
     <title>Tests</title>

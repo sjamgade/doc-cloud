@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Internationalization</title>
   <para>For internationalization guidelines, see the
-            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docs.openstack.org/developer/oslo.i18n/guidelines.html">oslo.i18n documentation</link>.
+            <link xlink:href="http://docs.openstack.org/developer/oslo.i18n/guidelines.html">oslo.i18n documentation</link>.
             The information below can be used to get started.</para>
-  <para>Cinder uses <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docs.python.org/library/gettext.html">gettext</link> so that
+  <para>Cinder uses <link xlink:href="http://docs.python.org/library/gettext.html">gettext</link> so that
             user-facing strings such as log messages appear in the appropriate
             language in different locales.</para>
   <para>To use gettext, make sure that the strings passed to the logger are wrapped
@@ -38,7 +38,7 @@
                 translation markers like <literal>_Lx()</literal>, only <literal>_()</literal> should still be used for
                 exceptions that could be user facing. It is not necessary to add <literal>_Lx()</literal>
                 translation instructions to new code, and the instructions can be removed
-                from old code. Refer to the email thread <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://lists.openstack.org/pipermail/openstack-dev/2017-March/thread.html#113365">understanding log domain change</link>
+                from old code. Refer to the email thread <link xlink:href="http://lists.openstack.org/pipermail/openstack-dev/2017-March/thread.html#113365">understanding log domain change</link>
                 on the openstack-dev mailing list for more details.</para>
   </note>
   <para>Do not use <literal>locals()</literal> for formatting messages because:</para>

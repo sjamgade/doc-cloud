@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Replication</title>
   <para>For backend devices that offer replication features, Cinder provides a common
             mechanism for exposing that functionality on a per volume basis while still
@@ -21,7 +21,7 @@
     <para><emphasis>NOTE</emphasis>: Current replication implementation is v2.1 and it’s meant to solve a
                 very specific use case, the “smoking hole” scenario.  It’s critical that you
                 read the Use Cases section of the spec here:
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://specs.openstack.org/openstack/cinder-specs/specs/mitaka/cheesecake.html"/></para>
+                <link xlink:href="https://specs.openstack.org/openstack/cinder-specs/specs/mitaka/cheesecake.html"/></para>
     <para>From a user’s perspective volumes will be created using specific volume types,
                 even if it is the default volume type, and they will either be replicated or
                 not, which will be reflected on the <literal>replication_status</literal> field of the volume.

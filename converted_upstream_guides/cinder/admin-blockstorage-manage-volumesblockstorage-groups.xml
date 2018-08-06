@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Generic volume groups</title>
   <para>Generic volume group support is available in OpenStack Block Storage (cinder)
             since the Newton release. The support is added for creating group types and
@@ -36,7 +36,7 @@
             to solve this problem.</para>
   <para>There is a plan to migrate existing consistency group operations to use
             generic volume group operations in future releases. More information can be
-            found in <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/openstack/cinder-specs/blob/master/specs/newton/group-snapshots.rst">Cinder specs</link>.</para>
+            found in <link xlink:href="https://github.com/openstack/cinder-specs/blob/master/specs/newton/group-snapshots.rst">Cinder specs</link>.</para>
   <note>
     <para>Only Block Storage V3 API supports groups. You can
                 specify <literal>--os-volume-api-version 3.x</literal> when using the <literal>cinder</literal>

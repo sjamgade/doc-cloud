@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Adding a Method to the OpenStack API</title>
   <para>The interface is a mostly RESTful API. REST stands for Representational State Transfer and provides an architecture “style” for distributed systems using HTTP for transport. Figure out a way to express your request and response in terms of resources that are being created, modified, read, or destroyed.</para>
   <section>
     <title>Routing</title>
-    <para>To map URLs to controllers+actions, OpenStack uses the Routes package, a clone of Rails routes for Python implementations. See <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://routes.groovie.org/"/> for more information.</para>
+    <para>To map URLs to controllers+actions, OpenStack uses the Routes package, a clone of Rails routes for Python implementations. See <link xlink:href="http://routes.groovie.org/"/> for more information.</para>
     <para>URLs are mapped to “action” methods on “controller” classes in <literal>cinder/api/openstack/__init__/ApiRouter.__init__</literal> .</para>
     <variablelist>
       <varlistentry>
-        <term>See <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://routes.groovie.org/manual.html"/> for all syntax, but you’ll probably just need these two:</term>
+        <term>See <link xlink:href="http://routes.groovie.org/manual.html"/> for all syntax, but you’ll probably just need these two:</term>
         <listitem>
           <itemizedlist>
             <listitem>

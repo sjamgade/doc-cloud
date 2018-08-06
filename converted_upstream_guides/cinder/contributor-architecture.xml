@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Cinder System Architecture</title>
   <para>The Cinder Block Storage Service is intended to be ran on one or more nodes.</para>
   <para>Cinder uses a sql-based central database that is shared by all Cinder services in the system.  The amount and depth of the data fits into a sql database quite well.  For small deployments this seems like an optimal solution.  For larger deployments, and especially if security is a concern, cinder will be moving towards multiple data stores with some kind of aggregation system.</para>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>AMQP and Cinder</title>
   <para>AMQP is the messaging technology chosen by the OpenStack cloud.  The AMQP broker, either RabbitMQ or Qpid, sits between any two Cinder components and allows them to communicate in a loosely coupled fashion. More precisely, Cinder components (the compute fabric of OpenStack) use Remote Procedure Calls (RPC hereinafter) to communicate to one another; however such a paradigm is built atop the publish/subscribe paradigm so that the following benefits can be achieved:</para>
   <itemizedlist>
@@ -136,7 +136,7 @@
                   <para>cinder-scheduler_fanout (fanout exchange)</para>
                 </step>
                 <step>
-                  <para><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="mailto:cinder-volume.phantom@lvm_fanout">cinder-volume.phantom@lvm_fanout</link> (fanout exchange)</para>
+                  <para><link xlink:href="mailto:cinder-volume.phantom@lvm_fanout">cinder-volume.phantom@lvm_fanout</link> (fanout exchange)</para>
                 </step>
                 <step>
                   <para>cinder-volume_fanout (fanout exchange)</para>
@@ -169,17 +169,17 @@
                 </step>
                 <step>
                   <para>
-                    <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="mailto:cinder-volume.phantom@lvm">cinder-volume.phantom@lvm</link>
+                    <link xlink:href="mailto:cinder-volume.phantom@lvm">cinder-volume.phantom@lvm</link>
                   </para>
                 </step>
                 <step>
                   <para>
-                    <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="mailto:cinder-volume.phantom@lvm.phantom">cinder-volume.phantom@lvm.phantom</link>
+                    <link xlink:href="mailto:cinder-volume.phantom@lvm.phantom">cinder-volume.phantom@lvm.phantom</link>
                   </para>
                 </step>
                 <step>
                   <para>
-                    <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="mailto:cinder-volume.phantom@lvm_fanout_cb3387f7a7684b1c9ee5f2f88325b7d5">cinder-volume.phantom@lvm_fanout_cb3387f7a7684b1c9ee5f2f88325b7d5</link>
+                    <link xlink:href="mailto:cinder-volume.phantom@lvm_fanout_cb3387f7a7684b1c9ee5f2f88325b7d5">cinder-volume.phantom@lvm_fanout_cb3387f7a7684b1c9ee5f2f88325b7d5</link>
                   </para>
                 </step>
                 <step>

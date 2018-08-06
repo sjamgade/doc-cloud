@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Continuous Integration with Jenkins</title>
-  <para>Cinder uses a <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://jenkins-ci.org">Jenkins</link> server to automate development tasks. The Jenkins
-            front-end is at <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://jenkins.openstack.org"/>. You must have an
-            account on <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://launchpad.net">Launchpad</link> to be able to access the OpenStack Jenkins site.</para>
+  <para>Cinder uses a <link xlink:href="http://jenkins-ci.org">Jenkins</link> server to automate development tasks. The Jenkins
+            front-end is at <link xlink:href="http://jenkins.openstack.org"/>. You must have an
+            account on <link xlink:href="http://launchpad.net">Launchpad</link> to be able to access the OpenStack Jenkins site.</para>
   <para>Jenkins performs tasks such as:</para>
   <variablelist>
     <varlistentry>
       <term>
-        <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://jenkins.openstack.org/job/gate-cinder-pep8">gate-cinder-pep8</link>
+        <link xlink:href="https://jenkins.openstack.org/job/gate-cinder-pep8">gate-cinder-pep8</link>
       </term>
       <listitem>
         <para>Run PEP8 checks on proposed code changes that have been reviewed.</para>
@@ -16,7 +16,7 @@
     </varlistentry>
     <varlistentry>
       <term>
-        <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://jenkins.openstack.org/job/gate-cinder-pylint">gate-cinder-pylint</link>
+        <link xlink:href="https://jenkins.openstack.org/job/gate-cinder-pylint">gate-cinder-pylint</link>
       </term>
       <listitem>
         <para>Run Pylint checks on proposed code changes that have been reviewed.</para>
@@ -24,7 +24,7 @@
     </varlistentry>
     <varlistentry>
       <term>
-        <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://jenkins.openstack.org/job/gate-cinder-python27">gate-cinder-python27</link>
+        <link xlink:href="https://jenkins.openstack.org/job/gate-cinder-python27">gate-cinder-python27</link>
       </term>
       <listitem>
         <para>Run unit tests using python2.7 on proposed code changes that have been reviewed.</para>
@@ -32,7 +32,7 @@
     </varlistentry>
     <varlistentry>
       <term>
-        <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://jenkins.openstack.org/job/gate-cinder-python34">gate-cinder-python34</link>
+        <link xlink:href="https://jenkins.openstack.org/job/gate-cinder-python34">gate-cinder-python34</link>
       </term>
       <listitem>
         <para>Run unit tests using python3.4 on proposed code changes that have been reviewed.</para>
@@ -40,7 +40,7 @@
     </varlistentry>
     <varlistentry>
       <term>
-        <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://jenkins.openstack.org/job/cinder-coverage">cinder-coverage</link>
+        <link xlink:href="https://jenkins.openstack.org/job/cinder-coverage">cinder-coverage</link>
       </term>
       <listitem>
         <para>Calculate test coverage metrics.</para>
@@ -48,15 +48,15 @@
     </varlistentry>
     <varlistentry>
       <term>
-        <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://jenkins.openstack.org/job/cinder-docs">cinder-docs</link>
+        <link xlink:href="https://jenkins.openstack.org/job/cinder-docs">cinder-docs</link>
       </term>
       <listitem>
-        <para>Build this documentation and push it to <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/cinder/latest/">OpenStack Cinder</link>.</para>
+        <para>Build this documentation and push it to <link xlink:href="https://docs.openstack.org/cinder/latest/">OpenStack Cinder</link>.</para>
       </listitem>
     </varlistentry>
     <varlistentry>
       <term>
-        <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://jenkins.openstack.org/job/cinder-merge-release-tags">cinder-merge-release-tags</link>
+        <link xlink:href="https://jenkins.openstack.org/job/cinder-merge-release-tags">cinder-merge-release-tags</link>
       </term>
       <listitem>
         <para>Merge reviewed code into the git repository.</para>
@@ -64,11 +64,11 @@
     </varlistentry>
     <varlistentry>
       <term>
-        <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://jenkins.openstack.org/job/cinder-tarball">cinder-tarball</link>
+        <link xlink:href="https://jenkins.openstack.org/job/cinder-tarball">cinder-tarball</link>
       </term>
       <listitem>
         <para>Do <literal>python setup.py sdist</literal> to create a tarball of the cinder code and upload
-                        it to <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://tarballs.openstack.org/cinder"/></para>
+                        it to <link xlink:href="http://tarballs.openstack.org/cinder"/></para>
       </listitem>
     </varlistentry>
   </variablelist>

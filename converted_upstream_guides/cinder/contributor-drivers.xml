@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Drivers</title>
   <para>Cinder exposes an API to users to interact with different storage backend
             solutions. The following are standards across all drivers for Cinder services
@@ -13,7 +13,7 @@
                         although semantic versioning is recommended.</para>
       </listitem>
       <listitem>
-        <para>CI_WIKI_NAME: Must be the exact name of the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems">ThirdPartySystems wiki page</link>. This is used by our
+        <para>CI_WIKI_NAME: Must be the exact name of the <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems">ThirdPartySystems wiki page</link>. This is used by our
                         tooling system to associate jobs to drivers and track their CI reporting
                         status correctly.</para>
       </listitem>
@@ -117,6 +117,388 @@ class LVMVolumeDriver(driver.VolumeDriver):</screen>
                     in order to be an official Cinder volume driver.</para>
       <para>Core backend volume driver interface.</para>
       <para>All backend drivers should support this interface as a bare minimum.</para>
+      <variablelist>
+        <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore">
+          <term>
+            <literal>cinder.interface.volume_driver.VolumeDriverCore</literal>
+          </term>
+          <listitem>
+            <para>Core backend driver required interface.</para>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.attach_volume">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.attach_volume</property>
+                </term>
+                <listitem>
+                  <para>Lets the driver know Nova has attached the volume to an instance.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.check_for_setup_error">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.check_for_setup_error</property>
+                </term>
+                <listitem>
+                  <para>Validate there are no issues with the driver configuration.</para>
+                  <para>Called after do_setup(). Driver initialization can occur there or in
+                                    this call, but must be complete by the time this returns.</para>
+                  <para>If this method raises an exception, the driver will be left in an
+                                    “uninitialized” state by the volume manager, which means that it will
+                                    not be sent requests for volume operations.</para>
+                  <para>This method typically checks things like whether the configured
+                                    credentials can be used to log in the storage backend, and whether any
+                                    external dependencies are present and working.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.clone_image">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.clone_image</property>
+                </term>
+                <listitem>
+                  <para>Clone an image to a volume.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.copy_image_to_volume">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.copy_image_to_volume</property>
+                </term>
+                <listitem>
+                  <para>Fetch the image from image_service and write it to the volume.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.copy_volume_to_image">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.copy_volume_to_image</property>
+                </term>
+                <listitem>
+                  <para>Copy the volume to the specified image.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.create_volume">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.create_volume</property>
+                </term>
+                <listitem>
+                  <para>Create a new volume on the backend.</para>
+                  <para>This method is responsible only for storage allocation on the backend.
+                                    It should not export a LUN or actually make this storage available for
+                                    use, this is done in a later call.</para>
+                  <para>TODO(smcginnis): Add example data structure of volume object.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.delete_volume">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.delete_volume</property>
+                </term>
+                <listitem>
+                  <para>Delete a volume from the backend.</para>
+                  <para>If the driver can talk to the backend and detects that the volume is no
+                                    longer present, this call should succeed and allow Cinder to complete
+                                    the process of deleting the volume.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.detach_volume">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.detach_volume</property>
+                </term>
+                <listitem>
+                  <para>Detach volume from an instance.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.do_setup">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.do_setup</property>
+                </term>
+                <listitem>
+                  <para>Any initialization the volume driver needs to do while starting.</para>
+                  <para>Called once by the manager after the driver is loaded.
+                                    Can be used to set up clients, check licenses, set up protocol
+                                    specific helpers, etc.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.extend_volume">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.extend_volume</property>
+                </term>
+                <listitem>
+                  <para>Extend the size of a volume.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.get_volume_stats">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.get_volume_stats</property>
+                </term>
+                <listitem>
+                  <para>Collects volume backend stats.</para>
+                  <para>The get_volume_stats method is used by the volume manager to collect
+                                    information from the driver instance related to information about the
+                                    driver, available and used space, and driver/backend capabilities.</para>
+                  <para>It returns a dict with the following required fields:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>volume_backend_name</term>
+                          <listitem>
+                            <para>This is an identifier for the backend taken from cinder.conf.
+                                                        Useful when using multi-backend.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>vendor_name</term>
+                          <listitem>
+                            <para>Vendor/author of the driver who serves as the contact for the
+                                                        driver’s development and support.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>driver_version</term>
+                          <listitem>
+                            <para>The driver version is logged at cinder-volume startup and is useful
+                                                        for tying volume service logs to a specific release of the code.
+                                                        There are currently no rules for how or when this is updated, but
+                                                        it tends to follow typical major.minor.revision ideas.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>storage_protocol</term>
+                          <listitem>
+                            <para>The protocol used to connect to the storage, this should be a short
+                                                        string such as: “iSCSI”, “FC”, “nfs”, “ceph”, etc.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>total_capacity_gb</term>
+                          <listitem>
+                            <para>The total capacity in gigabytes (GiB) of the storage backend being
+                                                        used to store Cinder volumes. Use keyword ‘unknown’ if the backend
+                                                        cannot report the value or ‘infinite’ if there is no upper limit.
+                                                        But, it is recommended to report real values as the Cinder
+                                                        scheduler assigns lowest weight to any storage backend reporting
+                                                        ‘unknown’ or ‘infinite’.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>free_capacity_gb</term>
+                          <listitem>
+                            <para>The free capacity in gigabytes (GiB). Use keyword ‘unknown’ if the
+                                                        backend cannot report the value or ‘infinite’ if there is no upper
+                                                        limit. But, it is recommended to report real values as the Cinder
+                                                        scheduler assigns lowest weight to any storage backend reporting
+                                                        ‘unknown’ or ‘infinite’.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                  </itemizedlist>
+                  <para>And the following optional fields:</para>
+                  <itemizedlist>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>reserved_percentage (integer)</term>
+                          <listitem>
+                            <para>Percentage of backend capacity which is not used by the scheduler.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>location_info (string)</term>
+                          <listitem>
+                            <para>Driver-specific information used by the driver and storage backend
+                                                        to correlate Cinder volumes and backend LUNs/files.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>QoS_support (Boolean)</term>
+                          <listitem>
+                            <para>Whether the backend supports quality of service.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>provisioned_capacity_gb</term>
+                          <listitem>
+                            <para>The total provisioned capacity on the storage backend, in gigabytes
+                                                        (GiB), including space consumed by any user other than Cinder
+                                                        itself.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>max_over_subscription_ratio</term>
+                          <listitem>
+                            <para>The maximum amount a backend can be over subscribed.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>thin_provisioning_support (Boolean)</term>
+                          <listitem>
+                            <para>Whether the backend is capable of allocating thinly provisioned
+                                                        volumes.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>thick_provisioning_support (Boolean)</term>
+                          <listitem>
+                            <para>Whether the backend is capable of allocating thick provisioned
+                                                        volumes. (Typically True.)</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>total_volumes (integer)</term>
+                          <listitem>
+                            <para>Total number of volumes on the storage backend. This can be used in
+                                                        custom driver filter functions.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>filter_function (string)</term>
+                          <listitem>
+                            <para>A custom function used by the scheduler to determine whether a
+                                                        volume should be allocated to this backend or not. Example:</para>
+                            <para>capabilities.total_volumes &lt; 10</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>goodness_function (string)</term>
+                          <listitem>
+                            <para>Similar to filter_function, but used to weigh multiple volume
+                                                        backends. Example:</para>
+                            <para>capabilities.capacity_utilization &lt; 0.6 ? 100 : 25</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>multiattach (Boolean)</term>
+                          <listitem>
+                            <para>Whether the backend supports multiattach or not. Defaults to False.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                    <listitem>
+                      <variablelist>
+                        <varlistentry>
+                          <term>sparse_copy_volume (Boolean)</term>
+                          <listitem>
+                            <para>Whether copies performed by the volume manager for operations such
+                                                        as migration should attempt to preserve sparseness.</para>
+                          </listitem>
+                        </varlistentry>
+                      </variablelist>
+                    </listitem>
+                  </itemizedlist>
+                  <para>The returned dict may also contain a list, “pools”, which has a similar
+                                    dict for each pool being used with the backend.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.initialize_connection">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.initialize_connection</property>
+                </term>
+                <listitem>
+                  <para>Allow connection to connector and return connection info.</para>
+                  <para>The “initiator_updates” field must be a dictionary containing a
+                                    “set_values” and/or “remove_values” field. The “set_values” field must
+                                    be a dictionary of key-value pairs to be set/updated in the db. The
+                                    “remove_values” field must be a list of keys, previously set with
+                                    “set_values”, that will be deleted from the db.</para>
+                  <para>May be called multiple times to get connection information after a
+                                    volume has already been attached.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_driver.VolumeDriverCore.terminate_connection">
+                <term>
+                  <property>cinder.interface.volume_driver.VolumeDriverCore.terminate_connection</property>
+                </term>
+                <listitem>
+                  <para>Remove access to a volume.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </section>
     <section>
       <title>Snapshot Interface</title>
@@ -126,6 +508,68 @@ class LVMVolumeDriver(driver.VolumeDriver):</screen>
       <para>Work is being done to address those legacy issues. Once that is complete, this
                     interface will be merged with the base driver interface.</para>
       <para>Snapshot capable volume driver interface.</para>
+      <variablelist>
+        <varlistentry xml:id="cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver">
+          <term>
+            <literal>cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver</literal>
+          </term>
+          <listitem>
+            <para>Interface for drivers that support snapshots.</para>
+            <para>TODO(smcginnis) Merge into VolumeDriverBase once NFS driver supports
+                            snapshots.</para>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver.create_snapshot">
+                <term>
+                  <property>cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver.create_snapshot</property>
+                </term>
+                <listitem>
+                  <para>Creates a snapshot.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver.create_volume_from_snapshot">
+                <term>
+                  <property>cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver.create_volume_from_snapshot</property>
+                </term>
+                <listitem>
+                  <para>Creates a volume from a snapshot.</para>
+                  <para>If volume_type extra specs includes ‘replication: &lt;is&gt; True’
+                                    the driver needs to create a volume replica (secondary),
+                                    and setup replication between the newly created volume and
+                                    the secondary volume.</para>
+                  <para>An optional larger size for the new snapshot can be specified. Drivers
+                                    should check this value and create or expand the new volume to match.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver.delete_snapshot">
+                <term>
+                  <property>cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver.delete_snapshot</property>
+                </term>
+                <listitem>
+                  <para>Deletes a snapshot.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver.revert_to_snapshot">
+                <term>
+                  <property>cinder.interface.volume_snapshot_driver.VolumeSnapshotDriver.revert_to_snapshot</property>
+                </term>
+                <listitem>
+                  <para>Revert volume to snapshot.</para>
+                  <para>Note: the revert process should not change the volume’s
+                                    current size, that means if the driver shrank
+                                    the volume during the process, it should extend the
+                                    volume internally.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </section>
     <section>
       <title>Manage/Unmanage Support</title>
@@ -134,6 +578,77 @@ class LVMVolumeDriver(driver.VolumeDriver):</screen>
                     but no longer manage it through Cinder.</para>
       <para>To support this functionality, volume drivers must implement these methods:</para>
       <para>Manage/unmanage existing volume driver interface.</para>
+      <variablelist>
+        <varlistentry xml:id="cinder.interface.volume_management_driver.VolumeManagementDriver">
+          <term>
+            <literal>cinder.interface.volume_management_driver.VolumeManagementDriver</literal>
+          </term>
+          <listitem>
+            <para>Interface for drivers that support managing existing volumes.</para>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_management_driver.VolumeManagementDriver.manage_existing">
+                <term>
+                  <property>cinder.interface.volume_management_driver.VolumeManagementDriver.manage_existing</property>
+                </term>
+                <listitem>
+                  <para>Brings an existing backend storage object under Cinder management.</para>
+                  <para>existing_ref is passed straight through from the API request’s
+                                    manage_existing_ref value, and it is up to the driver how this should
+                                    be interpreted.  It should be sufficient to identify a storage object
+                                    that the driver should somehow associate with the newly-created cinder
+                                    volume structure.</para>
+                  <para>There are two ways to do this:</para>
+                  <procedure>
+                    <step>
+                      <para>Rename the backend storage object so that it matches the,
+                                            volume[‘name’] which is how drivers traditionally map between a
+                                            cinder volume and the associated backend storage object.</para>
+                    </step>
+                    <step>
+                      <para>Place some metadata on the volume, or somewhere in the backend, that
+                                            allows other driver requests (e.g. delete, clone, attach, detach…)
+                                            to locate the backend storage object when required.</para>
+                    </step>
+                  </procedure>
+                  <para>If the existing_ref doesn’t make sense, or doesn’t refer to an existing
+                                    backend storage object, raise a ManageExistingInvalidReference
+                                    exception.</para>
+                  <para>The volume may have a volume_type, and the driver can inspect that and
+                                    compare against the properties of the referenced backend storage
+                                    object.  If they are incompatible, raise a
+                                    ManageExistingVolumeTypeMismatch, specifying a reason for the failure.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_management_driver.VolumeManagementDriver.manage_existing_get_size">
+                <term>
+                  <property>cinder.interface.volume_management_driver.VolumeManagementDriver.manage_existing_get_size</property>
+                </term>
+                <listitem>
+                  <para>Return size of volume to be managed by manage_existing.</para>
+                  <para>When calculating the size, round up to the next GB.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_management_driver.VolumeManagementDriver.unmanage">
+                <term>
+                  <property>cinder.interface.volume_management_driver.VolumeManagementDriver.unmanage</property>
+                </term>
+                <listitem>
+                  <para>Removes the specified volume from Cinder management.</para>
+                  <para>Does not delete the underlying backend storage object.</para>
+                  <para>For most drivers, this will not need to do anything.  However, some
+                                    drivers might use this call as an opportunity to clean up any
+                                    Cinder-specific configuration that they have associated with the
+                                    backend storage object.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </section>
     <section>
       <title>Manage/Unmanage Snapshot Support</title>
@@ -141,6 +656,70 @@ class LVMVolumeDriver(driver.VolumeDriver):</screen>
                     drivers may also support managing and unmanaging volume snapshots. These
                     additional methods must be implemented to support these operations.</para>
       <para>Manage/unmanage existing volume snapshots driver interface.</para>
+      <variablelist>
+        <varlistentry xml:id="cinder.interface.volume_snapshotmanagement_driver.VolumeSnapshotManagementDriver">
+          <term>
+            <literal>cinder.interface.volume_snapshotmanagement_driver.VolumeSnapshotManagementDriver</literal>
+          </term>
+          <listitem>
+            <para>Interface for drivers that support managing existing snapshots.</para>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_snapshotmanagement_driver.VolumeSnapshotManagementDriver.manage_existing_snapshot">
+                <term>
+                  <property>cinder.interface.volume_snapshotmanagement_driver.VolumeSnapshotManagementDriver.manage_existing_snapshot</property>
+                </term>
+                <listitem>
+                  <para>Brings an existing backend storage object under Cinder management.</para>
+                  <para>existing_ref is passed straight through from the API request’s
+                                    manage_existing_ref value, and it is up to the driver how this should
+                                    be interpreted.  It should be sufficient to identify a storage object
+                                    that the driver should somehow associate with the newly-created cinder
+                                    snapshot structure.</para>
+                  <para>There are two ways to do this:</para>
+                  <procedure>
+                    <step>
+                      <para>Rename the backend storage object so that it matches the
+                                            snapshot[‘name’] which is how drivers traditionally map between a
+                                            cinder snapshot and the associated backend storage object.</para>
+                    </step>
+                    <step>
+                      <para>Place some metadata on the snapshot, or somewhere in the backend,
+                                            that allows other driver requests (e.g. delete) to locate the
+                                            backend storage object when required.</para>
+                    </step>
+                  </procedure>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_snapshotmanagement_driver.VolumeSnapshotManagementDriver.manage_existing_snapshot_get_size">
+                <term>
+                  <property>cinder.interface.volume_snapshotmanagement_driver.VolumeSnapshotManagementDriver.manage_existing_snapshot_get_size</property>
+                </term>
+                <listitem>
+                  <para>Return size of snapshot to be managed by manage_existing.</para>
+                  <para>When calculating the size, round up to the next GB.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_snapshotmanagement_driver.VolumeSnapshotManagementDriver.unmanage_snapshot">
+                <term>
+                  <property>cinder.interface.volume_snapshotmanagement_driver.VolumeSnapshotManagementDriver.unmanage_snapshot</property>
+                </term>
+                <listitem>
+                  <para>Removes the specified snapshot from Cinder management.</para>
+                  <para>Does not delete the underlying backend storage object.</para>
+                  <para>For most drivers, this will not need to do anything. However, some
+                                    drivers might use this call as an opportunity to clean up any
+                                    Cinder-specific configuration that they have associated with the
+                                    backend storage object.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </section>
     <section>
       <title>Volume Consistency Groups</title>
@@ -148,6 +727,191 @@ class LVMVolumeDriver(driver.VolumeDriver):</screen>
                     consistent snapshots across the group. In order to support these operations,
                     the following interface must be implemented by the driver.</para>
       <para>Consistency group volume driver interface.</para>
+      <variablelist>
+        <varlistentry xml:id="cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver">
+          <term>
+            <literal>cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver</literal>
+          </term>
+          <listitem>
+            <para>Interface for drivers that support consistency groups.</para>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.create_cgsnapshot">
+                <term>
+                  <property>cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.create_cgsnapshot</property>
+                </term>
+                <listitem>
+                  <para>Creates a cgsnapshot.</para>
+                  <para>param snapshots is retrieved directly from the db. It is a list of
+                                    cinder.db.sqlalchemy.models.Snapshot to be precise. It cannot be
+                                    assigned to snapshots_model_update. snapshots_model_update is a list
+                                    of dictionaries. It has to be built by the driver. An entry will be
+                                    in this format: {‘id’: xxx, ‘status’: xxx, ……}. model_update
+                                    will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>The driver should populate snapshots_model_update and model_update
+                                    and return them.</para>
+                  <para>The manager will check snapshots_model_update and update db accordingly
+                                    for each snapshot. If the driver successfully deleted some snapshots
+                                    but failed to delete others, it should set statuses of the snapshots
+                                    accordingly so that the manager can update db correctly.</para>
+                  <para>If the status in any entry of snapshots_model_update is ‘error’, the
+                                    status in model_update will be set to the same if it is not already
+                                    ‘error’.</para>
+                  <para>If the status in model_update is ‘error’, the manager will raise an
+                                    exception and the status of cgsnapshot will be set to ‘error’ in the
+                                    db. If snapshots_model_update is not returned by the driver, the
+                                    manager will set the status of every snapshot to ‘error’ in the except
+                                    block.</para>
+                  <para>If the driver raises an exception during the operation, it will be
+                                    caught by the try-except block in the manager and the statuses of
+                                    cgsnapshot and all snapshots will be set to ‘error’.</para>
+                  <para>For a successful operation, the driver can either build the
+                                    model_update and snapshots_model_update and return them or
+                                    return None, None. The statuses of cgsnapshot and all snapshots
+                                    will be set to ‘available’ at the end of the manager function.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.create_consistencygroup">
+                <term>
+                  <property>cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.create_consistencygroup</property>
+                </term>
+                <listitem>
+                  <para>Creates a consistencygroup.</para>
+                  <para>model_update will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>If the status in model_update is ‘error’, the manager will throw
+                                    an exception and it will be caught in the try-except block in the
+                                    manager. If the driver throws an exception, the manager will also
+                                    catch it in the try-except block. The group status in the db will
+                                    be changed to ‘error’.</para>
+                  <para>For a successful operation, the driver can either build the
+                                    model_update and return it or return None. The group status will
+                                    be set to ‘available’.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.create_consistencygroup_from_src">
+                <term>
+                  <property>cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.create_consistencygroup_from_src</property>
+                </term>
+                <listitem>
+                  <para>Creates a consistencygroup from source.</para>
+                  <para>The source can be cgsnapshot or a source cg.</para>
+                  <para>param volumes is retrieved directly from the db. It is a list of
+                                    cinder.db.sqlalchemy.models.Volume to be precise. It cannot be
+                                    assigned to volumes_model_update. volumes_model_update is a list of
+                                    dictionaries. It has to be built by the driver. An entry will be
+                                    in this format: {‘id’: xxx, ‘status’: xxx, ……}. model_update
+                                    will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>To be consistent with other volume operations, the manager will
+                                    assume the operation is successful if no exception is thrown by
+                                    the driver. For a successful operation, the driver can either build
+                                    the model_update and volumes_model_update and return them or
+                                    return None, None.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.delete_cgsnapshot">
+                <term>
+                  <property>cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.delete_cgsnapshot</property>
+                </term>
+                <listitem>
+                  <para>Deletes a cgsnapshot.</para>
+                  <para>param snapshots is retrieved directly from the db. It is a list of
+                                    cinder.db.sqlalchemy.models.Snapshot to be precise. It cannot be
+                                    assigned to snapshots_model_update. snapshots_model_update is a list
+                                    of dictionaries. It has to be built by the driver. An entry will be
+                                    in this format: {‘id’: xxx, ‘status’: xxx, ……}. model_update
+                                    will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>The driver should populate snapshots_model_update and model_update
+                                    and return them.</para>
+                  <para>The manager will check snapshots_model_update and update db accordingly
+                                    for each snapshot. If the driver successfully deleted some snapshots
+                                    but failed to delete others, it should set statuses of the snapshots
+                                    accordingly so that the manager can update db correctly.</para>
+                  <para>If the status in any entry of snapshots_model_update is
+                                    ‘error_deleting’ or ‘error’, the status in model_update will be set to
+                                    the same if it is not already ‘error_deleting’ or ‘error’.</para>
+                  <para>If the status in model_update is ‘error_deleting’ or ‘error’, the
+                                    manager will raise an exception and the status of cgsnapshot will be
+                                    set to ‘error’ in the db. If snapshots_model_update is not returned by
+                                    the driver, the manager will set the status of every snapshot to
+                                    ‘error’ in the except block.</para>
+                  <para>If the driver raises an exception during the operation, it will be
+                                    caught by the try-except block in the manager and the statuses of
+                                    cgsnapshot and all snapshots will be set to ‘error’.</para>
+                  <para>For a successful operation, the driver can either build the
+                                    model_update and snapshots_model_update and return them or
+                                    return None, None. The statuses of cgsnapshot and all snapshots
+                                    will be set to ‘deleted’ after the manager deletes them from db.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.delete_consistencygroup">
+                <term>
+                  <property>cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.delete_consistencygroup</property>
+                </term>
+                <listitem>
+                  <para>Deletes a consistency group.</para>
+                  <para>param volumes is retrieved directly from the db. It is a list of
+                                    cinder.db.sqlalchemy.models.Volume to be precise. It cannot be
+                                    assigned to volumes_model_update. volumes_model_update is a list of
+                                    dictionaries. It has to be built by the driver. An entry will be
+                                    in this format: {‘id’: xxx, ‘status’: xxx, ……}. model_update
+                                    will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>The driver should populate volumes_model_update and model_update
+                                    and return them.</para>
+                  <para>The manager will check volumes_model_update and update db accordingly
+                                    for each volume. If the driver successfully deleted some volumes
+                                    but failed to delete others, it should set statuses of the volumes
+                                    accordingly so that the manager can update db correctly.</para>
+                  <para>If the status in any entry of volumes_model_update is ‘error_deleting’
+                                    or ‘error’, the status in model_update will be set to the same if it
+                                    is not already ‘error_deleting’ or ‘error’.</para>
+                  <para>If the status in model_update is ‘error_deleting’ or ‘error’, the
+                                    manager will raise an exception and the status of the group will be
+                                    set to ‘error’ in the db. If volumes_model_update is not returned by
+                                    the driver, the manager will set the status of every volume in the
+                                    group to ‘error’ in the except block.</para>
+                  <para>If the driver raises an exception during the operation, it will be
+                                    caught by the try-except block in the manager. The statuses of the
+                                    group and all volumes in it will be set to ‘error’.</para>
+                  <para>For a successful operation, the driver can either build the
+                                    model_update and volumes_model_update and return them or
+                                    return None, None. The statuses of the group and all volumes
+                                    will be set to ‘deleted’ after the manager deletes them from db.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.update_consistencygroup">
+                <term>
+                  <property>cinder.interface.volume_consistencygroup_driver.VolumeConsistencyGroupDriver.update_consistencygroup</property>
+                </term>
+                <listitem>
+                  <para>Updates a consistency group.</para>
+                  <para>model_update is a dictionary that the driver wants the manager
+                                    to update upon a successful return. If None is returned, the manager
+                                    will set the status to ‘available’.</para>
+                  <para>add_volumes_update and remove_volumes_update are lists of dictionaries
+                                    that the driver wants the manager to update upon a successful return.
+                                    Note that each entry requires a {‘id’: xxx} so that the correct
+                                    volume entry can be updated. If None is returned, the volume will
+                                    remain its original status. Also note that you cannot directly
+                                    assign add_volumes to add_volumes_update as add_volumes is a list of
+                                    cinder.db.sqlalchemy.models.Volume objects and cannot be used for
+                                    db update directly. Same with remove_volumes.</para>
+                  <para>If the driver throws an exception, the status of the group as well as
+                                    those of the volumes to be added/removed will be set to ‘error’.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </section>
     <section>
       <title>Generic Volume Groups</title>
@@ -160,6 +924,187 @@ class LVMVolumeDriver(driver.VolumeDriver):</screen>
                     consistent group snapshot capability to generic volume groups, we no longer
                     need the volume consistency groups interface listed above.</para>
       <para>Generic volume group volume driver interface.</para>
+      <variablelist>
+        <varlistentry xml:id="cinder.interface.volume_group_driver.VolumeGroupDriver">
+          <term>
+            <literal>cinder.interface.volume_group_driver.VolumeGroupDriver</literal>
+          </term>
+          <listitem>
+            <para>Interface for drivers that support groups.</para>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_group_driver.VolumeGroupDriver.create_group">
+                <term>
+                  <property>cinder.interface.volume_group_driver.VolumeGroupDriver.create_group</property>
+                </term>
+                <listitem>
+                  <para>Creates a group.</para>
+                  <para>model_update will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>If the status in model_update is ‘error’, the manager will throw
+                                    an exception and it will be caught in the try-except block in the
+                                    manager. If the driver throws an exception, the manager will also
+                                    catch it in the try-except block. The group status in the db will
+                                    be changed to ‘error’.</para>
+                  <para>For a successful operation, the driver can either build the
+                                    model_update and return it or return None. The group status will
+                                    be set to ‘available’.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_group_driver.VolumeGroupDriver.create_group_from_src">
+                <term>
+                  <property>cinder.interface.volume_group_driver.VolumeGroupDriver.create_group_from_src</property>
+                </term>
+                <listitem>
+                  <para>Creates a group from source.</para>
+                  <para>The source can be group_snapshot or a source group.</para>
+                  <para>param volumes is a list of objects retrieved from the db. It cannot
+                                    be assigned to volumes_model_update. volumes_model_update is a list
+                                    of dictionaries. It has to be built by the driver. An entry will be
+                                    in this format: {‘id’: xxx, ‘status’: xxx, ……}. model_update
+                                    will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>To be consistent with other volume operations, the manager will
+                                    assume the operation is successful if no exception is thrown by
+                                    the driver. For a successful operation, the driver can either build
+                                    the model_update and volumes_model_update and return them or
+                                    return None, None.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_group_driver.VolumeGroupDriver.create_group_snapshot">
+                <term>
+                  <property>cinder.interface.volume_group_driver.VolumeGroupDriver.create_group_snapshot</property>
+                </term>
+                <listitem>
+                  <para>Creates a group_snapshot.</para>
+                  <para>param snapshots is a list of Snapshot objects. It cannot be assigned
+                                    to snapshots_model_update. snapshots_model_update is a list of
+                                    dictionaries. It has to be built by the driver. An entry will be
+                                    in this format: {‘id’: xxx, ‘status’: xxx, ……}. model_update
+                                    will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>The driver should populate snapshots_model_update and model_update
+                                    and return them.</para>
+                  <para>The manager will check snapshots_model_update and update db accordingly
+                                    for each snapshot. If the driver successfully deleted some snapshots
+                                    but failed to delete others, it should set statuses of the snapshots
+                                    accordingly so that the manager can update db correctly.</para>
+                  <para>If the status in any entry of snapshots_model_update is ‘error’, the
+                                    status in model_update will be set to the same if it is not already
+                                    ‘error’.</para>
+                  <para>If the status in model_update is ‘error’, the manager will raise an
+                                    exception and the status of group_snapshot will be set to ‘error’ in
+                                    the db. If snapshots_model_update is not returned by the driver, the
+                                    manager will set the status of every snapshot to ‘error’ in the except
+                                    block.</para>
+                  <para>If the driver raises an exception during the operation, it will be
+                                    caught by the try-except block in the manager and the statuses of
+                                    group_snapshot and all snapshots will be set to ‘error’.</para>
+                  <para>For a successful operation, the driver can either build the
+                                    model_update and snapshots_model_update and return them or
+                                    return None, None. The statuses of group_snapshot and all snapshots
+                                    will be set to ‘available’ at the end of the manager function.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_group_driver.VolumeGroupDriver.delete_group">
+                <term>
+                  <property>cinder.interface.volume_group_driver.VolumeGroupDriver.delete_group</property>
+                </term>
+                <listitem>
+                  <para>Deletes a group.</para>
+                  <para>param volumes is a list of objects retrieved from the db. It cannot
+                                    be assigned to volumes_model_update. volumes_model_update is a list
+                                    of dictionaries. It has to be built by the driver. An entry will be
+                                    in this format: {‘id’: xxx, ‘status’: xxx, ……}. model_update
+                                    will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>The driver should populate volumes_model_update and model_update
+                                    and return them.</para>
+                  <para>The manager will check volumes_model_update and update db accordingly
+                                    for each volume. If the driver successfully deleted some volumes
+                                    but failed to delete others, it should set statuses of the volumes
+                                    accordingly so that the manager can update db correctly.</para>
+                  <para>If the status in any entry of volumes_model_update is ‘error_deleting’
+                                    or ‘error’, the status in model_update will be set to the same if it
+                                    is not already ‘error_deleting’ or ‘error’.</para>
+                  <para>If the status in model_update is ‘error_deleting’ or ‘error’, the
+                                    manager will raise an exception and the status of the group will be
+                                    set to ‘error’ in the db. If volumes_model_update is not returned by
+                                    the driver, the manager will set the status of every volume in the
+                                    group to ‘error’ in the except block.</para>
+                  <para>If the driver raises an exception during the operation, it will be
+                                    caught by the try-except block in the manager. The statuses of the
+                                    group and all volumes in it will be set to ‘error’.</para>
+                  <para>For a successful operation, the driver can either build the
+                                    model_update and volumes_model_update and return them or
+                                    return None, None. The statuses of the group and all volumes
+                                    will be set to ‘deleted’ after the manager deletes them from db.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_group_driver.VolumeGroupDriver.delete_group_snapshot">
+                <term>
+                  <property>cinder.interface.volume_group_driver.VolumeGroupDriver.delete_group_snapshot</property>
+                </term>
+                <listitem>
+                  <para>Deletes a group_snapshot.</para>
+                  <para>param snapshots is a list of objects. It cannot be assigned to
+                                    snapshots_model_update. snapshots_model_update is a list of of
+                                    dictionaries. It has to be built by the driver. An entry will be
+                                    in this format: {‘id’: xxx, ‘status’: xxx, ……}. model_update
+                                    will be in this format: {‘status’: xxx, ……}.</para>
+                  <para>The driver should populate snapshots_model_update and model_update
+                                    and return them.</para>
+                  <para>The manager will check snapshots_model_update and update db accordingly
+                                    for each snapshot. If the driver successfully deleted some snapshots
+                                    but failed to delete others, it should set statuses of the snapshots
+                                    accordingly so that the manager can update db correctly.</para>
+                  <para>If the status in any entry of snapshots_model_update is
+                                    ‘error_deleting’ or ‘error’, the status in model_update will be set to
+                                    the same if it is not already ‘error_deleting’ or ‘error’.</para>
+                  <para>If the status in model_update is ‘error_deleting’ or ‘error’, the
+                                    manager will raise an exception and the status of group_snapshot will
+                                    be set to ‘error’ in the db. If snapshots_model_update is not returned
+                                    by the driver, the manager will set the status of every snapshot to
+                                    ‘error’ in the except block.</para>
+                  <para>If the driver raises an exception during the operation, it will be
+                                    caught by the try-except block in the manager and the statuses of
+                                    group_snapshot and all snapshots will be set to ‘error’.</para>
+                  <para>For a successful operation, the driver can either build the
+                                    model_update and snapshots_model_update and return them or
+                                    return None, None. The statuses of group_snapshot and all snapshots
+                                    will be set to ‘deleted’ after the manager deletes them from db.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+            <variablelist>
+              <varlistentry xml:id="cinder.interface.volume_group_driver.VolumeGroupDriver.update_group">
+                <term>
+                  <property>cinder.interface.volume_group_driver.VolumeGroupDriver.update_group</property>
+                </term>
+                <listitem>
+                  <para>Updates a group.</para>
+                  <para>model_update is a dictionary that the driver wants the manager
+                                    to update upon a successful return. If None is returned, the manager
+                                    will set the status to ‘available’.</para>
+                  <para>add_volumes_update and remove_volumes_update are lists of dictionaries
+                                    that the driver wants the manager to update upon a successful return.
+                                    Note that each entry requires a {‘id’: xxx} so that the correct
+                                    volume entry can be updated. If None is returned, the volume will
+                                    remain its original status. Also note that you cannot directly
+                                    assign add_volumes to add_volumes_update as add_volumes is a list of
+                                    volume objects and cannot be used for db update directly. Same with
+                                    remove_volumes.</para>
+                  <para>If the driver throws an exception, the status of the group as well as
+                                    those of the volumes to be added/removed will be set to ‘error’.</para>
+                </listitem>
+              </varlistentry>
+            </variablelist>
+          </listitem>
+        </varlistentry>
+      </variablelist>
     </section>
   </section>
 </section>

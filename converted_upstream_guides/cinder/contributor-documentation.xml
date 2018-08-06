@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Contributing Documentation to Cinder</title>
   <para>Starting with the Pike release, Cinder’s documentation has been moved from
             the openstack-manuals repository to the <literal>docs</literal> directory in the Cinder
@@ -25,7 +25,7 @@
                     cause Sphinx to generate a warning during the build.</para>
     </note>
     <para>reStructuredText is a powerful language for generating web pages.  The
-                documentation team has put together an <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/contributor-guide/rst-conv.html">RST conventions</link> page with information
+                documentation team has put together an <link xlink:href="https://docs.openstack.org/contributor-guide/rst-conv.html">RST conventions</link> page with information
                 and links related to RST.</para>
   </section>
   <section>
@@ -73,26 +73,26 @@
     </note>
     <para>Once a patch is approved it is immediately released to the docs.openstack.org
                 website and can be seen under Cinder’s Documentation Page at
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/cinder/latest"/> .  When a new release is cut a
+                <link xlink:href="https://docs.openstack.org/cinder/latest"/> .  When a new release is cut a
                 snapshot of that documentation will be kept at
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/cinder"/>/&lt;release&gt; .  Changes from master can be
+                <link xlink:href="https://docs.openstack.org/cinder"/>/&lt;release&gt; .  Changes from master can be
                 backported to previous branches if necessary.</para>
   </section>
   <section>
     <title>Doc Directory Structure</title>
     <para>The main location for Cinder’s documentation is the <literal>doc/source</literal> directory.
                 The top level index file that is seen at
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack/org/cinder/latest"/> resides here as well as the
+                <link xlink:href="https://docs.openstack/org/cinder/latest"/> resides here as well as the
                 <literal>conf.py</literal> file which is used to set a number of parameters for the build
                 of OpenStack’s documentation.</para>
     <para>Each of the directories under source are for specific kinds of documentation
                 as is documented in the <literal>README</literal> in each directory:</para>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contributor-documentation...xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contributor-documentation...xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contributor-documentation...xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contributor-documentationREADME.xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contributor-documentation...xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contributor-documentation...xml"/>
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contributor-documentation...xml"/>
+    <xi:include href="contributor-documentation...xml"/>
+    <xi:include href="contributor-documentation...xml"/>
+    <xi:include href="contributor-documentation...xml"/>
+    <xi:include href="contributor-documentationREADME.xml"/>
+    <xi:include href="contributor-documentation...xml"/>
+    <xi:include href="contributor-documentation...xml"/>
+    <xi:include href="contributor-documentation...xml"/>
   </section>
 </section>

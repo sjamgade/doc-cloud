@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Generic Volume Groups</title>
   <section>
     <title>Introduction to generic volume groups</title>
@@ -7,7 +7,7 @@
                 There is support for creating group types and group specs, creating
                 groups of volumes, and creating snapshots of groups. Detailed information
                 on how to create a group type, a group, and a group snapshot can be found
-                in <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docs.openstack.org/admin-guide/blockstorage-groups.html">block storage admin guide</link>.</para>
+                in <link xlink:href="http://docs.openstack.org/admin-guide/blockstorage-groups.html">block storage admin guide</link>.</para>
     <para>How is generic volume groups different from consistency groups in cinder?
                 The consistency group feature was introduced in cinder in Juno and are
                 supported by a few drivers. Currently consistency groups in cinder only
@@ -350,7 +350,7 @@
         <term>[1] Migration script</term>
         <listitem>
           <para>
-            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://review.openstack.org/#/c/350350/"/>
+            <link xlink:href="https://review.openstack.org/#/c/350350/"/>
           </para>
         </listitem>
       </varlistentry>
@@ -358,7 +358,7 @@
         <term>[2] CG APIs changes for migrating CGs</term>
         <listitem>
           <para>
-            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://review.openstack.org/#/c/401839/"/>
+            <link xlink:href="https://review.openstack.org/#/c/401839/"/>
           </para>
         </listitem>
       </varlistentry>
@@ -366,7 +366,7 @@
         <term>[3] Example adding CG capability to generic volume groups</term>
         <listitem>
           <para>
-            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://review.openstack.org/#/c/413927/"/>
+            <link xlink:href="https://review.openstack.org/#/c/413927/"/>
           </para>
         </listitem>
       </varlistentry>

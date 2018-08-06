@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Cinder Configuration Options</title>
   <para>The following is a sample Cinder configuration for adaptation and use. It is
             auto-generated from Cinder when this documentation is built, so if you are
             having issues with an option, please compare your version of Cinder with the
             version of this documentation.</para>
   <para>The sample configuration can also be viewed in
-            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="_static/cinder.conf.sample">file form</link>.</para>
+            <link xlink:href="_static/cinder.conf.sample">file form</link>.</para>
   <screen><?dbsuse-fo font-size="8pt"?>[DEFAULT]
 
 #

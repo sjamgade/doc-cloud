@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Available Drivers</title>
   <section>
     <title>Volume Drivers</title>
@@ -34,7 +34,7 @@
           <para>volume_driver=cinder.volume.drivers.blockbridge.BlockbridgeISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Blockbridge_EPS_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Blockbridge_EPS_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -58,7 +58,7 @@
           <para>volume_driver=cinder.volume.drivers.coho.CohoDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Coho_Data_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Coho_Data_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -87,7 +87,7 @@
           <para>volume_driver=cinder.volume.drivers.coprhd.fc.EMCCoprHDFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_CoprHD_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_CoprHD_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -111,7 +111,7 @@
           <para>volume_driver=cinder.volume.drivers.coprhd.iscsi.EMCCoprHDISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_CoprHD_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_CoprHD_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -135,7 +135,7 @@
           <para>volume_driver=cinder.volume.drivers.coprhd.scaleio.EMCCoprHDScaleIODriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_CoprHD_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_CoprHD_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -159,7 +159,7 @@
           <para>volume_driver=cinder.volume.drivers.dell_emc.ps.PSSeriesISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Dell_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Dell_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -253,7 +253,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.sc.storagecenter_fc.SCFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Dell_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Dell_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -307,7 +307,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.sc.storagecenter_iscsi.SCISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Dell_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Dell_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -362,7 +362,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.scaleio.driver.ScaleIODriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_ScaleIO_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_ScaleIO_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -386,7 +386,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.unity.driver.UnityDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_UNITY_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_UNITY_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -415,7 +415,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.vmax.fc.VMAXFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_VMAX_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_VMAX_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -489,7 +489,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.vmax.iscsi.VMAXISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_VMAX_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_VMAX_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -565,7 +565,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.vnx.driver.VNXDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_VNX_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_VNX_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -630,7 +630,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.xtremio.XtremIOFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_XIO_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_XIO_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -654,7 +654,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.dell_emc.xtremio.XtremIOISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_XIO_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/EMC_XIO_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -701,7 +701,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.disco.disco.DiscoDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ITRI_DISCO_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ITRI_DISCO_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -843,7 +843,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.falconstor.fc.FSSFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/FalconStor_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/FalconStor_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -881,7 +881,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.falconstor.iscsi.FSSISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/FalconStor_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/FalconStor_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -913,7 +913,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.fujitsu.eternus_dx_fc.FJDXFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Fujitsu_ETERNUS_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Fujitsu_ETERNUS_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -937,7 +937,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.fujitsu.eternus_dx_iscsi.FJDXISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Fujitsu_ETERNUS_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Fujitsu_ETERNUS_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -961,7 +961,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.fusionstorage.dsware.DSWAREDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Huawei_FusionStorage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Huawei_FusionStorage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -985,7 +985,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.hgst.HGSTDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/HGST_Solutions_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/HGST_Solutions_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1015,7 +1015,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.hitachi.hbsd_fc.HBSDFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/['Hitachi_HBSD_CI">https://wiki.openstack.org/wiki/ThirdPartySystems/[‘Hitachi_HBSD_CI</link>’, ‘Hitachi_HBSD2_CI’]</para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/['Hitachi_HBSD_CI">https://wiki.openstack.org/wiki/ThirdPartySystems/[‘Hitachi_HBSD_CI</link>’, ‘Hitachi_HBSD2_CI’]</para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1039,7 +1039,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.hitachi.hbsd_iscsi.HBSDISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/['Hitachi_HBSD_CI">https://wiki.openstack.org/wiki/ThirdPartySystems/[‘Hitachi_HBSD_CI</link>’, ‘Hitachi_HBSD2_CI’]</para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/['Hitachi_HBSD_CI">https://wiki.openstack.org/wiki/ThirdPartySystems/[‘Hitachi_HBSD_CI</link>’, ‘Hitachi_HBSD2_CI’]</para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1063,7 +1063,7 @@ chap_password=&lt;chap_password&gt;</screen>
           <para>volume_driver=cinder.volume.drivers.hitachi.hnas_nfs.HNASNFSDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Hitachi_HNAS_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Hitachi_HNAS_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1106,7 +1106,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.hitachi.vsp_fc.VSPFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Hitachi_VSP_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Hitachi_VSP_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1132,7 +1132,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.hitachi.vsp_iscsi.VSPISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Hitachi_VSP_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Hitachi_VSP_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1158,7 +1158,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.hpe.hpe_3par_fc.HPE3PARFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/HPE_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/HPE_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1235,7 +1235,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.hpe.hpe_3par_iscsi.HPE3PARISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/HPE_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/HPE_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1320,7 +1320,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.hpe.hpe_lefthand_iscsi.HPELeftHandISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/HPE_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/HPE_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1382,7 +1382,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.huawei.huawei_driver.HuaweiFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Huawei_volume_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Huawei_volume_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1428,7 +1428,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.huawei.huawei_driver.HuaweiISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Huawei_volume_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Huawei_volume_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1474,7 +1474,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.ibm.flashsystem_fc.FlashSystemFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1519,7 +1519,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.ibm.flashsystem_iscsi.FlashSystemISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1564,7 +1564,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.ibm.gpfs.GPFSDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_GPFS_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_GPFS_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1594,7 +1594,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.ibm.gpfs.GPFSNFSDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_GPFS_NFS_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_GPFS_NFS_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1621,7 +1621,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.ibm.gpfs.GPFSRemoteDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_GPFS_REMOTE_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_GPFS_REMOTE_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1650,7 +1650,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.ibm.ibm_storage.ibm_storage.IBMStorageDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1682,7 +1682,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.ibm.storwize_svc.storwize_svc_fc.StorwizeSVCFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1731,7 +1731,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.ibm.storwize_svc.storwize_svc_iscsi.StorwizeSVCISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/IBM_STORAGE_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1779,7 +1779,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.infinidat.InfiniboxVolumeDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/INFINIDAT_Cinder_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/INFINIDAT_Cinder_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1810,7 +1810,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.infortrend.infortrend_fc_cli.InfortrendCLIFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Infortrend_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Infortrend_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1844,7 +1844,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.infortrend.infortrend_iscsi_cli.InfortrendCLIISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Infortrend_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Infortrend_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1878,7 +1878,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.kaminario.kaminario_iscsi.KaminarioISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Kaminario_K2_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Kaminario_K2_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1914,7 +1914,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.lenovo.lenovo_fc.LenovoFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Lenovo_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Lenovo_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -1942,7 +1942,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.lenovo.lenovo_iscsi.LenovoISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Lenovo_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Lenovo_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2033,7 +2033,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.netapp.dataontap.fc_7mode.NetApp7modeFibreChannelDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2057,7 +2057,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.netapp.dataontap.fc_cmode.NetAppCmodeFibreChannelDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2081,7 +2081,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.netapp.dataontap.iscsi_7mode.NetApp7modeISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2105,7 +2105,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.netapp.dataontap.iscsi_cmode.NetAppCmodeISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2129,7 +2129,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.netapp.dataontap.nfs_7mode.NetApp7modeNfsDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2153,7 +2153,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.netapp.dataontap.nfs_cmode.NetAppCmodeNfsDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2177,7 +2177,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.netapp.eseries.fc_driver.NetAppEseriesFibreChannelDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_Eseries_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_Eseries_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2201,7 +2201,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.netapp.eseries.iscsi_driver.NetAppEseriesISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_Eseries_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_Eseries_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2225,7 +2225,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.nexenta.iscsi.NexentaISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nexenta_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nexenta_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2265,7 +2265,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.nexenta.nfs.NexentaNfsDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nexenta_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nexenta_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2300,7 +2300,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.nexenta.ns5.iscsi.NexentaISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nexenta_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nexenta_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2328,7 +2328,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.nexenta.ns5.nfs.NexentaNfsDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nexenta_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nexenta_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2382,7 +2382,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.nimble.NimbleFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nimble_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nimble_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2406,7 +2406,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.nimble.NimbleISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nimble_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Nimble_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2430,7 +2430,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.prophetstor.dpl_fc.DPLFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ProphetStor_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ProphetStor_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2454,7 +2454,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.prophetstor.dpl_iscsi.DPLISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ProphetStor_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ProphetStor_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2478,7 +2478,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.pure.PureFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Pure_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Pure_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2505,7 +2505,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.pure.PureISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Pure_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Pure_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2531,7 +2531,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.qnap.QnapISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/QNAP_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/QNAP_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2563,7 +2563,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.quobyte.QuobyteDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Quobyte_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Quobyte_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2636,7 +2636,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.reduxio.rdx_iscsi_driver.ReduxioISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Reduxio_HX550_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Reduxio_HX550_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2664,7 +2664,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.san.hp.hpmsa_fc.HPMSAFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Vedams-HPMSA_FCISCSIDriver_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Vedams-HPMSA_FCISCSIDriver_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2692,7 +2692,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.san.hp.hpmsa_iscsi.HPMSAISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Vedams-HPMSA_FCISCSIDriver_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Vedams-HPMSA_FCISCSIDriver_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2741,7 +2741,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.solidfire.SolidFireDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_SolidFire_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/NetApp_SolidFire_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2783,7 +2783,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.synology.synology_iscsi.SynoISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Synology_DSM_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Synology_DSM_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2815,7 +2815,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.tegile.TegileFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Tegile_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Tegile_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2839,7 +2839,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.tegile.TegileISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Tegile_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Tegile_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2863,7 +2863,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.tintri.TintriDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Tintri_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Tintri_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2893,7 +2893,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.veritas.vrtshyperscale.HyperScaleDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Veritas_HyperScale_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Veritas_HyperScale_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2917,7 +2917,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.veritas_cnfs.VeritasCNFSDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Veritas_Access_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Veritas_Access_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2953,7 +2953,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.violin.v7000_fcp.V7000FCPDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Violin_Memory_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Violin_Memory_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -2985,7 +2985,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.violin.v7000_iscsi.V7000ISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Violin_Memory_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Violin_Memory_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3017,7 +3017,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.vmware.vmdk.VMwareVcVmdkDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/VMware_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/VMware_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3041,7 +3041,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.vzstorage.VZStorageDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Virtuozzo_Storage_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Virtuozzo_Storage_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3074,7 +3074,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.windows.smbfs.WindowsSmbfsDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Microsoft_iSCSI_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Microsoft_iSCSI_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3098,7 +3098,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.xio.XIOISEFCDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/X-IO_technologies_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/X-IO_technologies_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3122,7 +3122,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.xio.XIOISEISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/X-IO_technologies_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/X-IO_technologies_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3146,7 +3146,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.zadara.ZadaraVPSAISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ZadaraStorage_VPSA_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ZadaraStorage_VPSA_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3179,7 +3179,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.zfssa.zfssaiscsi.ZFSSAISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Oracle_ZFSSA_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Oracle_ZFSSA_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3211,7 +3211,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.zfssa.zfssanfs.ZFSSANFSDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Oracle_ZFSSA_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Oracle_ZFSSA_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3241,7 +3241,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>volume_driver=cinder.volume.drivers.zte.zte_ks.ZteISCSIDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ZTE_cinder2_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/ZTE_cinder2_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3403,7 +3403,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>zone_driver=cinder.zonemanager.drivers.brocade.brcd_fc_zone_driver.BrcdFCZoneDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Brocade_OpenStack_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Brocade_OpenStack_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>
@@ -3442,7 +3442,7 @@ Version 6.0.0: Deprecated hnas_svcX_vol_type configuration
           <para>zone_driver=cinder.zonemanager.drivers.cisco.cisco_fc_zone_driver.CiscoFCZoneDriver</para>
         </listitem>
         <listitem>
-          <para>CI info: <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Cisco_ZM_CI"/></para>
+          <para>CI info: <link xlink:href="https://wiki.openstack.org/wiki/ThirdPartySystems/Cisco_ZM_CI"/></para>
         </listitem>
         <listitem>
           <variablelist>

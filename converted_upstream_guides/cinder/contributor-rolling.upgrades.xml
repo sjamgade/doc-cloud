@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Upgrades</title>
   <para>Starting from Mitaka release Cinder gained the ability to be upgraded without
             introducing downtime of control plane services. Operator can simply upgrade
@@ -26,7 +26,7 @@
   <itemizedlist>
     <listitem>
       <para><emphasis role="bold">REST API changes</emphasis> - these are prohibited by definition and this document
-                    will not describe the subject. For further information one may use <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://specs.openstack.org/openstack/api-wg/guidelines/evaluating_api_changes.html">API
+                    will not describe the subject. For further information one may use <link xlink:href="https://specs.openstack.org/openstack/api-wg/guidelines/evaluating_api_changes.html">API
                         Working Group guidelines</link>
                     for reference.</para>
     </listitem>
@@ -88,7 +88,7 @@
     <section>
       <title>ALTER on a column</title>
       <para>A rule of thumb to judge which ALTER or DROP migrations should be allowed is to
-                    look in the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://dev.mysql.com/doc/refman/5.7/en/innodb-create-index-overview.html#innodb-online-ddl-summary-grid">MySQL documentation</link>.
+                    look in the <link xlink:href="https://dev.mysql.com/doc/refman/5.7/en/innodb-create-index-overview.html#innodb-online-ddl-summary-grid">MySQL documentation</link>.
                     If operation has “yes” in all 4 columns besides “Copies Table?”, then it
                     <emphasis>probably</emphasis> can be allowed. If operation doesn’t allow concurrent DML it means
                     that table row modifications or additions will be blocked during the migration.
@@ -150,7 +150,7 @@
                     required to write some more compatibility code in the oslo.versionedobjects
                     layer to compensate for different versions of objects passed over RPC. This is
                     explained more in <xref linkend="rpc-payload-changes-oslo-versionedobjects"/> section.</para>
-      <para>More details about that can be found in the <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://specs.openstack.org/openstack/cinder-specs/specs/mitaka/online-schema-upgrades.html">online-schema-upgrades spec</link>.</para>
+      <para>More details about that can be found in the <link xlink:href="http://specs.openstack.org/openstack/cinder-specs/specs/mitaka/online-schema-upgrades.html">online-schema-upgrades spec</link>.</para>
     </section>
   </section>
   <section>
@@ -208,7 +208,7 @@
                 release (it may happen that through the release nothing will change in RPC API
                 or cost of technical debt of compatibility code is lower than the cost of
                 complicated procedure of increasing major version of RPC APIs).</para>
-    <para>The process of increasing the major version is explained in details in <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://wiki.openstack.org/wiki/RpcMajorVersionUpdates">Nova’s
+    <para>The process of increasing the major version is explained in details in <link xlink:href="https://wiki.openstack.org/wiki/RpcMajorVersionUpdates">Nova’s
                     documentation</link>.
                 Please note that in case of Cinder we’re accessing the DB from all of the
                 services, so we should follow the more complicated “Mixed version environments”
@@ -223,7 +223,7 @@
   </section>
   <section xml:id="rpc-payload-changes-oslo-versionedobjects">
     <title>RPC payload changes (oslo.versionedobjects)</title>
-    <para><link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docs.openstack.org/developer/oslo.versionedobjects">oslo.versionedobjects</link> is a library that
+    <para><link xlink:href="http://docs.openstack.org/developer/oslo.versionedobjects">oslo.versionedobjects</link> is a library that
                 helps us to maintain compatibility of the payload sent over RPC. As during the
                 process of upgrades it is possible that a newer version of the service will
                 send an object to an older one, it may happen that newer object is incompatible

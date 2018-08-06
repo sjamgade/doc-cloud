@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Manage volumes</title>
   <para>The default OpenStack Block Storage service implementation is an
             iSCSI solution that uses <xref linkend="term-logical-volume-manager-lvm"/> for Linux.</para>
@@ -53,31 +53,31 @@
             settings for OpenStack Compute.</para>
   <para>The network mode does not interfere with OpenStack Block Storage
             operations, but you must set up networking for Block Storage to work.
-            For details, see <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/neutron/latest/">networking</link>.</para>
+            For details, see <link xlink:href="https://docs.openstack.org/neutron/latest/">networking</link>.</para>
   <para>To set up Compute to use volumes, ensure that Block Storage is
             installed along with <literal>lvm2</literal>. This guide describes how to
             troubleshoot your installation and back up your Compute volumes.</para>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-boot-from-volume.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-nfs-backend.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-glusterfs-backend.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-multi-backend.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-backup-disks.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-volume-migration.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-glusterfs-removal.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-volume-backups.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-volume-backups-export-import.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-lio-iscsi-support.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-volume-number-weigher.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-consistency-groups.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-driver-filter-weighing.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-ratelimit-volume-copy-bandwidth.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-over-subscription.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-image-volume-cache.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-volume-backed-image.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-get-capabilities.xml"/>
-  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="admin-blockstorage-manage-volumesblockstorage-groups.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-boot-from-volume.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-nfs-backend.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-glusterfs-backend.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-multi-backend.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-backup-disks.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-volume-migration.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-glusterfs-removal.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-volume-backups.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-volume-backups-export-import.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-lio-iscsi-support.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-volume-number-weigher.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-consistency-groups.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-driver-filter-weighing.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-ratelimit-volume-copy-bandwidth.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-over-subscription.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-image-volume-cache.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-volume-backed-image.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-get-capabilities.xml"/>
+  <xi:include href="admin-blockstorage-manage-volumesblockstorage-groups.xml"/>
   <note>
     <para>To enable the use of encrypted volumes, see the setup instructions in
-                <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://docs.openstack.org/admin-guide/dashboard-manage-volumes.html#create-an-encrypted-volume-type">Create an encrypted volume type</link>.</para>
+                <link xlink:href="https://docs.openstack.org/admin-guide/dashboard-manage-volumes.html#create-an-encrypted-volume-type">Create an encrypted volume type</link>.</para>
   </note>
 </section>

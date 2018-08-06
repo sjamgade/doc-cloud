@@ -1,13 +1,194 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Fake Drivers</title>
   <para>TODO: document general info about fakes</para>
   <para>When the real thing isn’t available and you have some development to do these
             fake implementations of various drivers let you get on with your day.</para>
   <section>
     <title>The <literal>cinder.tests.unit.test_service.FakeManager</literal> Class</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <xref linkend="cinder.manager.Manager"/></para>
+          <para>Fake manager for tests.</para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </section>
   <section>
     <title>The <literal>cinder.tests.unit.api.fakes</literal> Module</title>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>object</literal></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>object</literal></para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>object</literal></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <xref linkend="cinder.context.RequestContext"/></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>oslo_service.wsgi.Router</literal></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>object</literal></para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>webob.request.Request</literal></para>
+          <variablelist>
+            <varlistentry>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <literal/>
+        </term>
+        <listitem>
+          <para>Bases: <literal>oslo_service.wsgi.Router</literal></para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <function/>
+        </term>
+        <listitem>
+          <para/>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>
+          <function/>
+        </term>
+        <listitem>
+          <para/>
+        </listitem>
+      </varlistentry>
+    </variablelist>
   </section>
 </section>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Setting Up a Development Environment</title>
   <para>This page describes how to setup a working Python development
             environment that can be used in developing cinder on Ubuntu, Fedora or
             Mac OS X. These instructions assume you’re already familiar with
-            git. Refer to <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://wiki.openstack.org/GettingTheCode">GettingTheCode</link> for additional information.</para>
+            git. Refer to <link xlink:href="http://wiki.openstack.org/GettingTheCode">GettingTheCode</link> for additional information.</para>
   <para>Following these instructions will allow you to run the cinder unit tests.
             Running cinder is currently only supported on Linux, although you can run the
             unit tests on Mac OS X.</para>
   <section>
     <title>Virtual environments</title>
-    <para>Cinder development uses <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://pypi.python.org/pypi/virtualenv">virtualenv</link> to track and manage Python
+    <para>Cinder development uses <link xlink:href="http://pypi.python.org/pypi/virtualenv">virtualenv</link> to track and manage Python
                 dependencies while in development and testing. This allows you to
                 install all of the Python package dependencies in a virtual
                 environment or “virtualenv” (a special subdirectory of your cinder
@@ -85,6 +85,6 @@ tox -e py27</screen>
     <title>Contributing Your Work</title>
     <para>Once your work is complete you may wish to contribute it to the project.
                 Cinder uses the Gerrit code review system. For information on how to submit
-                your branch to Gerrit, see <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://docs.openstack.org/infra/manual/developers.html#development-workflow">GerritWorkflow</link>.</para>
+                your branch to Gerrit, see <link xlink:href="http://docs.openstack.org/infra/manual/developers.html#development-workflow">GerritWorkflow</link>.</para>
   </section>
 </section>
