@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Launch and manage stacks</title>
+  <para>OpenStack Orchestration is a service that you can use to
+            orchestrate multiple composite cloud applications. This
+            service supports the use of both the Amazon Web Services (AWS)
+            CloudFormation template format through both a Query API that
+            is compatible with CloudFormation and the native OpenStack
+            Heat Orchestration Template (HOT) format through a REST API.</para>
+  <para>These flexible template languages enable application
+            developers to describe and automate the deployment of
+            infrastructure, services, and applications. The templates
+            enable creation of most OpenStack resource types, such as
+            instances, floating IP addresses, volumes, security groups,
+            and users. Once created, the resources are referred to as
+            stacks.</para>
+  <para>The template languages are described in the <link xlink:href="https://docs.openstack.org/heat/latest/template_guide/">Template Guide</link>.</para>
+  <section>
+    <title>Launch a stack</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard.</para>
+      </step>
+      <step>
+        <para>Select the appropriate project from the drop down menu at the top left.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Project</guilabel> tab, open the <guilabel>Orchestration</guilabel> tab and
+                        click <guilabel>Stacks</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Launch Stack</guilabel>.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Select Template</guilabel> dialog box, specify the
+                        following values:</para>
+        <informaltable>
+          <tgroup cols="2">
+            <colspec colname="c1" colwidth="55.7*"/>
+            <colspec colname="c2" colwidth="44.3*"/>
+            <tbody>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Template Source</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Choose the source of the
+                                            template from the list.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Template URL/File/Data</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Depending on the source that
+                                            you select, enter the URL,
+                                            browse to the file location,
+                                            or directly include the
+                                            template.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Environment Source</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Choose the source of the
+                                            environment from the list.
+                                            The environment files contain
+                                            additional settings for the
+                                            stack.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Environment File/Data</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Depending on the source that
+                                            you select, browse to the
+                                            file location, directly
+                                            include the environment</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </step>
+      <step>
+        <para>Click <guilabel>Next</guilabel>.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Launch Stack</guilabel> dialog box, specify the
+                        following values:</para>
+        <informaltable>
+          <tgroup cols="2">
+            <colspec colname="c1" colwidth="50.0*"/>
+            <colspec colname="c2" colwidth="50.0*"/>
+            <tbody>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Stack Name</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Enter a name to identify
+                                            the stack.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Creation Timeout</guilabel>
+                    <guilabel>(minutes)</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the number of minutes
+                                            that can elapse before the
+                                            launch of the stack times out.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Rollback On Failure</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Select this check box if you
+                                            want the service to roll back
+                                            changes if the stack fails to
+                                            launch.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>Password for user</guilabel>
+                    <guilabel>“demo”</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the password that
+                                            the default user uses when the
+                                            stack is created.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>DBUsername</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the name of the
+                                            database user.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>LinuxDistribution</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the Linux distribution
+                                            that is used in the stack.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>DBRootPassword</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the root password for
+                                            the database.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>KeyName</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the name of the key pair
+                                            to use to log in to the stack.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>DBName</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the name of the
+                                            database.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>DBPassword</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the password of the
+                                            database.</para>
+                </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <guilabel>InstanceType</guilabel>
+                  </para>
+                </entry>
+                <entry>
+                  <para>Specify the flavor for the
+                                            instance.</para>
+                </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </step>
+      <step>
+        <para>Click <guilabel>Launch</guilabel> to create a stack. The <guilabel>Stacks</guilabel>
+                        tab shows the stack.</para>
+      </step>
+    </procedure>
+    <para>After the stack is created, click on the stack name to see the
+                following details:</para>
+    <variablelist>
+      <varlistentry>
+        <term>Topology</term>
+        <listitem>
+          <para>The topology of the stack.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Overview</term>
+        <listitem>
+          <para>The parameters and details of the stack.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Resources</term>
+        <listitem>
+          <para>The resources used by the stack.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Events</term>
+        <listitem>
+          <para>The events related to the stack.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term>Template</term>
+        <listitem>
+          <para>The template for the stack.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Manage a stack</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard.</para>
+      </step>
+      <step>
+        <para>Select the appropriate project from the drop down menu at the top left.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Project</guilabel> tab, open the <guilabel>Orchestration</guilabel> tab and
+                        click <guilabel>Stacks</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Select the stack that you want to update.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Change Stack Template</guilabel>.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Select Template</guilabel> dialog box, select the
+                        new template source or environment source.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Next</guilabel>.</para>
+        <para>The <guilabel>Update Stack Parameters</guilabel> window appears.</para>
+      </step>
+      <step>
+        <para>Enter new values for any parameters that you want to update.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Update</guilabel>.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Delete a stack</title>
+    <para>When you delete a stack, you cannot undo this action.</para>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard.</para>
+      </step>
+      <step>
+        <para>Select the appropriate project from the drop down menu at the top left.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Project</guilabel> tab, open the <guilabel>Orchestration</guilabel> tab and
+                        click <guilabel>Stacks</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Select the stack that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Stack</guilabel>.</para>
+      </step>
+      <step>
+        <para>In the confirmation dialog box, click <guilabel>Delete Stack</guilabel>
+                        to confirm the deletion.</para>
+      </step>
+    </procedure>
+  </section>
+</section>

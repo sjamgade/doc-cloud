@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Horizon Microversion Support</title>
+  <section>
+    <title>Introduction</title>
+    <para>Several services use API microversions, which allows consumers of that API to
+                specify an exact version when making a request. This can be useful in ensuring
+                a feature continues to work as expected across many service releases.</para>
+  </section>
+  <section>
+    <title>Adding a feature that was introduced in a microversion</title>
+    <procedure>
+      <step>
+        <para>Add the feature to the <literal>MICROVERSION_FEATURES</literal> dict in
+                        <literal>openstack_dashboard/api/microversions.py</literal> under the appropriate
+                        service name. The feature should have at least two versions listed; the
+                        minimum version (i.e. the version that introduced the feature) and
+                        the current working version. Providing multiple versions reduces project
+                        maintenance overheads and helps Horizon work with older service
+                        deployments.</para>
+      </step>
+      <step>
+        <para>Use the <literal>is_feature_available</literal> function for your service to show or hide
+                        the function.:</para>
+        <screen>from openstack_dashboard.api import service
+
+...
+
+def allowed(self, request):
+    return service.is_feature_available('feature')</screen>
+      </step>
+      <step>
+        <para>Send the correct microversion with <literal>get_microversion</literal> function in the API
+                        layer.:</para>
+        <screen>def resource_list(request):
+    try:
+        microversion = get_microversion(request, 'feature')
+        client = serviceclient(request, microversion)
+        return client.resource_list()</screen>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Microversion references</title>
+  </section>
+</section>

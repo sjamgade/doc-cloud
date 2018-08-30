@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Horizon Context Processors</title>
+  <para>Context processors used by Horizon.</para>
+  <variablelist>
+    <varlistentry xml:id="horizon.context_processors.horizon">
+      <term>
+        <function>horizon.context_processors.horizon</function>
+      </term>
+      <listitem>
+        <para>The main Horizon context processor. Required for Horizon to function.</para>
+        <para>It adds the Horizon config to the context as well as setting the names
+                    <literal>True</literal> and <literal>False</literal> in the context to their boolean equivalents
+                    for convenience.</para>
+        <warning>
+          <para>Don’t put API calls in context processors; they will be called once
+                        for each template/template fragment which takes context that is used
+                        to render the complete output.</para>
+        </warning>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

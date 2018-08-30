@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1" xml:id="faq">
+  <title>Frequently Asked Questions</title>
+  <para>What is the relationship between <literal>Dashboards</literal>, <literal>Panels</literal>, and navigation?</para>
+  <para>The navigational structure is strongly encouraged to flow from
+                <literal>Dashboard</literal> objects as top-level navigation items to <literal>Panel</literal> objects as
+                sub-navigation items as in the current implementation. Template tags
+                are provided to automatically generate this structure.</para>
+  <para>That said, you are not required to use the provided tools and can write
+                templates and URLconfs by hand to create any desired structure.</para>
+  <para>Does a panel have to be an app in <literal>INSTALLED_APPS</literal>?</para>
+  <para>A panel can live in any Python module. It can be a standalone which ties
+                into an existing dashboard, or it can be contained alongside others within
+                a larger dashboard “app”. There is no strict enforcement here. Python
+                is “a language for consenting adults.” A module containing a Panel does
+                not need to be added to <literal>INSTALLED_APPS</literal>, but this is a common and
+                convenient way to load a standalone panel.</para>
+  <para>Could I hook an external service into a panel using, for example, an iFrame?</para>
+  <para>Panels are just entry-points to hook views into the larger dashboard
+                navigational structure and enforce common attributes like RBAC. The
+                views and corresponding templates can contain anything you would like,
+                including iFrames.</para>
+  <para>What does this mean for visual design?</para>
+  <para>The ability to add an arbitrary number of top-level navigational items
+                (<literal>Dashboard</literal> objects) poses a new design challenge. Horizon’s lead
+                designer has taken on the challenge of providing a reference design
+                for Horizon which supports this possibility.</para>
+</section>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Launch and manage stacks using the Dashboard</title>
+  <para>The Orchestration service provides a template-based
+            orchestration engine for the OpenStack cloud. Orchestration
+            services create and manage cloud infrastructure
+            resources such as storage, networking, instances, and
+            applications as a repeatable running environment.</para>
+  <para>Administrators use templates to create stacks, which are
+            collections of resources. For example, a stack might
+            include instances, floating IPs, volumes,
+            security groups, or users. The Orchestration service
+            offers access to all OpenStack
+            core services via a single modular template, with additional
+            orchestration capabilities such as auto-scaling and basic
+            high availability.</para>
+  <para>For information about:</para>
+  <itemizedlist>
+    <listitem>
+      <para>administrative tasks on the command-line, see
+                    the <link xlink:href="https://docs.openstack.org/admin-guide/cli-admin-manage-stacks.html">OpenStack Administrator Guide</link>.</para>
+      <note>
+        <para>There are no administration-specific tasks that can be done through
+                        the Dashboard.</para>
+      </note>
+    </listitem>
+    <listitem>
+      <para>the basic creation and deletion of Orchestration stacks, refer to
+                    the <link xlink:href="https://docs.openstack.org/user-guide/dashboard-stacks.html">OpenStack End User Guide</link>.</para>
+    </listitem>
+  </itemizedlist>
+</section>

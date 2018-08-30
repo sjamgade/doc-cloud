@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Horizon Forms</title>
+  <para>Horizon ships with some very useful base form classes, form fields,
+            class-based views, and javascript helpers which streamline most of the common
+            tasks related to form handling.</para>
+  <section>
+    <title>Form Classes</title>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.base.DateForm">
+        <term>
+          <literal>horizon.forms.base.DateForm</literal>
+        </term>
+        <listitem>
+          <para>A simple form for selecting a range of time.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.base.SelfHandlingForm">
+        <term>
+          <literal>horizon.forms.base.SelfHandlingForm</literal>
+        </term>
+        <listitem>
+          <para>A base Form class which includes processing logic in its subclasses.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.base.SelfHandlingForm.api_error">
+              <term>
+                <property>horizon.forms.base.SelfHandlingForm.api_error</property>
+              </term>
+              <listitem>
+                <para>Adds an error to the form’s error dictionary.</para>
+                <para>It can be used after validation based on problems reported via the API.
+                                This is useful when you wish for API errors to appear as errors on the
+                                form rather than using the messages framework.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.base.SelfHandlingForm.set_warning">
+              <term>
+                <property>horizon.forms.base.SelfHandlingForm.set_warning</property>
+              </term>
+              <listitem>
+                <para>Sets a warning on the form.</para>
+                <para>Unlike NON_FIELD_ERRORS, this doesn’t fail form validation.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Form Fields</title>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.ChoiceInput">
+        <term>
+          <literal>horizon.forms.fields.ChoiceInput</literal>
+        </term>
+        <listitem>
+          <para>ChoiceInput class from django 1.10.7 codebase</para>
+          <para>An object used by ChoiceFieldRenderer that represents a single
+                        &lt;input type=’$input_type’&gt;.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.DynamicChoiceField">
+        <term>
+          <literal>horizon.forms.fields.DynamicChoiceField</literal>
+        </term>
+        <listitem>
+          <para>ChoiceField that make dynamically updating its elements easier.</para>
+          <para>Notably, the field declaration takes an extra argument, <literal>add_item_link</literal>
+                        which may be a string or callable defining the URL that should be used
+                        for the “add” link associated with the field.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.DynamicChoiceField.widget">
+              <term>
+                <property>horizon.forms.fields.DynamicChoiceField.widget</property>
+              </term>
+              <listitem>
+                <para>alias of <xref linkend="horizon.forms.fields.DynamicSelectWidget"/></para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.DynamicSelectWidget">
+        <term>
+          <literal>horizon.forms.fields.DynamicSelectWidget</literal>
+        </term>
+        <listitem>
+          <para><literal>Select</literal> widget to handle dynamic changes to the available choices.</para>
+          <para>A subclass of the <literal>Select</literal> widget which renders extra attributes for
+                        use in callbacks to handle dynamic changes to the available choices.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.DynamicTypedChoiceField">
+        <term>
+          <literal>horizon.forms.fields.DynamicTypedChoiceField</literal>
+        </term>
+        <listitem>
+          <para>Simple mix of <literal>DynamicChoiceField</literal> and <literal>TypedChoiceField</literal>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.ExternalFileField">
+        <term>
+          <literal>horizon.forms.fields.ExternalFileField</literal>
+        </term>
+        <listitem>
+          <para>Special FileField to upload file to some external location.</para>
+          <para>This is a special flavor of FileField which is meant to be used in cases
+                        when instead of uploading file to Django it should be uploaded to some
+                        external location, while the form validation is done as usual. It should be
+                        paired with ExternalUploadMeta metaclass embedded into the Form class.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.ExternalUploadMeta">
+        <term>
+          <literal>horizon.forms.fields.ExternalUploadMeta</literal>
+        </term>
+        <listitem>
+          <para>Metaclass to process ExternalFileField fields in a specific way.</para>
+          <para>Set this class as the metaclass of a form that contains ExternalFileField
+                        in order to process ExternalFileField fields in a specific way.
+                        A hidden CharField twin of FieldField is created which
+                        contains just the filename (if any file was selected on browser side) and
+                        a special <literal>clean</literal> method for FileField is defined which extracts just file
+                        name. This allows to avoid actual file upload to Django server, yet
+                        process form clean() phase as usual. Actual file upload happens entirely
+                        on client-side.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.IPField">
+        <term>
+          <literal>horizon.forms.fields.IPField</literal>
+        </term>
+        <listitem>
+          <para>Form field for entering IP/range values, with validation.</para>
+          <para>Supports IPv4/IPv6 in the format:
+                        .. xxx.xxx.xxx.xxx
+                        .. xxx.xxx.xxx.xxx/zz
+                        .. ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff
+                        .. ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff/zz
+                        and all compressed forms. Also the short forms
+                        are supported:
+                        xxx/yy
+                        xxx.xxx/yy</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.IPField.version">
+              <term>
+                <property>horizon.forms.fields.IPField.version</property>
+              </term>
+              <listitem>
+                <para>Specifies which IP version to validate,
+                                valid values are 1 (fields.IPv4), 2 (fields.IPv6) or
+                                both - 3 (fields.IPv4 | fields.IPv6).
+                                Defaults to IPv4 (1)</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.IPField.mask">
+              <term>
+                <property>horizon.forms.fields.IPField.mask</property>
+              </term>
+              <listitem>
+                <para>Boolean flag to validate subnet masks along with IP address.
+                                E.g: 10.0.0.1/32</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.IPField.mask_range_from">
+              <term>
+                <property>horizon.forms.fields.IPField.mask_range_from</property>
+              </term>
+              <term>
+                <property/>
+              </term>
+              <term>
+                <property/>
+              </term>
+              <term>
+                <property/>
+              </term>
+              <term>
+                <property/>
+              </term>
+              <listitem>
+                <para/>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.MACAddressField">
+        <term>
+          <literal>horizon.forms.fields.MACAddressField</literal>
+        </term>
+        <listitem>
+          <para>Form field for entering a MAC address with validation.</para>
+          <para>Supports all formats known by netaddr.EUI(), for example:
+                        .. xx:xx:xx:xx:xx:xx
+                        .. xx-xx-xx-xx-xx-xx
+                        .. xxxx.xxxx.xxxx</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.MultiIPField">
+        <term>
+          <literal>horizon.forms.fields.MultiIPField</literal>
+        </term>
+        <listitem>
+          <para>Extends IPField to allow comma-separated lists of addresses.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.SelectWidget">
+        <term>
+          <literal>horizon.forms.fields.SelectWidget</literal>
+        </term>
+        <listitem>
+          <para>Custom select widget.</para>
+          <para>It allows to render data-xxx attributes from choices.
+                        This widget also allows user to specify additional html attributes
+                        for choices.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.SelectWidget.data_attrs">
+              <term>
+                <property>horizon.forms.fields.SelectWidget.data_attrs</property>
+              </term>
+              <listitem>
+                <para>Specifies object properties to serialize as
+                                data-xxx attribute. If passed (‘id’, ),
+                                this will be rendered as:
+                                &lt;option data-id=”123”&gt;option_value&lt;/option&gt;
+                                where 123 is the value of choice_value.id</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.SelectWidget.transform">
+              <term>
+                <property>horizon.forms.fields.SelectWidget.transform</property>
+              </term>
+              <listitem>
+                <para>A callable used to render the display value
+                                from the option object.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.SelectWidget.transform_html_attrs">
+              <term>
+                <property>horizon.forms.fields.SelectWidget.transform_html_attrs</property>
+              </term>
+              <listitem>
+                <para>A callable used to render additional HTML attributes
+                                for the option object. It returns a dictionary
+                                containing the html attributes and their values.
+                                For example, to define a title attribute for the
+                                choices:</para>
+                <screen>helpText = { 'Apple': 'This is a fruit',
+          'Carrot': 'This is a vegetable' }
+
+def get_title(data):
+    text = helpText.get(data, None)
+    if text:
+        return {'title': text}
+    else:
+        return {}
+
+....
+....
+
+widget=forms.ThemableSelect( attrs={'class': 'switchable',
+                                 'data-slug': 'source'},
+                        transform_html_attrs=get_title )
+
+self.fields[&lt;field name&gt;].choices =
+    ([
+        ('apple','Apple'),
+        ('carrot','Carrot')
+    ])</screen>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.SelectWidget.build_attrs">
+              <term>
+                <property>horizon.forms.fields.SelectWidget.build_attrs</property>
+              </term>
+              <listitem>
+                <para>Helper function for building an attribute dictionary.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.SubWidget">
+        <term>
+          <literal>horizon.forms.fields.SubWidget</literal>
+        </term>
+        <listitem>
+          <para>SubWidget class from django 1.10.7 codebase</para>
+          <para>Some widgets are made of multiple HTML elements – namely, RadioSelect.
+                        This is a class that represents the “inner” HTML element of a widget.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.ThemableCheckboxInput">
+        <term>
+          <literal>horizon.forms.fields.ThemableCheckboxInput</literal>
+        </term>
+        <listitem>
+          <para>Checkbox widget which renders extra markup.</para>
+          <para>It is used to allow a custom checkbox experience.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.ThemableChoiceField">
+        <term>
+          <literal>horizon.forms.fields.ThemableChoiceField</literal>
+        </term>
+        <listitem>
+          <para>Bootstrap based select field.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.fields.ThemableChoiceField.widget">
+              <term>
+                <property>horizon.forms.fields.ThemableChoiceField.widget</property>
+              </term>
+              <listitem>
+                <para>alias of <xref linkend="horizon.forms.fields.ThemableSelectWidget"/></para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.ThemableDynamicTypedChoiceField">
+        <term>
+          <literal>horizon.forms.fields.ThemableDynamicTypedChoiceField</literal>
+        </term>
+        <listitem>
+          <para>Simple mix of <literal>ThemableDynamicChoiceField</literal> &amp; <literal>TypedChoiceField</literal>.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.fields.ThemableSelectWidget">
+        <term>
+          <literal>horizon.forms.fields.ThemableSelectWidget</literal>
+        </term>
+        <listitem>
+          <para>Bootstrap base select field widget.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Form Views</title>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.views.ModalBackdropMixin">
+        <term>
+          <literal>horizon.forms.views.ModalBackdropMixin</literal>
+        </term>
+        <listitem>
+          <para>Mixin class to allow ModalFormView and WorkflowView together.</para>
+          <para>This mixin class is to be used for together with ModalFormView and
+                        WorkflowView classes to augment them with modal_backdrop context data.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.forms.views.ModalFormView">
+        <term>
+          <literal>horizon.forms.views.ModalFormView</literal>
+        </term>
+        <listitem>
+          <para>The main view class for all views which handle forms in Horizon.</para>
+          <para>All view which handles forms in Horiozn should inherit this class.
+                        It takes care of all details with processing
+                        <xref linkend="horizon.forms.base.SelfHandlingForm"/> classes, and modal concerns
+                        when the associated template inherits from
+                        <literal>horizon/common/_modal_form.html</literal>.</para>
+          <para>Subclasses must define a <literal>form_class</literal> and <literal>template_name</literal> attribute
+                        at minimum.</para>
+          <para>See Django’s documentation on the <link xlink:href="https://docs.djangoproject.com/en/dev/ref/class-based-views/generic-editing/#formview">FormView</link> class for
+                        more details.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.views.ModalFormView.get_form">
+              <term>
+                <property>horizon.forms.views.ModalFormView.get_form</property>
+              </term>
+              <listitem>
+                <para>Returns an instance of the form to be used in this view.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.views.ModalFormView.get_object_display">
+              <term>
+                <property>horizon.forms.views.ModalFormView.get_object_display</property>
+              </term>
+              <listitem>
+                <para>Returns the display name of the created object.</para>
+                <para>For dynamic insertion of resources created in modals,
+                                this method returns the display name of the created object.
+                                Defaults to returning the <literal>name</literal> attribute.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.forms.views.ModalFormView.get_object_id">
+              <term>
+                <property>horizon.forms.views.ModalFormView.get_object_id</property>
+              </term>
+              <listitem>
+                <para>Returns the ID of the created object.</para>
+                <para>For  dynamic insertion of resources created in modals,
+                                this method returns the id of the created object.
+                                Defaults to returning the <literal>id</literal> attribute.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>Forms Javascript</title>
+    <section>
+      <title>Switchable Fields</title>
+      <para>By marking fields with the <literal>"switchable"</literal> and <literal>"switched"</literal> classes along
+                    with defining a few data attributes you can programmatically hide, show,
+                    and rename fields in a form.</para>
+      <para>The triggers are fields using a <literal>select</literal> input widget, marked with the
+                    “switchable” class, and defining a “data-slug” attribute. When they are changed,
+                    any input with the <literal>"switched"</literal> class and defining a <literal>"data-switch-on"</literal>
+                    attribute which matches the <literal>select</literal> input’s <literal>"data-slug"</literal> attribute will be
+                    evaluated for necessary changes. In simpler terms, if the <literal>"switched"</literal> target
+                    input’s <literal>"switch-on"</literal> matches the <literal>"slug"</literal> of the <literal>"switchable"</literal> trigger
+                    input, it gets switched. Simple, right?</para>
+      <para>The <literal>"switched"</literal> inputs also need to define states. For each state in which
+                    the input should be shown, it should define a data attribute like the
+                    following: <literal>data-&lt;slug&gt;-&lt;value&gt;="&lt;desired label&gt;"</literal>. When the switch event
+                    happens the value of the <literal>"switchable"</literal> field will be compared to the
+                    data attributes and the correct label will be applied to the field. If
+                    a corresponding label for that value is <emphasis>not</emphasis> found, the field will
+                    be hidden instead.</para>
+      <para>A simplified example is as follows:</para>
+      <screen>source = forms.ChoiceField(
+    label=_('Source'),
+    choices=[
+        ('cidr', _('CIDR')),
+        ('sg', _('Security Group'))
+    ],
+    widget=forms.ThemableSelectWidget(attrs={
+        'class': 'switchable',
+        'data-slug': 'source'
+    })
+)
+
+cidr = fields.IPField(
+    label=_("CIDR"),
+    required=False,
+    widget=forms.TextInput(attrs={
+        'class': 'switched',
+        'data-switch-on': 'source',
+        'data-source-cidr': _('CIDR')
+    })
+)
+
+security_group = forms.ChoiceField(
+    label=_('Security Group'),
+    required=False,
+    widget=forms.ThemableSelectWidget(attrs={
+        'class': 'switched',
+        'data-switch-on': 'source',
+        'data-source-sg': _('Security Group')
+    })
+)</screen>
+      <para>That code would create the <literal>"switchable"</literal> control field <literal>source</literal>, and the
+                    two <literal>"switched"</literal> fields <literal>cidr</literal> and <literal>security group</literal> which are hidden or
+                    shown depending on the value of <literal>source</literal>.</para>
+      <note>
+        <para>A field can only safely define one slug in its <literal>"switch-on"</literal> attribute.
+                        While switching on multiple fields is possible, the behavior is very hard to
+                        predict due to the events being fired from the various switchable fields in
+                        order. You generally end up just having it hidden most of the time by
+                        accident, so it’s not recommended. Instead just add a second field to the
+                        form and control the two independently, then merge their results in the
+                        form’s clean or handle methods at the end.</para>
+      </note>
+    </section>
+  </section>
+</section>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1" xml:id="quickstart">
+  <title>Quickstart</title>
+  <note>
+    <para>This section has been tested for Horizon on Ubuntu (16.04-64) and RPM-based
+                (RHEL 7.x) distributions. Feel free to add notes and any changes according
+                to your experiences or operating system.</para>
+  </note>
+  <section>
+    <title>Linux Systems</title>
+    <para>Install the prerequisite packages.</para>
+    <para>On Ubuntu</para>
+    <screen language="console">$ sudo apt-get install git python-pip</screen>
+    <para>On RPM-based distributions (e.g., Fedora/RHEL/CentOS/Scientific Linux)</para>
+    <screen language="console"><?dbsuse-fo font-size="8pt"?>$ sudo yum install gcc git-core python-devel python-virtualenv openssl-devel libffi-devel which</screen>
+    <note>
+      <para>Some tests rely on the Chrome web browser being installed. While the above
+                    requirements will allow you to run and manually test Horizon, you will
+                    need to install Chrome to run the full test suite.</para>
+    </note>
+  </section>
+  <section>
+    <title>Setup</title>
+    <para>To begin setting up a Horizon development environment simply clone the Horizon
+                git repository from <link xlink:href="https://git.openstack.org/cgit/openstack/horizon"/></para>
+    <screen language="console">$ git clone https://git.openstack.org/openstack/horizon</screen>
+    <para>Next you will need to configure Horizon by adding a <literal>local_settings.py</literal> file.
+                A good starting point is to use the example config with the following command,
+                from within the <literal>horizon</literal> directory.</para>
+    <screen language="console"><?dbsuse-fo font-size="8pt"?>$ cp openstack_dashboard/local/local_settings.py.example openstack_dashboard/local/local_settings.py</screen>
+    <para>Horizon connects to the rest of OpenStack via a Keystone service catalog. By
+                default Horizon looks for an endpoint at <literal>http://localhost:5000/v2.0</literal>; this
+                can be customised by modifying the <literal>OPENSTACK_HOST</literal> and
+                <literal>OPENSTACK_KEYSTONE_URL</literal> values in
+                <literal>openstack_dashboard/local/local_settings.py</literal></para>
+    <note>
+      <para>The DevStack project (<link xlink:href="http://devstack.org/"/>) can be used to install
+                    an OpenStack development environment from scratch. For a local.conf that
+                    enables most services that Horizon supports managing, see
+                    <xref linkend="local-conf"/></para>
+    </note>
+    <para>Horizon uses <literal>tox</literal> to manage virtual environments for testing and other
+                development tasks. You can install it with</para>
+    <screen language="console">$ pip install tox</screen>
+    <para>The <literal>tox</literal> environments provide wrappers around <literal>manage.py</literal>. For more
+                information on <literal>manage.py</literal>, which is a Django command, see
+                <link xlink:href="https://docs.djangoproject.com/en/dev/ref/django-admin/"/></para>
+    <para>To start the Horizon development server use the command below</para>
+    <screen language="console">$ tox -e runserver</screen>
+    <note>
+      <para>The default port for runserver is 8000 which is already consumed by
+                    heat-api-cfn in DevStack. If running in DevStack
+                    <literal>tox -e runserver -- localhost:9000</literal> will start the test server at
+                    <literal>http://localhost:9000</literal></para>
+    </note>
+    <para>Once the Horizon server is running, point a web browser to <literal>http://localhost</literal>
+                or to the IP and port the server is listening for. Enter your Keystone
+                credentials, log in and you’ll be presented with the Horizon dashboard.
+                Congratulations!</para>
+  </section>
+  <section>
+    <title>Managing Settings</title>
+    <para>You can save changes you made to
+                <literal>openstack_dashboard/local/local_settings.py</literal> with the following command:</para>
+    <screen language="console">$ python manage.py migrate_settings --gendiff</screen>
+    <note>
+      <para>This creates a <literal>local_settings.diff</literal> file which is a diff between
+                    <literal>local_settings.py</literal> and <literal>local_settings.py.example</literal></para>
+    </note>
+    <para>If you upgrade Horizon, you might need to update your
+                <literal>openstack_dashboard/local/local_settings.py</literal> file with new parameters from
+                <literal>openstack_dashboard/local/local_settings.py.example</literal> to do so, first update
+                Horizon</para>
+    <screen language="console">$ git remote update &amp;&amp; git pull --ff-only origin master</screen>
+    <para>Then update your  <literal>openstack_dashboard/local/local_settings.py</literal> file</para>
+    <screen language="console"><?dbsuse-fo font-size="8pt"?>$ mv openstack_dashboard/local/local_settings.py openstack_dashboard/local/local_settings.py.old
+$ python manage.py migrate_settings</screen>
+    <note>
+      <para>This applies <literal>openstack_dashboard/local/local_settings.diff</literal> on
+                    <literal>openstack_dashboard/local/local_settings.py.example</literal> to regenerate an
+                    <literal>openstack_dashboard/local/local_settings.py</literal> file.
+                    The migration can sometimes have difficulties to migrate some settings, if
+                    this happens you will be warned with a conflict message pointing to an
+                    <literal>openstack_dashboard/local/local_settings.py_Some_DateTime.rej</literal> file.
+                    In this file, you will see the lines which could not be automatically
+                    changed and you will have to redo only these few changes manually instead
+                    of modifying the full
+                    <literal>openstack_dashboard/local/local_settings.py.example</literal> file.</para>
+    </note>
+    <para>When all settings have been migrated, it is safe to regenerate a clean diff in
+                order to prevent Conflicts for future migrations</para>
+    <screen language="console"><?dbsuse-fo font-size="8pt"?>$ mv openstack_dashboard/local/local_settings.diff openstack_dashboard/local/local_settings.diff.old
+$ python manage.py migrate_settings --gendiff</screen>
+  </section>
+  <section>
+    <title>Editing Horizon’s Source</title>
+    <para>Although DevStack installs and configures an instance of Horizon when running
+                stack.sh, the preferred development setup follows the instructions above on the
+                server/VM running DevStack. There are several advantages to maintaining a
+                separate copy of the Horizon repo, rather than editing the DevStack installed
+                copy.</para>
+    <itemizedlist>
+      <listitem>
+        <para>Source code changes aren’t as easily lost when running <literal>unstack.sh</literal> /
+                        <literal>stack.sh</literal></para>
+      </listitem>
+      <listitem>
+        <para>The development server picks up source code changes while still running.</para>
+      </listitem>
+      <listitem>
+        <para>Log messages and print statements go directly to the console.</para>
+      </listitem>
+      <listitem>
+        <para>Debugging with <literal>pdb</literal> becomes much simpler to interact with.</para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <para>To ensure that JS and CSS changes are picked up without a server restart, you
+                    can disable compression with <literal>COMPRESS_ENABLED = False</literal> in your local
+                    settings file.</para>
+    </note>
+  </section>
+  <section>
+    <title>Horizon’s Structure</title>
+    <para>This project is a bit different from other OpenStack projects in that it has
+                two very distinct components underneath it: <literal>horizon</literal>, and
+                <literal>openstack_dashboard</literal>.</para>
+    <para>The <literal>horizon</literal> directory holds the generic libraries and components that can
+                be used in any Django project.</para>
+    <para>The <literal>openstack_dashboard</literal> directory contains a reference Django project that
+                uses <literal>horizon</literal>.</para>
+    <para>For development, both pieces share an environment which (by default) is
+                built with the <literal>tools/install_venv.py</literal> script. That script creates a
+                virtualenv and installs all the necessary packages.</para>
+    <para>If dependencies are added to either <literal>horizon</literal> or <literal>openstack_dashboard</literal>,
+                they should be added to <literal>requirements.txt</literal>.</para>
+  </section>
+  <section>
+    <title>Project Structure</title>
+    <section>
+      <title>Dashboard configuration</title>
+      <para>To add a new dashboard to your project, you need to add a configuration file to
+                    <literal>openstack_dashboard/local/enabled</literal> directory. For more information on this,
+                    see <xref linkend="pluggable-settings-label"/>.</para>
+    </section>
+    <section>
+      <title>URLs</title>
+      <para>Then you add a single line to your project’s <literal>urls.py</literal></para>
+      <screen language="python">url(r'', include(horizon.urls)),</screen>
+      <para>Those urls are automatically constructed based on the registered Horizon apps.
+                    If a different URL structure is desired it can be constructed by hand.</para>
+    </section>
+    <section>
+      <title>Templates</title>
+      <para>Pre-built template tags generate navigation. In your <literal>nav.html</literal>
+                    template you might have the following</para>
+      <screen language="htmldjango">{% load horizon %}
+
+&lt;div class='nav'&gt;
+  {% horizon_main_nav %}
+&lt;/div&gt;</screen>
+      <para>And in your <literal>sidebar.html</literal> you might have</para>
+      <screen language="htmldjango">{% load horizon %}
+
+&lt;div class='sidebar'&gt;
+  {% horizon_dashboard_nav %}
+&lt;/div&gt;</screen>
+      <para>These template tags are aware of the current “active” dashboard and panel
+                    via template context variables and will render accordingly.</para>
+    </section>
+  </section>
+  <section>
+    <title>Application Design</title>
+    <section>
+      <title>Structure</title>
+      <para>An application would have the following structure (we’ll use project as
+                    an example)</para>
+      <screen language="console">project/
+|---__init__.py
+|---dashboard.py &lt;-----Registers the app with Horizon and sets dashboard properties
+|---overview/
+|---images/
+    |-- images
+    |-- __init__.py
+    |---panel.py &lt;-----Registers the panel in the app and defines panel properties
+    |-- snapshots/
+    |-- templates/
+    |-- tests.py
+    |-- urls.py
+    |-- views.py
+    ...
+...</screen>
+    </section>
+    <section>
+      <title>Dashboard Classes</title>
+      <para>Inside of <literal>dashboard.py</literal> you would have a class definition and the
+                    registration process</para>
+      <screen language="python">import horizon
+
+....
+# ObjectStorePanels is an example for a PanelGroup
+# for panel classes in general, see below
+class ObjectStorePanels(horizon.PanelGroup):
+    slug = "object_store"
+    name = _("Object Store")
+    panels = ('containers',)
+
+
+class Project(horizon.Dashboard):
+    name = _("Project") # Appears in navigation
+    slug = "project"    # Appears in URL
+    # panels may be strings or refer to classes, such as
+    # ObjectStorePanels
+    panels = (BasePanels, NetworkPanels, ObjectStorePanels)
+    default_panel = 'overview'
+    ...
+
+horizon.register(Project)</screen>
+    </section>
+    <section>
+      <title>Panel Classes</title>
+      <para>To connect a <xref linkend="horizon.Panel"/> with a <xref linkend="horizon.Dashboard"/> class
+                    you register it in a <literal>panel.py</literal> file</para>
+      <screen language="python">import horizon
+
+from openstack_dashboard.dashboards.project import dashboard
+
+
+class Images(horizon.Panel):
+    name = "Images"
+    slug = 'images'
+    permissions = ('openstack.roles.admin', 'my.openstack.permission',)
+    policy_rules = (('endpoint', 'endpoint:rule'),)
+
+# You could also register your panel with another application's dashboard
+dashboard.Project.register(Images)</screen>
+      <para>By default a <xref linkend="horizon.Panel"/> class looks for a <literal>urls.py</literal> file in the
+                    same directory as <literal>panel.py</literal> to include in the rollup of url patterns from
+                    panels to dashboards to Horizon, resulting in a wholly extensible, configurable
+                    URL structure.</para>
+    </section>
+  </section>
+</section>

@@ -18,26 +18,406 @@ License for the specific language governing permissions and limitations
 under the License.</comment>
     <section ids="welcome-to-glance-s-documentation" names="welcome\ to\ glance's\ documentation!">
         <title>Welcome to Glance’s documentation!</title>
-        <paragraph>The Image service (glance) project provides a service where users can upload
-            and discover data assets that are meant to be used with other services.
-            This currently includes images and metadata definitions.</paragraph>
-        <paragraph>Glance image services include discovering, registering, and
-            retrieving virtual machine (VM) images. Glance has a RESTful API that allows
-            querying of VM image metadata as well as retrieval of the actual image.</paragraph>
+        <paragraph>The Image service (glance) project provides a service where users can upload and
+            discover data assets that are meant to be used with other services. This currently
+            includes images and metadata definitions.</paragraph>
+        <paragraph>Glance image services include discovering, registering, and retrieving virtual
+            machine (VM) images. Glance has a RESTful API that allows querying of VM image metadata
+            as well as retrieval of the actual image.</paragraph>
         <note>
-            <paragraph>The Images API v1 has been DEPRECATED in the Newton release.  The
-                migration path is to use the <reference name="Images API v2" refuri="http://developer.openstack.org/api-ref/image/v2/">Images API v2</reference><target ids="images-api-v2" names="images\ api\ v2" refuri="http://developer.openstack.org/api-ref/image/v2/"></target> instead of version 1
-                of the API.  The Images API v1 will ultimately be removed, following the
-                <reference name="OpenStack standard deprecation policy" refuri="https://governance.openstack.org/reference/tags/assert_follows-standard-deprecation.html">OpenStack standard deprecation policy</reference><target ids="openstack-standard-deprecation-policy" names="openstack\ standard\ deprecation\ policy" refuri="https://governance.openstack.org/reference/tags/assert_follows-standard-deprecation.html"></target>.</paragraph>
+            <paragraph>The Images API v1 has been DEPRECATED in the Newton release. The migration
+                path is to use the <reference name="Images API v2"
+                    refuri="http://developer.openstack.org/api-ref/image/v2/">Images API
+                    v2</reference><target ids="images-api-v2" names="images\ api\ v2"
+                    refuri="http://developer.openstack.org/api-ref/image/v2/"/> instead of version 1
+                of the API. The Images API v1 will ultimately be removed, following the <reference
+                    name="OpenStack standard deprecation policy"
+                    refuri="https://governance.openstack.org/reference/tags/assert_follows-standard-deprecation.html"
+                    >OpenStack standard deprecation policy</reference><target
+                    ids="openstack-standard-deprecation-policy"
+                    names="openstack\ standard\ deprecation\ policy"
+                    refuri="https://governance.openstack.org/reference/tags/assert_follows-standard-deprecation.html"
+                />.</paragraph>
         </note>
-        <paragraph>VM images made available through Glance can be stored in a variety of
-            locations from simple filesystems to object-storage systems like the
-            OpenStack Swift project.</paragraph>
+        <paragraph>VM images made available through Glance can be stored in a variety of locations
+            from simple filesystems to object-storage systems like the OpenStack Swift
+            project.</paragraph>
         <compound classes="toctree-wrapper">
-            <compact_paragraph toctree="True"><bullet_list><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="user/index">User guide</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/identifiers">Image Identifiers</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/statuses">Image Statuses</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="#task-statuses" internal="True" refuri="user/statuses#task-statuses">Task Statuses</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/formats">Disk and Container Formats</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/common-image-properties">Common Image Properties</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/metadefs-concepts">Metadata Definition Concepts</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/glanceapi">Using Glance’s Image Public APIs</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/glanceclient">Using Glance’s Client Tools</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/glancemetadefcatalogapi">Using Glance’s Metadata Definitions Catalog Public APIs</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="user/signature">Image Signature Verification</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="admin/index">Administration guide</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/authentication">Authentication With Keystone</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/cache">The Glance Image Cache</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/policies">Policies</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/property-protections">Property Protections</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/requirements">Requirements</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/apache-httpd">Running Glance in HTTPD</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/notifications">Notifications</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/tasks">Tasks</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/controllingservers">Controlling Glance Servers</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/flows">Glance Flow Plugins</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/db">Database Management</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="#zero-downtime-database-upgrades" internal="True" refuri="admin/db#zero-downtime-database-upgrades">Zero-Downtime Database Upgrades</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/db-sqlalchemy-migrate">Legacy Database Management</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/rollingupgrades">Rolling Upgrades</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/troubleshooting">Images and instances</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/manage-images">Manage images</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="admin/requirements">Requirements</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="install/index">Installation</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="install/get-started">Image service overview</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="install/install">Install and configure</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="install/verify">Verify operation</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="#ocata" internal="True" refuri="install/index#ocata">Ocata</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="#newton" internal="True" refuri="install/index#newton">Newton</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="configuration/index">Glance Configuration Options</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="configuration/configuring">Basic Configuration</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="configuration/glance_api">glance-api.conf</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="configuration/glance_cache">glance-cache.conf</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="configuration/glance_manage">glance-manage.conf</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="configuration/glance_registry">glance-registry.conf</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="configuration/glance_scrubber">glance-scrubber.conf</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="configuration/sample-configuration">Glance Sample Configuration</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="cli/index">Command Line Interface</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glanceapi">glance-api</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glancecachecleaner">glance-cache-cleaner</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glancecachemanage">glance-cache-manage</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glancecacheprefetcher">glance-cache-prefetcher</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glancecachepruner">glance-cache-pruner</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glancecontrol">glance-control</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glancemanage">glance-manage</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glanceregistry">glance-registry</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glancereplicator">glance-replicator</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="" internal="True" refuri="cli/glancescrubber">glance-scrubber</reference></compact_paragraph></list_item></bullet_list></list_item><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="contributor/index">Glance Contribution Guidelines</reference></compact_paragraph><bullet_list><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="#developer-reference" internal="True" refuri="contributor/index#developer-reference">Developer reference</reference></compact_paragraph></list_item><list_item classes="toctree-l2"><compact_paragraph classes="toctree-l2"><reference anchorname="#policies" internal="True" refuri="contributor/index#policies">Policies</reference></compact_paragraph></list_item></bullet_list></list_item></bullet_list></compact_paragraph>
+            <compact_paragraph toctree="True">
+                <bullet_list>
+                    <list_item classes="toctree-l1">
+                        <compact_paragraph classes="toctree-l1">
+                            <reference anchorname="" internal="True" refuri="user/index">User
+                                guide</reference>
+                        </compact_paragraph>
+                        <bullet_list>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="user/identifiers">Image Identifiers</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="user/statuses"
+                                        >Image Statuses</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="#task-statuses" internal="True"
+                                        refuri="user/statuses#task-statuses">Task
+                                        Statuses</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="user/formats"
+                                        >Disk and Container Formats</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="user/common-image-properties">Common Image
+                                        Properties</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="user/metadefs-concepts">Metadata Definition
+                                        Concepts</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="user/glanceapi"
+                                        >Using Glance’s Image Public APIs</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="user/glanceclient">Using Glance’s Client
+                                        Tools</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="user/glancemetadefcatalogapi">Using Glance’s
+                                        Metadata Definitions Catalog Public APIs</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="user/signature"
+                                        >Image Signature Verification</reference>
+                                </compact_paragraph>
+                            </list_item>
+                        </bullet_list>
+                    </list_item>
+                    <list_item classes="toctree-l1">
+                        <compact_paragraph classes="toctree-l1">
+                            <reference anchorname="" internal="True" refuri="admin/index"
+                                >Administration guide</reference>
+                        </compact_paragraph>
+                        <bullet_list>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/authentication">Authentication With
+                                        Keystone</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="admin/cache"
+                                        >The Glance Image Cache</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="admin/policies"
+                                        >Policies</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/property-protections">Property
+                                        Protections</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/requirements">Requirements</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/apache-httpd">Running Glance in
+                                        HTTPD</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/notifications">Notifications</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="admin/tasks"
+                                        >Tasks</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/controllingservers">Controlling Glance
+                                        Servers</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="admin/flows"
+                                        >Glance Flow Plugins</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <!--<list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="admin/db"
+                                        >Database Management</reference>
+                                </compact_paragraph>
+                            </list_item>-->
+                            <!--<list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="#zero-downtime-database-upgrades"
+                                        internal="True"
+                                        refuri="admin/db#zero-downtime-database-upgrades"
+                                        >Zero-Downtime Database Upgrades</reference>
+                                </compact_paragraph>
+                            </list_item>-->
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/db-sqlalchemy-migrate">Legacy Database
+                                        Management</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/rollingupgrades">Rolling Upgrades</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/troubleshooting">Images and
+                                        instances</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/manage-images">Manage images</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="admin/requirements">Requirements</reference>
+                                </compact_paragraph>
+                            </list_item>
+                        </bullet_list>
+                    </list_item>
+                    <list_item classes="toctree-l1">
+                        <compact_paragraph classes="toctree-l1">
+                            <reference anchorname="" internal="True" refuri="install/index"
+                                >Installation</reference>
+                        </compact_paragraph>
+                        <bullet_list>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="install/get-started">Image service
+                                        overview</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="install/install">Install and configure</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="install/verify"
+                                        >Verify operation</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="#ocata" internal="True"
+                                        refuri="install/index#ocata">Ocata</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="#newton" internal="True"
+                                        refuri="install/index#newton">Newton</reference>
+                                </compact_paragraph>
+                            </list_item>
+                        </bullet_list>
+                    </list_item>
+                    <list_item classes="toctree-l1">
+                        <compact_paragraph classes="toctree-l1">
+                            <reference anchorname="" internal="True" refuri="configuration/index"
+                                >Glance Configuration Options</reference>
+                        </compact_paragraph>
+                        <bullet_list>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="configuration/configuring">Basic
+                                        Configuration</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="configuration/glance_api"
+                                        >glance-api.conf</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="configuration/glance_cache"
+                                        >glance-cache.conf</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="configuration/glance_manage"
+                                        >glance-manage.conf</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="configuration/glance_registry"
+                                        >glance-registry.conf</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="configuration/glance_scrubber"
+                                        >glance-scrubber.conf</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="configuration/sample-configuration">Glance Sample
+                                        Configuration</reference>
+                                </compact_paragraph>
+                            </list_item>
+                        </bullet_list>
+                    </list_item>
+                    <list_item classes="toctree-l1">
+                        <compact_paragraph classes="toctree-l1">
+                            <reference anchorname="" internal="True" refuri="cli/index">Command Line
+                                Interface</reference>
+                        </compact_paragraph>
+                        <bullet_list>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True" refuri="cli/glanceapi"
+                                        >glance-api</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glancecachecleaner"
+                                        >glance-cache-cleaner</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glancecachemanage"
+                                        >glance-cache-manage</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glancecacheprefetcher"
+                                        >glance-cache-prefetcher</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glancecachepruner"
+                                        >glance-cache-pruner</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glancecontrol">glance-control</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glancemanage">glance-manage</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glanceregistry">glance-registry</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glancereplicator">glance-replicator</reference>
+                                </compact_paragraph>
+                            </list_item>
+                            <list_item classes="toctree-l2">
+                                <compact_paragraph classes="toctree-l2">
+                                    <reference anchorname="" internal="True"
+                                        refuri="cli/glancescrubber">glance-scrubber</reference>
+                                </compact_paragraph>
+                            </list_item>
+                        </bullet_list>
+                    </list_item>
+                </bullet_list>
+            </compact_paragraph>
         </compound>
         <compound classes="toctree-wrapper">
-            <compact_paragraph toctree="True"><bullet_list><list_item classes="toctree-l1"><compact_paragraph classes="toctree-l1"><reference anchorname="" internal="True" refuri="glossary">Glossary</reference></compact_paragraph></list_item></bullet_list></compact_paragraph>
+            <compact_paragraph toctree="True">
+                <bullet_list>
+                    <list_item classes="toctree-l1">
+                        <compact_paragraph classes="toctree-l1">
+                            <reference anchorname="" internal="True" refuri="glossary"
+                                >Glossary</reference>
+                        </compact_paragraph>
+                    </list_item>
+                </bullet_list>
+            </compact_paragraph>
         </compound>
     </section>
 </document>

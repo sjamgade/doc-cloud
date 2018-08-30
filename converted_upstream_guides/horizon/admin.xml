@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Administration Guide</title>
+  <para>The OpenStack Dashboard is a web-based interface that allows you to
+            manage OpenStack resources and services. The Dashboard allows you to
+            interact with the OpenStack Compute cloud controller using the OpenStack
+            APIs. For more information about installing and configuring the
+            Dashboard, see the  for your operating system.</para>
+  <xi:include href="admin-customize-configure.xml"/>
+  <xi:include href="admin-sessions.xml"/>
+  <xi:include href="admin-manage-images.xml"/>
+  <xi:include href="admin-admin-manage-roles.xml"/>
+  <xi:include href="admin-manage-projects-and-users.xml"/>
+  <xi:include href="admin-manage-instances.xml"/>
+  <xi:include href="admin-manage-flavors.xml"/>
+  <xi:include href="admin-manage-volumes.xml"/>
+  <xi:include href="admin-manage-shares.xml"/>
+  <xi:include href="admin-set-quotas.xml"/>
+  <xi:include href="admin-manage-services.xml"/>
+  <xi:include href="admin-manage-host-aggregates.xml"/>
+  <xi:include href="admin-admin-manage-stacks.xml"/>
+  <itemizedlist>
+    <listitem>
+      <para>To deploy the dashboard, see the .</para>
+    </listitem>
+    <listitem>
+      <para>To launch instances with the dashboard as an end user, see the
+                     in the OpenStack End User Guide.</para>
+    </listitem>
+    <listitem>
+      <para>To create and manage ports, see the 
+                    section of the OpenStack End User Guide.</para>
+    </listitem>
+  </itemizedlist>
+</section>

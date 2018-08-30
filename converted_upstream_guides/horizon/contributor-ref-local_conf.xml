@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1" xml:id="local-conf">
+  <title>local.conf</title>
+  <section>
+    <title>Configuring DevStack for Horizon</title>
+    <para>Place the following content into <literal>devstack/local.conf</literal> to start the services
+                that Horizon supports in DevStack when <literal>stack.sh</literal> is run. If you need to use
+                this with a stable branch you need to add <literal>stable/&lt;branch name&gt;</literal> to the end
+                of each <literal>enable_plugin</literal> line (e.g. <literal>stable/mitaka</literal>). You can also check
+                out DevStack using a stable branch tag. For more information on DevStack,
+                see <link xlink:href="https://docs.openstack.org/devstack/latest/"/></para>
+    <screen language="ini">[[local|localrc]]
+
+ADMIN_PASSWORD=secret
+DATABASE_PASSWORD=$ADMIN_PASSWORD
+RABBIT_PASSWORD=$ADMIN_PASSWORD
+SERVICE_PASSWORD=$ADMIN_PASSWORD
+
+# Recloning will ensure that your stack is up to date. The downside
+# is overhead on restarts and potentially losing a stable environment.
+# If set to `yes`, will reclone all repos every time stack.sh is run.
+# The default is `no`.
+#
+# RECLONE=yes
+
+# By default `stack.sh` will only install Python packages if no version is
+# currently installed, or the current version does not match a specified
+# requirement. If `PIP_UPGRADE` is set to `True` then existing required
+# Python packages will be upgraded to the most recent version that matches
+# requirements. This is generally recommended, as most of OpenStack is
+# tested on latest packages, rather than older versions. The default is
+# False.
+#
+# PIP_UPGRADE=TRUE
+
+# Set `OFFLINE` to `True` to configure `stack.sh` to run cleanly without
+# Internet access. `stack.sh` must have been previously run with Internet
+# access to install prerequisites and fetch repositories.
+#
+# OFFLINE=True
+
+# Note: there are several network setting changes that may be
+# required to get networking properly configured in your environment.
+# This file is just using the defaults set up by devstack.
+# For a more detailed treatment of devstack network configuration
+# options, please see:
+# https://docs.openstack.org/devstack/latest/guides.html
+
+# Horizon is enabled by default in Devstack, but since we're developing
+# it's advised to use a separate clone. To disable horizon in DevStack,
+# speeding up stack time, use:
+#
+# disable_service horizon
+
+### Supported Services
+# The following panels and plugins are part of the Horizon tree
+# and currently supported by the Horizon maintainers
+
+# Enable Swift (Object Store) without replication
+enable_service s-proxy s-object s-container s-account
+SWIFT_HASH=66a3d6b56c1f479c8b4e70ab5c2000f5
+SWIFT_REPLICAS=1
+SWIFT_DATA_DIR=$DEST/data/swift
+
+# Enable Heat
+enable_plugin heat https://git.openstack.org/openstack/heat
+
+# Enable Neutron
+enable_plugin neutron https://git.openstack.org/openstack/neutron
+
+# Enable the Trunks extension for Neutron
+enable_service q-trunk
+
+# Enable the QoS extension for Neutron
+enable_service q-qos
+
+### Plugins
+# Horizon has a large number of plugins, documented at
+# https://docs.openstack.org/horizon/latest/install/plugin-registry.html
+# See the individual repos for information on installing them.
+
+[[post-config|$GLANCE_API_CONF]]
+[DEFAULT]
+default_store=file</screen>
+  </section>
+</section>

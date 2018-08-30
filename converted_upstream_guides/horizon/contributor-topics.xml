@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Topic Guides</title>
+  <para>Information on how to work with specific areas of Horizon can be found in
+            the following topic guides.</para>
+  <xi:include href="contributor-topics-workflows.xml"/>
+  <xi:include href="contributor-topics-tables.xml"/>
+  <xi:include href="contributor-topics-policy.xml"/>
+  <xi:include href="contributor-topics-microversion_support.xml"/>
+  <xi:include href="contributor-topics-angularjs.xml"/>
+  <xi:include href="contributor-topics-testing.xml"/>
+  <xi:include href="contributor-topics-javascript_testing.xml"/>
+  <xi:include href="contributor-topics-styling.xml"/>
+  <xi:include href="contributor-topics-translation.xml"/>
+  <xi:include href="contributor-topics-packaging.xml"/>
+</section>

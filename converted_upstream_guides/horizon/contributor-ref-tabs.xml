@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Horizon Tabs and TabGroups</title>
+  <para>Horizon includes a set of reusable components for programmatically
+            building tabbed interfaces with fancy features like dynamic AJAX loading
+            and nearly effortless templating and styling.</para>
+  <section>
+    <title>Tab Groups</title>
+    <para>For any tabbed interface, your fundamental element is the tab group which
+                contains all your tabs. This class provides a dead-simple API for building
+                tab groups and encapsulates all the necessary logic behind the scenes.</para>
+    <variablelist>
+      <varlistentry xml:id="horizon.tabs.TabGroup">
+        <term>
+          <literal>horizon.tabs.TabGroup</literal>
+        </term>
+        <listitem>
+          <para>A container class which knows how to manage and render Tab objects.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.slug">
+              <term>
+                <property>horizon.tabs.TabGroup.slug</property>
+              </term>
+              <listitem>
+                <para>The URL slug and pseudo-unique identifier for this tab group.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.template_name">
+              <term>
+                <property>horizon.tabs.TabGroup.template_name</property>
+              </term>
+              <listitem>
+                <para>The name of the template which will be used to render this tab group.
+                                Default: <literal>"horizon/common/_tab_group.html"</literal></para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.sticky">
+              <term>
+                <property>horizon.tabs.TabGroup.sticky</property>
+              </term>
+              <listitem>
+                <para>Boolean to control whether the active tab state should be stored
+                                across requests for a given user. (State storage is all done
+                                client-side.)</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.show_single_tab">
+              <term>
+                <property>horizon.tabs.TabGroup.show_single_tab</property>
+              </term>
+              <listitem>
+                <para>Boolean to control whether the tab bar is shown when the tab group
+                                has only one tab. Default: <literal>False</literal></para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.param_name">
+              <term>
+                <property>horizon.tabs.TabGroup.param_name</property>
+              </term>
+              <listitem>
+                <para>The name of the GET request parameter which will be used when
+                                requesting specific tab data. Default: <literal>tab</literal>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.classes">
+              <term>
+                <property>horizon.tabs.TabGroup.classes</property>
+              </term>
+              <listitem>
+                <para>A list of CSS classes which should be displayed on this tab group.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.attrs">
+              <term>
+                <property>horizon.tabs.TabGroup.attrs</property>
+              </term>
+              <listitem>
+                <para>A dictionary of HTML attributes which should be rendered into the
+                                markup for this tab group.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.selected">
+              <term>
+                <property>horizon.tabs.TabGroup.selected</property>
+              </term>
+              <listitem>
+                <para>Read-only property which is set to the instance of the
+                                currently-selected tab if there is one, otherwise <literal>None</literal>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.active">
+              <term>
+                <property>horizon.tabs.TabGroup.active</property>
+              </term>
+              <listitem>
+                <para>Read-only property which is set to the value of the current active tab.
+                                This may not be the same as the value of <literal>selected</literal> if no
+                                specific tab was requested via the <literal>GET</literal> parameter.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.get_default_classes">
+              <term>
+                <property>horizon.tabs.TabGroup.get_default_classes</property>
+              </term>
+              <listitem>
+                <para>Returns a list of the default classes for the tab group.</para>
+                <para>Defaults to <literal>["nav", "nav-tabs", "ajax-tabs"]</literal>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.get_id">
+              <term>
+                <property>horizon.tabs.TabGroup.get_id</property>
+              </term>
+              <listitem>
+                <para>Returns the id for this tab group.</para>
+                <para>Defaults to the value of the tab
+                                group’s <xref linkend="horizon.tabs.Tab.slug"/>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.get_selected_tab">
+              <term>
+                <property>horizon.tabs.TabGroup.get_selected_tab</property>
+              </term>
+              <listitem>
+                <para>Returns the tab specific by the GET request parameter.</para>
+                <para>In the event that there is no GET request parameter, the value
+                                of the query parameter is invalid, or the tab is not allowed/enabled,
+                                the return value of this function is None.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.get_tab">
+              <term>
+                <property>horizon.tabs.TabGroup.get_tab</property>
+              </term>
+              <listitem>
+                <para>Returns a specific tab from this tab group.</para>
+                <para>If the tab is not allowed or not enabled this method returns <literal>None</literal>.</para>
+                <para>If the tab is disabled but you wish to return it anyway, you can pass
+                                <literal>True</literal> to the allow_disabled argument.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.get_tabs">
+              <term>
+                <property>horizon.tabs.TabGroup.get_tabs</property>
+              </term>
+              <listitem>
+                <para>Returns a list of the allowed tabs for this tab group.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.load_tab_data">
+              <term>
+                <property>horizon.tabs.TabGroup.load_tab_data</property>
+              </term>
+              <listitem>
+                <para>Preload all data that for the tabs that will be displayed.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.render">
+              <term>
+                <property>horizon.tabs.TabGroup.render</property>
+              </term>
+              <listitem>
+                <para>Renders the HTML output for this tab group.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabGroup.tabs_not_available">
+              <term>
+                <property>horizon.tabs.TabGroup.tabs_not_available</property>
+              </term>
+              <listitem>
+                <para>The fallback handler if no tabs are either allowed or enabled.</para>
+                <para>In the event that no tabs are either allowed or enabled, this method
+                                is the fallback handler. By default it’s a no-op, but it exists
+                                to make redirecting or raising exceptions possible for subclasses.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section xml:id="tabs">
+    <title>Tabs</title>
+    <para>The tab itself is the discrete unit for a tab group, representing one
+                view of data.</para>
+    <variablelist>
+      <varlistentry xml:id="horizon.tabs.Tab">
+        <term>
+          <literal>horizon.tabs.Tab</literal>
+        </term>
+        <listitem>
+          <para>A reusable interface for constructing a tab within a TabGroup.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.name">
+              <term>
+                <property>horizon.tabs.Tab.name</property>
+              </term>
+              <listitem>
+                <para>The display name for the tab which will be rendered as the text for
+                                the tab element in the HTML. Required.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.slug">
+              <term>
+                <property>horizon.tabs.Tab.slug</property>
+              </term>
+              <listitem>
+                <para>The URL slug and id attribute for the tab. This should be unique for
+                                a given tab group. Required.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.preload">
+              <term>
+                <property>horizon.tabs.Tab.preload</property>
+              </term>
+              <listitem>
+                <para>Determines whether the contents of the tab should be rendered into
+                                the page’s HTML when the tab group is rendered, or whether it should
+                                be loaded dynamically when the tab is selected. Default: <literal>True</literal>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.classes">
+              <term>
+                <property>horizon.tabs.Tab.classes</property>
+              </term>
+              <listitem>
+                <para>A list of CSS classes which should be displayed on this tab.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.attrs">
+              <term>
+                <property>horizon.tabs.Tab.attrs</property>
+              </term>
+              <listitem>
+                <para>A dictionary of HTML attributes which should be rendered into the
+                                markup for this tab.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.load">
+              <term>
+                <property>horizon.tabs.Tab.load</property>
+              </term>
+              <listitem>
+                <para>Read-only access to determine whether or not this tab’s data should
+                                be loaded immediately.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.permissions">
+              <term>
+                <property>horizon.tabs.Tab.permissions</property>
+              </term>
+              <listitem>
+                <para>A list of permission names which this tab requires in order to be
+                                displayed. Defaults to an empty list (<literal>[]</literal>).</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.allowed">
+              <term>
+                <property>horizon.tabs.Tab.allowed</property>
+              </term>
+              <listitem>
+                <para>Determines whether or not the tab is displayed.</para>
+                <para>Tab instances can override this method to specify conditions under
+                                which this tab should not be shown at all by returning <literal>False</literal>.</para>
+                <para>The default behavior is to return <literal>True</literal> for all cases.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.enabled">
+              <term>
+                <property>horizon.tabs.Tab.enabled</property>
+              </term>
+              <listitem>
+                <para>Determines whether or not the tab should be accessible.</para>
+                <para>For example, the tab should be rendered into the HTML
+                                on load and respond to a click event.</para>
+                <para>If a tab returns <literal>False</literal> from <literal>enabled</literal> it will ignore the value
+                                of <literal>preload</literal> and only render the HTML of the tab after being clicked.</para>
+                <para>The default behavior is to return <literal>True</literal> for all cases.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.get_context_data">
+              <term>
+                <property>horizon.tabs.Tab.get_context_data</property>
+              </term>
+              <listitem>
+                <para>Return a dictionary of context data used to render the tab.</para>
+                <para>Required.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.get_default_classes">
+              <term>
+                <property>horizon.tabs.Tab.get_default_classes</property>
+              </term>
+              <listitem>
+                <para>Returns a list of the default classes for the tab.</para>
+                <para>Defaults to and empty list (<literal>[]</literal>), however additional classes may
+                                be added depending on the state of the tab as follows:</para>
+                <para>If the tab is the active tab for the tab group, in which
+                                the class <literal>"active"</literal> will be added.</para>
+                <para>If the tab is not enabled, the classes the class <literal>"disabled"</literal>
+                                will be added.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.get_id">
+              <term>
+                <property>horizon.tabs.Tab.get_id</property>
+              </term>
+              <listitem>
+                <para>Returns the id for this tab.</para>
+                <para>Defaults to <literal>"{{ tab_group.slug }}__{{ tab.slug }}"</literal>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.get_template_name">
+              <term>
+                <property>horizon.tabs.Tab.get_template_name</property>
+              </term>
+              <listitem>
+                <para>Returns the name of the template to be used for rendering this tab.</para>
+                <para>By default it returns the value of the <literal>template_name</literal> attribute
+                                on the <literal>Tab</literal> class.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.is_active">
+              <term>
+                <property>horizon.tabs.Tab.is_active</property>
+              </term>
+              <listitem>
+                <para>Method to access whether or not this tab is the active tab.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.post">
+              <term>
+                <property>horizon.tabs.Tab.post</property>
+              </term>
+              <listitem>
+                <para>Handles POST data sent to a tab.</para>
+                <para>Tab instances can override this method to have tab-specific POST logic
+                                without polluting the TabView code.</para>
+                <para>The default behavior is to ignore POST data.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.Tab.render">
+              <term>
+                <property>horizon.tabs.Tab.render</property>
+              </term>
+              <listitem>
+                <para>Renders the tab to HTML.</para>
+                <para><xref linkend="horizon.tabs.Tab.get_context_data"/> method and
+                                the <xref linkend="horizon.tabs.Tab.get_template_name"/> method are called.</para>
+                <para>If <xref linkend="horizon.tabs.Tab.preload"/> is <literal>False</literal> and <literal>force_load</literal>
+                                is not <literal>True</literal>, or
+                                either <xref linkend="horizon.tabs.Tab.allowed"/> or
+                                <xref linkend="horizon.tabs.Tab.enabled"/> returns <literal>False</literal> this method will
+                                return an empty string.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.tabs.TableTab">
+        <term>
+          <literal>horizon.tabs.TableTab</literal>
+        </term>
+        <listitem>
+          <para>A Tab class which knows how to deal with DataTable classes inside of it.</para>
+          <para>This distinct class is required due to the complexity involved in handling
+                        both dynamic tab loading, dynamic table updating and table actions all
+                        within one view.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TableTab.table_classes">
+              <term>
+                <property>horizon.tabs.TableTab.table_classes</property>
+              </term>
+              <listitem>
+                <para>An iterable containing the <xref linkend="horizon.tables.DataTable"/> classes
+                                which this tab will contain. Equivalent to the
+                                <literal>table_classes</literal> attribute on
+                                <xref linkend="horizon.tables.MultiTableView"/>. For each table class you
+                                need to define a corresponding <literal>get_{{ table_name }}_data</literal> method
+                                as with <xref linkend="horizon.tables.MultiTableView"/>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TableTab.get_context_data">
+              <term>
+                <property>horizon.tabs.TableTab.get_context_data</property>
+              </term>
+              <listitem>
+                <para>Adds a <literal>{{ table_name }}_table</literal> item to the context for each table.</para>
+                <para>The target tables are specified by
+                                the <xref linkend="horizon.tabs.TableTab.table_classes"/> attribute.</para>
+                <para>If only one table class is provided, a shortcut <literal>table</literal> context
+                                variable is also added containing the single table.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TableTab.load_table_data">
+              <term>
+                <property>horizon.tabs.TableTab.load_table_data</property>
+              </term>
+              <listitem>
+                <para>Calls the <literal>get_{{ table_name }}_data</literal> methods for each table class.</para>
+                <para>When returning, the loaded data is set on the tables.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+  <section>
+    <title>TabView</title>
+    <para>There is also a useful and simple generic class-based view for handling
+                the display of a <xref linkend="horizon.tabs.TabGroup"/> class.</para>
+    <variablelist>
+      <varlistentry xml:id="horizon.tabs.TabView">
+        <term>
+          <literal>horizon.tabs.TabView</literal>
+        </term>
+        <listitem>
+          <para>A generic view for displaying a <xref linkend="horizon.tabs.TabGroup"/>.</para>
+          <para>This view handles selecting specific tabs and deals with AJAX requests
+                        gracefully.</para>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabView.tab_group_class">
+              <term>
+                <property>horizon.tabs.TabView.tab_group_class</property>
+              </term>
+              <listitem>
+                <para>The only required attribute for <literal>TabView</literal>. It should be a class which
+                                inherits from <xref linkend="horizon.tabs.TabGroup"/>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabView.get_context_data">
+              <term>
+                <property>horizon.tabs.TabView.get_context_data</property>
+              </term>
+              <listitem>
+                <para>Adds the <literal>tab_group</literal> variable to the context data.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabView.get_tabs">
+              <term>
+                <property>horizon.tabs.TabView.get_tabs</property>
+              </term>
+              <listitem>
+                <para>Returns the initialized tab group for this view.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabView.handle_tabbed_response">
+              <term>
+                <property>horizon.tabs.TabView.handle_tabbed_response</property>
+              </term>
+              <listitem>
+                <para>Sends back an AJAX-appropriate response for the tab group if needed.</para>
+                <para>Otherwise renders the response as normal.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry xml:id="horizon.tabs.TabbedTableView">
+        <term>
+          <literal>horizon.tabs.TabbedTableView</literal>
+        </term>
+        <listitem>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabbedTableView.get_tables">
+              <term>
+                <property>horizon.tabs.TabbedTableView.get_tables</property>
+              </term>
+              <listitem>
+                <para>A no-op on this class. Tables are handled at the tab level.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabbedTableView.handle_table">
+              <term>
+                <property>horizon.tabs.TabbedTableView.handle_table</property>
+              </term>
+              <listitem>
+                <para>Loads the table data based on a given table_dict and handles them.</para>
+                <para>For the given dict containing a <literal>DataTable</literal> and a <literal>TableTab</literal>
+                                instance, it loads the table data for that tab and calls the
+                                table’s <xref linkend="horizon.tables.DataTable.maybe_handle"/> method.
+                                The return value will be the result of <literal>maybe_handle</literal>.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+          <variablelist>
+            <varlistentry xml:id="horizon.tabs.TabbedTableView.load_tabs">
+              <term>
+                <property>horizon.tabs.TabbedTableView.load_tabs</property>
+              </term>
+              <listitem>
+                <para>Loads the tab group.</para>
+                <para>It compiles the table instances for each table attached to
+                                any <xref linkend="horizon.tabs.TableTab"/> instances on the tab group.
+                                This step is necessary before processing any tab or table actions.</para>
+              </listitem>
+            </varlistentry>
+          </variablelist>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</section>

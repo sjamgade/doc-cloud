@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Create and manage host aggregates</title>
+  <para>Host aggregates enable administrative users to assign key-value pairs to
+            groups of machines.</para>
+  <para>Each node can have multiple aggregates and each aggregate can have
+            multiple key-value pairs. You can assign the same key-value pair to
+            multiple aggregates.</para>
+  <para>The scheduler uses this information to make scheduling decisions.
+            For information, see
+            <link xlink:href="https://docs.openstack.org/nova/latest/admin/configuration/schedulers.html">Scheduling</link>.</para>
+  <section>
+    <title>To create a host aggregate</title>
+    <procedure>
+      <step>
+        <para>Log in to the Dashboard and select the <guilabel>admin</guilabel> project
+                        from the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab and click
+                        the <guilabel>Host Aggregates</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Host Aggregate</guilabel>.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Create Host Aggregate</guilabel> dialog box, enter or select the
+                        following values on the <guilabel>Host Aggregate Information</guilabel> tab:</para>
+        <itemizedlist>
+          <listitem>
+            <para><guilabel>Name</guilabel>: The host aggregate name.</para>
+          </listitem>
+          <listitem>
+            <para><guilabel>Availability Zone</guilabel>: The cloud provider defines the default
+                                availability zone, such as <literal>us-west</literal>, <literal>apac-south</literal>, or
+                                <literal>nova</literal>. You can target the host aggregate, as follows:</para>
+            <itemizedlist>
+              <listitem>
+                <para>When the host aggregate is exposed as an availability zone,
+                                        select the availability zone when you launch an instance.</para>
+              </listitem>
+              <listitem>
+                <para>When the host aggregate is not exposed as an availability zone,
+                                        select a flavor and its extra specs to target the host
+                                        aggregate.</para>
+              </listitem>
+            </itemizedlist>
+          </listitem>
+        </itemizedlist>
+      </step>
+      <step>
+        <para>Assign hosts to the aggregate using the <guilabel>Manage Hosts within
+                            Aggregate</guilabel> tab in the same dialog box.</para>
+        <para>To assign a host to the aggregate, click <emphasis role="bold">+</emphasis> for the host. The host
+                        moves from the <guilabel>All available hosts</guilabel> list to the
+                        <guilabel>Selected hosts</guilabel> list.</para>
+      </step>
+    </procedure>
+    <para>You can add one host to one or more aggregates. To add a host to an
+                existing aggregate, edit the aggregate.</para>
+  </section>
+  <section>
+    <title>To manage host aggregates</title>
+    <procedure>
+      <step>
+        <para>Select the <guilabel>admin</guilabel> project from the drop-down list at the top
+                        of the page.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab and click
+                        the <guilabel>Host Aggregates</guilabel> category.</para>
+        <itemizedlist>
+          <listitem>
+            <para>To edit host aggregates, select the host aggregate that you want
+                                to edit. Click <guilabel>Edit Host Aggregate</guilabel>.</para>
+            <para>In the <guilabel>Edit Host Aggregate</guilabel> dialog box, you can change the
+                                name and availability zone for the aggregate.</para>
+          </listitem>
+          <listitem>
+            <para>To manage hosts, locate the host aggregate that you want to edit
+                                in the table. Click <guilabel>More</guilabel> and select <guilabel>Manage Hosts</guilabel>.</para>
+            <para>In the <guilabel>Add/Remove Hosts to Aggregate</guilabel> dialog box,
+                                click <emphasis role="bold">+</emphasis> to assign a host to an aggregate. Click <emphasis role="bold">-</emphasis> to
+                                remove a host that is assigned to an aggregate.</para>
+          </listitem>
+          <listitem>
+            <para>To delete host aggregates, locate the host aggregate that you want
+                                to edit in the table. Click <guilabel>More</guilabel> and select
+                                <guilabel>Delete Host Aggregate</guilabel>.</para>
+          </listitem>
+        </itemizedlist>
+      </step>
+    </procedure>
+  </section>
+</section>

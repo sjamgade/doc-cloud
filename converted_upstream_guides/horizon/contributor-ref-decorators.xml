@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Horizon Decorators</title>
+  <para>General-purpose decorators for use with Horizon.</para>
+  <variablelist>
+    <varlistentry xml:id="horizon.decorators.require_auth">
+      <term>
+        <function>horizon.decorators.require_auth</function>
+      </term>
+      <listitem>
+        <para>Performs user authentication check.</para>
+        <para>Similar to Django’s <literal>login_required</literal> decorator, except that this throws
+                    <xref linkend="horizon.exceptions.NotAuthenticated"/> exception if the user is not
+                    signed-in.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry xml:id="horizon.decorators.require_component_access">
+      <term>
+        <function>horizon.decorators.require_component_access</function>
+      </term>
+      <listitem>
+        <para>Perform component can_access check to access the view.</para>
+        <para>:param component containing the view (panel or dashboard).</para>
+        <para>Raises a <xref linkend="horizon.exceptions.NotAuthorized"/> exception if the
+                    user cannot access the component containing the view.
+                    By example the check of component policy rules will be applied to its
+                    views.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry xml:id="horizon.decorators.require_perms">
+      <term>
+        <function>horizon.decorators.require_perms</function>
+      </term>
+      <listitem>
+        <para>Enforces permission-based access controls.</para>
+        <para>Example usage:</para>
+        <screen>from horizon.decorators import require_perms
+
+
+@require_perms(['foo.admin', 'foo.member'])
+def my_view(request):
+    ...</screen>
+        <para>Raises a <xref linkend="horizon.exceptions.NotAuthorized"/> exception if the
+                    requirements are not met.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

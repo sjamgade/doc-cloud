@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Next steps</title>
+  <para>Your OpenStack environment now includes the dashboard.</para>
+  <para>After you install and configure the dashboard, you can
+            complete the following tasks:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Provide users with a public IP address, a username, and a password
+                    so they can access the dashboard through a web browser. In case of
+                    any SSL certificate connection problems, point the server
+                    IP address to a domain name, and give users access.</para>
+    </listitem>
+    <listitem>
+      <para>Customize your dashboard. For details, see .</para>
+    </listitem>
+    <listitem>
+      <para>Set up session storage. For derails, see .</para>
+    </listitem>
+    <listitem>
+      <para>To use the VNC client with the dashboard, the browser
+                    must support HTML5 Canvas and HTML5 WebSockets.</para>
+      <para>For details about browsers that support noVNC, see
+                    <link xlink:href="https://github.com/kanaka/noVNC/blob/master/README.md">README</link>
+                    and <link xlink:href="https://github.com/kanaka/noVNC/wiki/Browser-support">browser support</link>.</para>
+    </listitem>
+  </itemizedlist>
+</section>

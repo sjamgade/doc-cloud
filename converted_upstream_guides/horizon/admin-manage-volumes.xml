@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Manage volumes and volume types</title>
+  <para>Volumes are the Block Storage devices that you attach to instances to enable
+            persistent storage. Users can attach a volume to a running instance or detach
+            a volume and attach it to another instance at any time. For information about
+            using the dashboard to create and manage volumes as an end user, see the
+            .</para>
+  <para>As an administrative user, you can manage volumes and volume types for users
+            in various projects. You can create and delete volume types, and you can view
+            and delete volumes. Note that a volume can be encrypted by using the steps
+            outlined below.</para>
+  <section xml:id="create-a-volume-type">
+    <title>Create a volume type</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard and select the <guilabel>admin</guilabel>
+                        project from the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Volumes</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Click the <guilabel>Volume Types</guilabel> tab, and click
+                        <guilabel>Create Volume Type</guilabel> button. In the
+                        <guilabel>Create Volume Type</guilabel> window, enter a name for the volume type.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Volume Type</guilabel> button to confirm your changes.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+  <section>
+    <title>Create an encrypted volume type</title>
+    <procedure>
+      <step>
+        <para>Create a volume type using the steps above for <xref linkend="create-a-volume-type"/>.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Encryption</guilabel> in the Actions column of the newly
+                        created volume type.</para>
+      </step>
+      <step>
+        <para>Configure the encrypted volume by setting the parameters below from
+                        available options (see table):</para>
+        <variablelist>
+          <varlistentry>
+            <term>Provider</term>
+            <listitem>
+              <para>Specifies the class responsible for configuring the encryption.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Control Location</term>
+            <listitem>
+              <para>Specifies whether the encryption is from the front end (nova) or the
+                                    back end (cinder).</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Cipher</term>
+            <listitem>
+              <para>Specifies the encryption algorithm.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Key Size (bits)</term>
+            <listitem>
+              <para>Specifies the encryption key size.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Volume Type Encryption</guilabel>.</para>
+      </step>
+    </procedure>
+    <figure>
+      <title>Encryption Options</title>
+      <informalfigure>
+        <mediaobject>
+          <imageobject role="fo">
+            <imagedata fileref="create_volume_type_encryption.png"/>
+          </imageobject>
+          <imageobject role="html">
+            <imagedata fileref="create_volume_type_encryption.png"/>
+          </imageobject>
+        </mediaobject>
+      </informalfigure>
+    </figure>
+    <para>The table below provides a few alternatives available for creating encrypted
+                volumes.</para>
+    <informaltable>
+      <tgroup cols="3">
+        <colspec colname="c1" colwidth="28.2*"/>
+        <colspec colname="c2" colwidth="32.4*"/>
+        <colspec colname="c3" colwidth="39.4*"/>
+        <thead>
+          <row>
+            <entry>
+              <para>Encryption
+                                    parameters</para>
+            </entry>
+            <entry>
+              <para>Parameter
+                                    options</para>
+            </entry>
+            <entry>
+              <para>Comments</para>
+            </entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry morerows="1">
+              <para>Provider</para>
+            </entry>
+            <entry>
+              <para>nova.volume.encryptors.
+                                    luks.LuksEncryptor
+                                    (Recommended)</para>
+            </entry>
+            <entry>
+              <para>Allows easier import and
+                                    migration of imported
+                                    encrypted volumes, and
+                                    allows access key to be
+                                    changed without
+                                    re-encrypting the volume</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>nova.volume.encryptors.
+                                    cryptsetup.
+                                    CryptsetupEncryptor</para>
+            </entry>
+            <entry>
+              <para>Less disk overhead than
+                                    LUKS</para>
+            </entry>
+          </row>
+          <row>
+            <entry morerows="1">
+              <para>Control Location</para>
+            </entry>
+            <entry>
+              <para>front-end
+                                    (Recommended)</para>
+            </entry>
+            <entry>
+              <para>The encryption occurs within
+                                    nova so that the data
+                                    transmitted over the network
+                                    is encrypted</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>back-end</para>
+            </entry>
+            <entry>
+              <para>This could be selected if a
+                                    cinder plug-in supporting
+                                    an encrypted back-end block
+                                    storage device becomes
+                                    available in the future.
+                                    TLS or other network
+                                    encryption would also be
+                                    needed to protect data as it
+                                    traverses the network</para>
+            </entry>
+          </row>
+          <row>
+            <entry morerows="1">
+              <para>Cipher</para>
+            </entry>
+            <entry>
+              <para>aes-xts-plain64
+                                    (Recommended)</para>
+            </entry>
+            <entry>
+              <para>See NIST reference below
+                                    to see advantages*</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>aes-cbc-essiv</para>
+            </entry>
+            <entry>
+              <para>Note: On the command line,
+                                    type ‘cryptsetup benchmark’
+                                    for additional options</para>
+            </entry>
+          </row>
+          <row>
+            <entry morerows="1">
+              <para>Key Size (bits)</para>
+            </entry>
+            <entry>
+              <para>512 (Recommended for
+                                    aes-xts-plain64. 256
+                                    should be used for
+                                    aes-cbc-essiv)</para>
+            </entry>
+            <entry>
+              <para>Using this selection for
+                                    aes-xts, the underlying key
+                                    size would only be 256-bits*</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>256</para>
+            </entry>
+            <entry>
+              <para>Using this selection for
+                                    aes-xts, the underlying key
+                                    size would only be 128-bits*</para>
+            </entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </informaltable>
+    <para><literal>*</literal> Source <link xlink:href="http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38e.pdf">NIST SP 800-38E</link></para>
+    <note>
+      <para>To see further information and CLI instructions, see
+                        <link xlink:href="https://docs.openstack.org/cinder/latest/configuration/block-storage/volume-encryption.html">Create an encrypted volume type</link>
+                        in the OpenStack Configuration Reference.</para>
+    </note>
+  </section>
+  <section>
+    <title>Delete volume types</title>
+    <para>When you delete a volume type, volumes of that type are not deleted.</para>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard and select the <guilabel>admin</guilabel> project from
+                        the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Volumes</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Click the <guilabel>Volume Types</guilabel> tab, select the volume type
+                        or types that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Volume Types</guilabel> button.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Confirm Delete Volume Types</guilabel> window, click the
+                        <guilabel>Delete Volume Types</guilabel> button to confirm the action.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+  <section>
+    <title>Delete volumes</title>
+    <para>When you delete an instance, the data of its attached volumes is not
+                destroyed.</para>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard and select the <guilabel>admin</guilabel> project
+                        from the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Volumes</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Select the volume or volumes that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Volumes</guilabel> button.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Confirm Delete Volumes</guilabel> window, click the
+                        <guilabel>Delete Volumes</guilabel> button to confirm the action.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+</section>

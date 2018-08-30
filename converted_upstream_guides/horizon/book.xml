@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Converted by suse-upgrade version 1.1 -->
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+  <title>Horizon: The OpenStack Dashboard Project</title>
+  <info/>
+  <chapter>
+    <title>Introduction</title>
+    <info/>
+    <para>Horizon is the canonical implementation of <link xlink:href="https://github.com/openstack/horizon">OpenStack’s Dashboard</link>, which provides a web based user
+                interface to OpenStack services including Nova, Swift, Keystone, etc.</para>
+    <para>For a more in-depth look at Horizon and its architecture, see the
+                <xref linkend="contributor-intro"/>.</para>
+    <para>To learn what you need to know to get going, see the <xref linkend="quickstart"/>.</para>
+  </chapter>
+  <chapter>
+    <title>Using Horizon</title>
+    <info/>
+    <para>How to use Horizon in your own projects.</para>
+    <xi:include href="install.xml"/>
+    <xi:include href="configuration.xml"/>
+    <xi:include href="user.xml"/>
+    <xi:include href="admin.xml"/>
+  </chapter>
+  <chapter>
+    <title>Contributor Docs</title>
+    <info/>
+    <para>For those wishing to develop Horizon itself, or go in-depth with building
+                your own <xref linkend="horizon.Dashboard"/> or <xref linkend="horizon.Panel"/> classes,
+                the following documentation is provided.</para>
+    <xi:include href="contributor.xml"/>
+  </chapter>
+  <chapter>
+    <title>Release Notes</title>
+    <info/>
+    <para>See <link xlink:href="https://docs.openstack.org/releasenotes/horizon/"/>.</para>
+  </chapter>
+  <chapter>
+    <title>Information</title>
+    <info/>
+    <xi:include href="glossary.xml"/>
+    <itemizedlist>
+      <listitem>
+        <para/>
+      </listitem>
+      <listitem>
+        <para/>
+      </listitem>
+    </itemizedlist>
+  </chapter>
+</book>

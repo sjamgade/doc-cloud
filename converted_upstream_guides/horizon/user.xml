@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>OpenStack Dashboard User Documentation</title>
+  <para>As a cloud end user, you can use the OpenStack dashboard to provision
+            your own resources within the limits set by administrators. You can
+            modify the examples provided in this section to create other types and
+            sizes of server instances.</para>
+  <xi:include href="user-log-in.xml"/>
+  <xi:include href="user-manage-images.xml"/>
+  <xi:include href="user-configure-access-and-security-for-instances.xml"/>
+  <xi:include href="user-launch-instances.xml"/>
+  <xi:include href="user-create-networks.xml"/>
+  <xi:include href="user-manage-containers.xml"/>
+  <xi:include href="user-manage-volumes.xml"/>
+  <xi:include href="user-manage-shares.xml"/>
+  <xi:include href="user-stacks.xml"/>
+  <xi:include href="user-databases.xml"/>
+  <xi:include href="user-manage-lbaasv2.xml"/>
+  <xi:include href="user-browser_support.xml"/>
+</section>

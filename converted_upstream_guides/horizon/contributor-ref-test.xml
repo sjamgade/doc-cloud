@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Horizon TestCase Classes</title>
+  <para>Horizon provides a base test case class which provides several useful
+            pre-prepared attributes for testing Horizon components.</para>
+  <variablelist>
+    <varlistentry xml:id="horizon.test.helpers.TestCase">
+      <term>
+        <literal>horizon.test.helpers.TestCase</literal>
+      </term>
+      <listitem>
+        <para>Base test case class for Horizon with numerous additional features.</para>
+        <itemizedlist>
+          <listitem>
+            <para>The <literal>mox</literal> mocking framework via <literal>self.mox</literal>.</para>
+          </listitem>
+          <listitem>
+            <para>A <literal>RequestFactory</literal> class which supports Django’s <literal>contrib.messages</literal>
+                            framework via <literal>self.factory</literal>.</para>
+          </listitem>
+          <listitem>
+            <para>A ready-to-go request object via <literal>self.request</literal>.</para>
+          </listitem>
+        </itemizedlist>
+        <variablelist>
+          <varlistentry xml:id="horizon.test.helpers.TestCase.assertMessageCount">
+            <term>
+              <property>horizon.test.helpers.TestCase.assertMessageCount</property>
+            </term>
+            <listitem>
+              <para>Asserts that the expected number of messages have been attached.</para>
+              <para>The expected number of messages can be specified per message type.
+                            Usage would look like <literal>self.assertMessageCount(success=1)</literal>.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry xml:id="horizon.test.helpers.TestCase.assertNoMessages">
+            <term>
+              <property>horizon.test.helpers.TestCase.assertNoMessages</property>
+            </term>
+            <listitem>
+              <para>Asserts no messages have been attached by the messages framework.</para>
+              <para>The expected messages framework is <literal>django.contrib.messages</literal>.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <para>The OpenStack Dashboard also provides test case classes for greater
+            ease-of-use when testing APIs and OpenStack-specific auth scenarios.</para>
+  <variablelist>
+    <varlistentry xml:id="openstack_dashboard.test.helpers.TestCase">
+      <term>
+        <literal>openstack_dashboard.test.helpers.TestCase</literal>
+      </term>
+      <listitem>
+        <para>Specialized base test case class for Horizon.</para>
+        <para>It gives access to numerous additional features:</para>
+        <itemizedlist>
+          <listitem>
+            <para>A full suite of test data through various attached objects and
+                            managers (e.g. <literal>self.servers</literal>, <literal>self.user</literal>, etc.). See the
+                            docs for
+                            <literal>TestData</literal>
+                            for more information.</para>
+          </listitem>
+          <listitem>
+            <para>The <literal>mox</literal> mocking framework via <literal>self.mox</literal>.</para>
+          </listitem>
+          <listitem>
+            <para>A set of request context data via <literal>self.context</literal>.</para>
+          </listitem>
+          <listitem>
+            <para>A <literal>RequestFactory</literal> class which supports Django’s <literal>contrib.messages</literal>
+                            framework via <literal>self.factory</literal>.</para>
+          </listitem>
+          <listitem>
+            <para>A ready-to-go request object via <literal>self.request</literal>.</para>
+          </listitem>
+          <listitem>
+            <para>The ability to override specific time data controls for easier testing.</para>
+          </listitem>
+          <listitem>
+            <para>Several handy additional assertion methods.</para>
+          </listitem>
+        </itemizedlist>
+        <variablelist>
+          <varlistentry xml:id="openstack_dashboard.test.helpers.TestCase.assertFormErrors">
+            <term>
+              <property>openstack_dashboard.test.helpers.TestCase.assertFormErrors</property>
+            </term>
+            <listitem>
+              <para>Check for form errors.</para>
+              <para>Asserts that the response does contain a form in its
+                            context, and that form has errors, if count were given,
+                            it must match the exact numbers of errors</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry xml:id="openstack_dashboard.test.helpers.TestCase.assertNoFormErrors">
+            <term>
+              <property>openstack_dashboard.test.helpers.TestCase.assertNoFormErrors</property>
+            </term>
+            <listitem>
+              <para>Checks for no form errors.</para>
+              <para>Asserts that the response either does not contain a form in its
+                            context, or that if it does, that form has no errors.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry xml:id="openstack_dashboard.test.helpers.TestCase.assertRedirectsNoFollow">
+            <term>
+              <property>openstack_dashboard.test.helpers.TestCase.assertRedirectsNoFollow</property>
+            </term>
+            <listitem>
+              <para>Check for redirect.</para>
+              <para>Asserts that the given response issued a 302 redirect without
+                            processing the view which is redirected to.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <variablelist>
+          <varlistentry xml:id="openstack_dashboard.test.helpers.TestCase.assertStatusCode">
+            <term>
+              <property>openstack_dashboard.test.helpers.TestCase.assertStatusCode</property>
+            </term>
+            <listitem>
+              <para>Validates an expected status code.</para>
+              <para>Matches camel case of other assert functions</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry xml:id="openstack_dashboard.test.helpers.APITestCase">
+      <term>
+        <literal>openstack_dashboard.test.helpers.APITestCase</literal>
+      </term>
+      <listitem>
+        <para>Testing APIs.</para>
+        <para>For use with tests which deal with the underlying clients rather than
+                    stubbing out the openstack_dashboard.api.* methods.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+  <variablelist>
+    <varlistentry xml:id="openstack_dashboard.test.helpers.BaseAdminViewTests">
+      <term>
+        <literal>openstack_dashboard.test.helpers.BaseAdminViewTests</literal>
+      </term>
+      <listitem>
+        <para>Sets an active user with the “admin” role.</para>
+        <para>For testing admin-only views and functionality.</para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</section>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1" xml:id="install-customizing">
+  <title>Customizing Horizon</title>
+  <formalpara>
+    <title>See also</title>
+    <para>You may also be interested in  and .</para>
+  </formalpara>
+  <section>
+    <title>Changing the Site Title</title>
+    <para>The OpenStack Dashboard Site Title branding (i.e. “<emphasis role="bold">OpenStack</emphasis> Dashboard”)
+                can be overwritten by adding the attribute <literal>SITE_BRANDING</literal>
+                to <literal>local_settings.py</literal> with the value being the desired name.</para>
+    <para>The file <literal>local_settings.py</literal> can be found at the Horizon directory path of
+                <literal>openstack_dashboard/local/local_settings.py</literal>.</para>
+  </section>
+  <section>
+    <title>Changing the Brand Link</title>
+    <para>The logo also acts as a hyperlink. The default behavior is to redirect to
+                <literal>horizon:user_home</literal>. By adding the attribute <literal>SITE_BRANDING_LINK</literal> with
+                the desired url target e.g., <literal>http://sample-company.com</literal> in
+                <literal>local_settings.py</literal>, the target of the hyperlink can be changed.</para>
+  </section>
+  <section>
+    <title>Customizing the Footer</title>
+    <para>It is possible to customize the global and login footers using a theme’s
+                template override.  Simply add <literal>_footer.html</literal> for a global footer
+                override or <literal>_login_footer.html</literal> for the login page’s footer to your
+                theme’s template directory.</para>
+  </section>
+  <section>
+    <title>Modifying Existing Dashboards and Panels</title>
+    <para>If you wish to alter dashboards or panels which are not part of your codebase,
+                you can specify a custom python module which will be loaded after the entire
+                Horizon site has been initialized, but prior to the URLconf construction.
+                This allows for common site-customization requirements such as:</para>
+    <itemizedlist>
+      <listitem>
+        <para>Registering or unregistering panels from an existing dashboard.</para>
+      </listitem>
+      <listitem>
+        <para>Changing the names of dashboards and panels.</para>
+      </listitem>
+      <listitem>
+        <para>Re-ordering panels within a dashboard or panel group.</para>
+      </listitem>
+    </itemizedlist>
+    <para>Default Horizon panels are loaded based upon files within the
+                openstack_dashboard/enabled/ folder. These files are loaded based upon the
+                filename order, with space left for more files to be added. There are some
+                example files available within this folder, with the .example suffix
+                added. Developers and deployers should strive to use this method of
+                customization as much as possible, and support for this is given preference
+                over more exotic methods such as monkey patching and overrides files.</para>
+  </section>
+  <section xml:id="horizon-customization-module">
+    <title>Horizon customization module (overrides)</title>
+    <para>Horizon has a global overrides mechanism available to perform customizations
+                that are not yet customizable via configuration settings. This file can perform
+                monkey patching and other forms of customization which are not possible via the
+                enabled folder’s customization method.</para>
+    <para>This method of customization is meant to be available for deployers of Horizon,
+                and use of this should be avoided by Horizon plugins at all cost. Plugins
+                needing this level of monkey patching and flexibility should instead look for
+                changing their __init__.py file and performing customizations through other
+                means.</para>
+    <para>To specify the python module containing your modifications, add the key
+                <literal>customization_module</literal> to your <literal>HORIZON_CONFIG</literal> dictionary in
+                <literal>local_settings.py</literal>. The value should be a string containing the path to your
+                module in dotted python path notation. Example:</para>
+    <screen>HORIZON_CONFIG["customization_module"] = "my_project.overrides"</screen>
+    <para>You can do essentially anything you like in the customization module. For
+                example, you could change the name of a panel:</para>
+    <screen>from django.utils.translation import ugettext_lazy as _
+
+import horizon
+
+# Rename "User Settings" to "User Options"
+settings = horizon.get_dashboard("settings")
+user_panel = settings.get_panel("user")
+user_panel.name = _("User Options")</screen>
+    <para>Or get the instances panel:</para>
+    <screen>projects_dashboard = horizon.get_dashboard("project")
+instances_panel = projects_dashboard.get_panel("instances")</screen>
+    <para>Or just remove it entirely:</para>
+    <screen>projects_dashboard.unregister(instances_panel.__class__)</screen>
+    <para>You cannot unregister a <literal>default_panel</literal>. If you wish to remove a
+                <literal>default_panel</literal>, you need to make a different panel in the dashboard as a
+                <literal>default_panel</literal> and then unregister the former. For example, if you wished
+                to remove the <literal>overview_panel</literal> from the <literal>Project</literal> dashboard, you could do
+                the following:</para>
+    <screen>project = horizon.get_dashboard('project')
+project.default_panel = "instances"
+overview = project.get_panel('overview')
+project.unregister(overview.__class__)</screen>
+    <para>You can also override existing methods with your own versions:</para>
+    <screen>from openstack_dashboard.dashboards.admin.info import tabs
+from openstack_dashboard.dashboards.project.instances import tables
+
+NO = lambda *x: False
+
+tabs.HeatServiceTab.allowed = NO
+tables.AssociateIP.allowed = NO
+tables.SimpleAssociateIP.allowed = NO
+tables.SimpleDisassociateIP.allowed = NO</screen>
+    <para>You could also customize what columns are displayed in an existing
+                table, by redefining the <literal>columns</literal> attribute of its <literal>Meta</literal>
+                class. This can be achieved in 3 steps:</para>
+    <procedure>
+      <step>
+        <para>Extend the table that you wish to modify</para>
+      </step>
+      <step>
+        <para>Redefine the <literal>columns</literal> attribute under the <literal>Meta</literal> class for this
+                        new table</para>
+      </step>
+      <step>
+        <para>Modify the <literal>table_class</literal> attribute for the related view so that it
+                        points to the new table</para>
+      </step>
+    </procedure>
+    <para>For example, if you wished to remove the Admin State column from the
+                <literal>NetworksTable</literal>,
+                you could do the following:</para>
+    <screen>from openstack_dashboard.dashboards.project.networks import tables
+from openstack_dashboard.dashboards.project.networks import views
+
+class MyNetworksTable(tables.NetworksTable):
+
+    class Meta(tables.NetworksTable.Meta):
+        columns = ('name', 'subnets', 'shared', 'status')
+
+views.IndexView.table_class = MyNetworksTable</screen>
+    <para>If you want to add a column you can override the parent table in a
+                similar way, add the new column definition and then use the <literal>Meta</literal><literal>columns</literal> attribute to control the column order as needed.</para>
+    <note>
+      <para><literal>my_project.overrides</literal> needs to be importable by the python process running
+                    Horizon.
+                    If your module is not installed as a system-wide python package,
+                    you can either make it installable (e.g., with a setup.py)
+                    or you can adjust the python path used by your WSGI server to include its location.</para>
+      <para>Probably the easiest way is to add a <literal>python-path</literal> argument to
+                    the <literal>WSGIDaemonProcess</literal> line in Apache’s Horizon config.</para>
+      <para>Assuming your <literal>my_project</literal> module lives in <literal>/opt/python/my_project</literal>,
+                    you’d make it look like the following:</para>
+      <screen>WSGIDaemonProcess [... existing options ...] python-path=/opt/python</screen>
+    </note>
+  </section>
+  <section>
+    <title>Customize the project and user table columns</title>
+    <para>Keystone V3 has a place to store extra information regarding project and user.
+                Using the override mechanism described in <xref linkend="horizon-customization-module"/>,
+                Horizon is able to show these extra information as a custom column.
+                For example, if a user in Keystone has an attribute <literal>phone_num</literal>, you could
+                define new column:</para>
+    <screen>from django.utils.translation import ugettext_lazy as _
+
+from horizon import forms
+from horizon import tables
+
+from openstack_dashboard.dashboards.identity.users import tables as user_tables
+from openstack_dashboard.dashboards.identity.users import views
+
+class MyUsersTable(user_tables.UsersTable):
+    phone_num = tables.Column('phone_num',
+                              verbose_name=_('Phone Number'),
+                              form_field=forms.CharField(),)
+
+    class Meta(user_tables.UsersTable.Meta):
+        columns = ('name', 'description', 'phone_num')
+
+views.IndexView.table_class = MyUsersTable</screen>
+  </section>
+  <section>
+    <title>Customize Angular dashboards</title>
+    <para>In Angular, you may write a plugin to extend certain features. Two components
+                in the Horizon framework that make this possible are the extensibility service
+                and the resource type registry service. The <literal>extensibleService</literal> allows
+                certain Horizon elements to be extended dynamically, including add, remove, and
+                replace. The <literal>resourceTypeRegistry</literal> service provides methods to set and get
+                information pertaining to a resource type object. We use Heat type names like
+                <literal>OS::Glance::Image</literal> as our reference name.</para>
+    <para>Some information you may place in the registry include:</para>
+    <itemizedlist>
+      <listitem>
+        <para>API to fetch data from</para>
+      </listitem>
+      <listitem>
+        <para>Property names</para>
+      </listitem>
+      <listitem>
+        <para>Actions (e.g. “Create Volume”)</para>
+      </listitem>
+      <listitem>
+        <para>URL paths to detail view or detail drawer</para>
+      </listitem>
+      <listitem>
+        <para>Property information like labels or formatting for property values</para>
+      </listitem>
+    </itemizedlist>
+    <para>These properties in the registry use the extensibility service (as of Newton
+                release):</para>
+    <itemizedlist>
+      <listitem>
+        <para>globalActions</para>
+      </listitem>
+      <listitem>
+        <para>batchActions</para>
+      </listitem>
+      <listitem>
+        <para>itemActions</para>
+      </listitem>
+      <listitem>
+        <para>detailViews</para>
+      </listitem>
+      <listitem>
+        <para>tableColumns</para>
+      </listitem>
+      <listitem>
+        <para>filterFacets</para>
+      </listitem>
+    </itemizedlist>
+    <para>Using the information from the registry, we can build out our dashboard panels.
+                Panels use the high-level directive <literal>hzResourceTable</literal> that replaces common
+                templates so we do not need to write boilerplate HTML and controller code. It
+                gives developers a quick way to build a new table or change an existing table.</para>
+    <note>
+      <para>You may still choose to use the HTML template for complete control of form
+                    and functionality. For example, you may want to create a custom footer.
+                    You may also use the <literal>hzDynamicTable</literal> directive (what <literal>hzResourceTable</literal>
+                    uses under the hood) directly. However, neither of these is extensible.
+                    You would need to override the panel completely.</para>
+    </note>
+    <para>This is a sample module file to demonstrate how to make some customizations to
+                the Images Panel.:</para>
+    <screen><?dbsuse-fo font-size="8pt"?>(function() {
+  'use strict';
+
+  angular
+    .module('horizon.app.core.images')
+    .run(customizeImagePanel);
+
+  customizeImagePanel.$inject = [
+    'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.images.basePath',
+    'horizon.app.core.images.resourceType',
+    'horizon.app.core.images.actions.surprise.service'
+  ];
+
+  function customizeImagePanel(registry, basePath, imageResourceType, surpriseService) {
+    // get registry for ``OS::Glance::Image``
+    registry = registry.getResourceType(imageResourceType);
+
+    // replace existing Size column to make the font color red
+    var column = {
+      id: 'size',
+      priority: 2,
+      template: '&lt;a style="color:red;"&gt;{$ item.size | bytes $}&lt;/a&gt;'
+    };
+    registry.tableColumns.replace('size', column);
+
+    // add a new detail view
+    registry.detailsViews
+      .append({
+        id: 'anotherDetailView',
+        name: gettext('Another Detail View'),
+        template: basePath + 'demo/detail.html'
+    });
+
+    // set a different summary drawer template
+    registry.setSummaryTemplateUrl(basePath + 'demo/drawer.html');
+
+    // add a new global action
+    registry.globalActions
+      .append({
+        id: 'surpriseAction',
+        service: surpriseService,
+        template: {
+          text: gettext('Surprise')
+        }
+    });
+  }
+})();</screen>
+    <para>Additionally, you should have content defined in <literal>detail.html</literal> and
+                <literal>drawer.html</literal>, as well as define the <literal>surpriseService</literal> which is based off
+                the <literal>actions</literal> directive and needs allowed and perform methods defined.</para>
+  </section>
+  <section>
+    <title>Icons</title>
+    <para>Horizon uses font icons from Font Awesome.  Please see <link xlink:href="https://fortawesome.github.io/Font-Awesome/">Font Awesome</link> for
+                instructions on how to use icons in the code.</para>
+    <para>To add icon to Table Action, use icon property. Example:</para>
+    <variablelist>
+      <varlistentry>
+        <term>class CreateSnapshot(tables.LinkAction):</term>
+        <listitem>
+          <para>name = “snapshot”
+                                verbose_name = _(“Create Snapshot”)
+                                icon = “camera”</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <para>Additionally, the site-wide default button classes can be configured by
+                setting <literal>ACTION_CSS_CLASSES</literal> to a tuple of the classes you wish to appear
+                on all action buttons in your <literal>local_settings.py</literal> file.</para>
+  </section>
+  <section>
+    <title>Custom Stylesheets</title>
+    <para>It is possible to define custom stylesheets for your dashboards. Horizon’s base
+                template <literal>openstack_dashboard/templates/base.html</literal> defines multiple blocks
+                that can be overridden.</para>
+    <para>To define custom css files that apply only to a specific dashboard, create
+                a base template in your dashboard’s templates folder, which extends Horizon’s
+                base template e.g. <literal>openstack_dashboard/dashboards/my_custom_dashboard/
+templates/my_custom_dashboard/base.html</literal>.</para>
+    <para>In this template, redefine <literal>block css</literal>. (Don’t forget to include
+                <literal>_stylesheets.html</literal> which includes all Horizon’s default stylesheets.):</para>
+    <screen><?dbsuse-fo font-size="8pt"?>{% extends 'base.html' %}
+
+{% block css %}
+  {% include "_stylesheets.html" %}
+
+  {% load compress %}
+  {% compress css %}
+  &lt;link href='{{ STATIC_URL }}my_custom_dashboard/scss/my_custom_dashboard.scss' type='text/scss' media='screen' rel='stylesheet' /&gt;
+  {% endcompress %}
+{% endblock %}</screen>
+    <para>The custom stylesheets then reside in the dashboard’s own <literal>static</literal> folder
+                <literal>openstack_dashboard/dashboards/my_custom_dashboard/static/
+my_custom_dashboard/scss/my_custom_dashboard.scss</literal>.</para>
+    <para>All dashboard’s templates have to inherit from dashboard’s base.html:</para>
+    <screen>{% extends 'my_custom_dashboard/base.html' %}
+...</screen>
+  </section>
+  <section>
+    <title>Custom Javascript</title>
+    <para>Similarly to adding custom styling (see above), it is possible to include
+                custom javascript files.</para>
+    <para>All Horizon’s javascript files are listed in the <literal>openstack_dashboard/
+templates/horizon/_scripts.html</literal> partial template, which is included in
+                Horizon’s base template in <literal>block js</literal>.</para>
+    <para>To add custom javascript files, create an <literal>_scripts.html</literal> partial template in
+                your dashboard <literal>openstack_dashboard/dashboards/my_custom_dashboard/
+templates/my_custom_dashboard/_scripts.html</literal> which extends
+                <literal>horizon/_scripts.html</literal>. In this template override the
+                <literal>block custom_js_files</literal> including your custom javascript files:</para>
+    <screen><?dbsuse-fo font-size="8pt"?>{% extends 'horizon/_scripts.html' %}
+
+{% block custom_js_files %}
+    &lt;script src='{{ STATIC_URL }}my_custom_dashboard/js/my_custom_js.js' type='text/javascript' charset='utf-8'&gt;&lt;/script&gt;
+{% endblock %}</screen>
+    <para>In your dashboard’s own base template <literal>openstack_dashboard/dashboards/
+my_custom_dashboard/templates/my_custom_dashboard/base.html</literal> override
+                <literal>block js</literal> with inclusion of dashboard’s own <literal>_scripts.html</literal>:</para>
+    <screen>{% block js %}
+    {% include "my_custom_dashboard/_scripts.html" %}
+{% endblock %}</screen>
+    <para>The result is a single compressed js file consisting both Horizon and
+                dashboard’s custom scripts.</para>
+    <para>Additionally, some marketing and analytics scripts require you to place them
+                within the page’s &lt;head&gt; tag. To do this, place them within the
+                <literal>horizon/_custom_head_js.html</literal> file. Similar to the <literal>_scripts.html</literal> file
+                mentioned above, you may link to an existing file:</para>
+    <screen><?dbsuse-fo font-size="8pt"?>&lt;script src='{{ STATIC_URL }}/my_custom_dashboard/js/my_marketing_js.js' type='text/javascript' charset='utf-8'&gt;&lt;/script&gt;</screen>
+    <para>or you can paste your script directly in the file, being sure to use
+                appropriate tags:</para>
+    <screen>&lt;script type="text/javascript"&gt;
+//some javascript
+&lt;/script&gt;</screen>
+  </section>
+  <section>
+    <title>Customizing Meta Attributes</title>
+    <para>To add custom metadata attributes to your project’s base template, include
+                them in the <literal>horizon/_custom_meta.html</literal> file. The contents of this file will
+                be inserted into the page’s &lt;head&gt; just after the default Horizon meta tags.</para>
+  </section>
+</section>

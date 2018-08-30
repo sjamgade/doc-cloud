@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Manage shares and share types</title>
+  <para>Shares are file storage that instances can access. Users can
+            allow or deny a running instance to have access to a share at any time.
+            For information about using the Dashboard to create and manage shares as
+            an end user, see the
+            .</para>
+  <para>As an administrative user, you can manage shares and share types for users
+            in various projects. You can create and delete share types, and view
+            or delete shares.</para>
+  <section>
+    <title>Create a share type</title>
+    <procedure>
+      <step>
+        <para>Log in to the Dashboard and choose the <guilabel>admin</guilabel>
+                        project from the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Shares</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Click the <guilabel>Share Types</guilabel> tab, and click
+                        <guilabel>Create Share Type</guilabel> button. In the
+                        <guilabel>Create Share Type</guilabel> window, enter or select the
+                        following values.</para>
+        <para><guilabel>Name</guilabel>: Enter a name for the share type.</para>
+        <para><guilabel>Driver handles share servers</guilabel>: Choose True or False</para>
+        <para><guilabel>Extra specs</guilabel>: To add extra specs, use key=value.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Share Type</guilabel> button to confirm your changes.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+  <section>
+    <title>Update share type</title>
+    <procedure>
+      <step>
+        <para>Log in to the Dashboard and choose the <guilabel>admin</guilabel> project from
+                        the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Shares</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Click the <guilabel>Share Types</guilabel> tab, select the share type
+                        that you want to update.</para>
+      </step>
+      <step>
+        <para>Select <guilabel>Update Share Type</guilabel> from Actions.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Update Share Type</guilabel> window, update extra specs.</para>
+        <para><guilabel>Extra specs</guilabel>: To add extra specs, use key=value.
+                        To unset extra specs, use key.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Update Share Type</guilabel> button to confirm your changes.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+  <section>
+    <title>Delete share types</title>
+    <para>When you delete a share type, shares of that type are not deleted.</para>
+    <procedure>
+      <step>
+        <para>Log in to the Dashboard and choose the <guilabel>admin</guilabel> project from
+                        the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Shares</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Click the <guilabel>Share Types</guilabel> tab, select the share type
+                        or types that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Share Types</guilabel> button.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Confirm Delete Share Types</guilabel> window, click the
+                        <guilabel>Delete Share Types</guilabel> button to confirm the action.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+  <section>
+    <title>Delete shares</title>
+    <procedure>
+      <step>
+        <para>Log in to the Dashboard and choose the <guilabel>admin</guilabel> project
+                        from the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Shares</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Select the share or shares that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Shares</guilabel> button.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Confirm Delete Shares</guilabel> window, click the
+                        <guilabel>Delete Shares</guilabel> button to confirm the action.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+  <section>
+    <title>Delete share server</title>
+    <procedure>
+      <step>
+        <para>Log in to the Dashboard and choose the <guilabel>admin</guilabel> project
+                        from the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Share Servers</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Select the share that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Share Server</guilabel> button.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Confirm Delete Share Server</guilabel> window, click the
+                        <guilabel>Delete Share Server</guilabel> button to confirm the action.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+  <section>
+    <title>Delete share networks</title>
+    <procedure>
+      <step>
+        <para>Log in to the Dashboard and choose the <guilabel>admin</guilabel> project
+                        from the drop-down list.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Admin</guilabel> tab, open the <guilabel>System</guilabel> tab
+                        and click the <guilabel>Share Networks</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Select the share network or share networks that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Share Networks</guilabel> button.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Confirm Delete Share Networks</guilabel> window, click the
+                        <guilabel>Delete Share Networks</guilabel> button to confirm the action.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>A message indicates whether the action succeeded.</para>
+    </note>
+  </section>
+</section>

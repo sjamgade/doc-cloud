@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Create and manage shares</title>
+  <para>Shares are file storage that you provide access to instances. You can allow
+            access to a share to a running instance or deny access to a share and allow
+            access to it to another instance at any time. You can also delete a share.
+            You can create snapshot from a share if the driver supports it. Only
+            administrative users can create share types.</para>
+  <section>
+    <title>Create a share</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, and click <guilabel>Shares</guilabel>.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Share</guilabel>.</para>
+        <para>In the dialog box that opens, enter or select the following values.</para>
+        <para><guilabel>Share Name</guilabel>: Specify a name for the share.</para>
+        <para><guilabel>Description</guilabel>: Optionally, provide a brief description for the
+                        share.</para>
+        <para><guilabel>Share Type</guilabel>: Choose a share type.</para>
+        <para><guilabel>Size (GB)</guilabel>: The size of the share in gibibytes (GiB).</para>
+        <para><guilabel>Share Protocol</guilabel>: Select NFS, CIFS, GlusterFS, or HDFS.</para>
+        <para><guilabel>Share Network</guilabel>: Choose a share network.</para>
+        <para><guilabel>Metadata</guilabel>: Enter metadata for the share creation if needed.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Share</guilabel>.</para>
+      </step>
+    </procedure>
+    <para>The dashboard shows the share on the <guilabel>Shares</guilabel> tab.</para>
+  </section>
+  <section>
+    <title>Delete a share</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, and click <guilabel>Shares</guilabel>.</para>
+      </step>
+      <step>
+        <para>Select the check boxes for the shares that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Shares</guilabel> and confirm your choice.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Allow access</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, and click <guilabel>Shares</guilabel>.</para>
+      </step>
+      <step>
+        <para>Go to the share that you want to allow access and choose
+                        <guilabel>Manage Rules</guilabel> from Actions.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Add rule</guilabel>.</para>
+        <para><guilabel>Access Type</guilabel>: Choose ip, user, or cert.</para>
+        <para><guilabel>Access Level</guilabel>: Choose read-write or read-only.</para>
+        <para><guilabel>Access To</guilabel>: Fill in Access To field.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Add Rule</guilabel>.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Deny access</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, and click <guilabel>Shares</guilabel>.</para>
+      </step>
+      <step>
+        <para>Go to the share that you want to deny access and choose
+                        <guilabel>Manage Rules</guilabel> from Actions.</para>
+      </step>
+      <step>
+        <para>Choose the rule you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete rule</guilabel> and confirm your choice.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Edit share metadata</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, and click <guilabel>Shares</guilabel>.</para>
+      </step>
+      <step>
+        <para>Go to the share that you want to edit and choose
+                        <guilabel>Edit Share Metadata</guilabel> from Actions.</para>
+      </step>
+      <step>
+        <para><guilabel>Metadata</guilabel>: To add share metadata, use key=value. To unset
+                        metadata, use key.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Edit Share Metadata</guilabel>.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Edit share</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, and click <guilabel>Shares</guilabel>.</para>
+      </step>
+      <step>
+        <para>Go to the share that you want to edit and choose <guilabel>Edit Share</guilabel> from
+                        Actions.</para>
+      </step>
+      <step>
+        <para><guilabel>Share Name</guilabel>: Enter a new share name.</para>
+      </step>
+      <step>
+        <para><guilabel>Description</guilabel>: Enter a new description.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Edit Share</guilabel>.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Extend share</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, and click <guilabel>Shares</guilabel>.</para>
+      </step>
+      <step>
+        <para>Go to the share that you want to edit and choose <guilabel>Extend Share</guilabel>
+                        from Actions.</para>
+      </step>
+      <step>
+        <para><guilabel>New Size (GB)</guilabel>: Enter new size.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Extend Share</guilabel>.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Create share network</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, click <guilabel>Shares</guilabel>,
+                        and click <guilabel>Share Networks</guilabel>.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Share Network</guilabel>.</para>
+        <para>In the dialog box that opens, enter or select the following values.</para>
+        <para><guilabel>Name</guilabel>: Specify a name for the share network.</para>
+        <para><guilabel>Description</guilabel>: Optionally, provide a brief description for the
+                        share network.</para>
+        <para><guilabel>Neutron Net</guilabel>: Choose a neutron network.</para>
+        <para><guilabel>Neutron Subnet</guilabel>: Choose a neutron subnet.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Share Network</guilabel>.</para>
+      </step>
+    </procedure>
+    <para>The dashboard shows the share network on the <guilabel>Share Networks</guilabel> tab.</para>
+  </section>
+  <section>
+    <title>Delete a share network</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, click <guilabel>Shares</guilabel>, and
+                        click <guilabel>Share Networks</guilabel>.</para>
+      </step>
+      <step>
+        <para>Select the check boxes for the share networks that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Share Networks</guilabel> and confirm your choice.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Edit share network</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, click <guilabel>Shares</guilabel>, and
+                        click <guilabel>Share Networks</guilabel>.</para>
+      </step>
+      <step>
+        <para>Go to the share network that you want to edit and choose
+                        <guilabel>Edit Share Network</guilabel> from Actions.</para>
+      </step>
+      <step>
+        <para><guilabel>Name</guilabel>: Enter a new share network name.</para>
+      </step>
+      <step>
+        <para><guilabel>Description</guilabel>: Enter a new description.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Edit Share Network</guilabel>.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Create security service</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, click <guilabel>Shares</guilabel>,
+                        and click <guilabel>Security Services</guilabel>.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Security Service</guilabel>.</para>
+        <para>In the dialog box that opens, enter or select the following values.</para>
+        <para><guilabel>Name</guilabel>: Specify a name for the security service.</para>
+        <para><guilabel>DNS IP</guilabel>: Enter the DNS IP address.</para>
+        <para><guilabel>Server</guilabel>: Enter the server name.</para>
+        <para><guilabel>Domain</guilabel>: Enter the domain name.</para>
+        <para><guilabel>User</guilabel>: Enter the user name.</para>
+        <para><guilabel>Password</guilabel>: Enter the password.</para>
+        <para><guilabel>Confirm Password</guilabel>: Enter the password again to confirm.</para>
+        <para><guilabel>Type</guilabel>: Choose the type from Active Directory, LDAP, or Kerberos.</para>
+        <para><guilabel>Description</guilabel>: Optionally, provide a brief description for the
+                        security service.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Create Security Service</guilabel>.</para>
+      </step>
+    </procedure>
+    <para>The dashboard shows the security service on the <guilabel>Security Services</guilabel>
+                tab.</para>
+  </section>
+  <section>
+    <title>Delete a security service</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, click <guilabel>Shares</guilabel>, and
+                        click <guilabel>Security Services</guilabel>.</para>
+      </step>
+      <step>
+        <para>Select the check boxes for the security services that you want to delete.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Delete Security Services</guilabel> and confirm your choice.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Edit security service</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard, choose a project, click <guilabel>Shares</guilabel>,
+                        and click <guilabel>Security Services</guilabel>.</para>
+      </step>
+      <step>
+        <para>Go to the security service that you want to edit and choose
+                        <guilabel>Edit Security Service</guilabel> from Actions.</para>
+      </step>
+      <step>
+        <para><guilabel>Name</guilabel>: Enter a new security service name.</para>
+      </step>
+      <step>
+        <para><guilabel>Description</guilabel>: Enter a new description.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Edit Security Service</guilabel>.</para>
+        <para>A message indicates whether the action was successful.</para>
+      </step>
+    </procedure>
+  </section>
+</section>

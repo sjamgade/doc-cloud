@@ -57,6 +57,10 @@
   <para>To set up Compute to use volumes, ensure that Block Storage is
             installed along with <literal>lvm2</literal>. This guide describes how to
             troubleshoot your installation and back up your Compute volumes.</para>
+  <note>
+    <para>To enable the use of encrypted volumes, see the setup instructions in
+      <link xlink:href="https://docs.openstack.org/admin-guide/dashboard-manage-volumes.html#create-an-encrypted-volume-type">Create an encrypted volume type</link>.</para>
+  </note>
   <xi:include href="admin-blockstorage-manage-volumesblockstorage-boot-from-volume.xml"/>
   <xi:include href="admin-blockstorage-manage-volumesblockstorage-nfs-backend.xml"/>
   <xi:include href="admin-blockstorage-manage-volumesblockstorage-glusterfs-backend.xml"/>
@@ -76,8 +80,4 @@
   <xi:include href="admin-blockstorage-manage-volumesblockstorage-volume-backed-image.xml"/>
   <xi:include href="admin-blockstorage-manage-volumesblockstorage-get-capabilities.xml"/>
   <xi:include href="admin-blockstorage-manage-volumesblockstorage-groups.xml"/>
-  <note>
-    <para>To enable the use of encrypted volumes, see the setup instructions in
-                <link xlink:href="https://docs.openstack.org/admin-guide/dashboard-manage-volumes.html#create-an-encrypted-volume-type">Create an encrypted volume type</link>.</para>
-  </note>
 </section>

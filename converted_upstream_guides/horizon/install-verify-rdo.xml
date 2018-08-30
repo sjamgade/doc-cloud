@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Verify operation for Red Hat Enterprise Linux and CentOS</title>
+  <para>Verify operation of the dashboard.</para>
+  <para>Access the dashboard using a web browser at
+            <literal>http://controller/dashboard</literal>.</para>
+  <para>Authenticate using <literal>admin</literal> or <literal>demo</literal> user
+            and <literal>default</literal> domain credentials.</para>
+</section>

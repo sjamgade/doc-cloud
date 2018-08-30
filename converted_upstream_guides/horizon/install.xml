@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Installation Guide</title>
+  <para>This section describes how to install and configure the dashboard
+            on the controller node.</para>
+  <para>The only core service required by the dashboard is the Identity service.
+            You can use the dashboard in combination with other services, such as
+            Image service, Compute, and Networking. You can also use the dashboard
+            in environments with stand-alone services such as Object Storage.</para>
+  <note>
+    <para>This section assumes proper installation, configuration, and operation
+                of the Identity service using the Apache HTTP server and Memcached
+                service.</para>
+  </note>
+  <section>
+    <title>Installing from Packages</title>
+    <xi:include href="install-install-debian.xml"/>
+    <xi:include href="install-install-obs.xml"/>
+    <xi:include href="install-install-rdo.xml"/>
+    <xi:include href="install-install-ubuntu.xml"/>
+    <xi:include href="install-verify-debian.xml"/>
+    <xi:include href="install-verify-obs.xml"/>
+    <xi:include href="install-verify-rdo.xml"/>
+    <xi:include href="install-verify-ubuntu.xml"/>
+    <xi:include href="install-next-steps.xml"/>
+  </section>
+  <section>
+    <title>Installing from Source</title>
+    <xi:include href="install-from-source.xml"/>
+  </section>
+  <section>
+    <title>Horizon plugins</title>
+    <para>There are a number of horizon plugins for various useful features. You can get
+                dashboard supports for them by installing corresponding horizon plugins.</para>
+    <xi:include href="install-plugin-registry.xml"/>
+  </section>
+</section>

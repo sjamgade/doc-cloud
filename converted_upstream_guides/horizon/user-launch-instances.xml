@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Launch and manage instances</title>
+  <para>Instances are virtual machines that run inside the cloud.
+            You can launch an instance from the following sources:</para>
+  <itemizedlist>
+    <listitem>
+      <para>Images uploaded to the Image service.</para>
+    </listitem>
+    <listitem>
+      <para>Image that you have copied to a persistent volume. The instance
+                    launches from the volume, which is provided by the <literal>cinder-volume</literal>
+                    API through iSCSI.</para>
+    </listitem>
+    <listitem>
+      <para>Instance snapshot that you took.</para>
+    </listitem>
+  </itemizedlist>
+  <section>
+    <title>Launch an instance</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard.</para>
+      </step>
+      <step>
+        <para>Select the appropriate project from the drop down menu at the top left.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Project</guilabel> tab, open the <guilabel>Compute</guilabel> tab and
+                        click <guilabel>Instances</guilabel> category.</para>
+        <para>The dashboard shows the instances with its name, its private and
+                        floating IP addresses, size, status, task, power state, and so on.</para>
+      </step>
+      <step>
+        <para>Click <guilabel>Launch Instance</guilabel>.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Launch Instance</guilabel> dialog box, specify the following values:</para>
+        <para><guilabel>Details</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Instance Name</term>
+            <listitem>
+              <para>Assign a name to the virtual machine.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Availability Zone</term>
+            <listitem>
+              <para>By default, this value is set to the availability zone given by the
+                                    cloud provider (for example, <literal>us-west</literal> or <literal>apac-south</literal>). For some
+                                    cases, it could be <literal>nova</literal>.</para>
+              <note>
+                <para>The name you assign here becomes the initial host name of the server.
+                                        If the name is longer than 63 characters, the Compute service
+                                        truncates it automatically to ensure dnsmasq works correctly.</para>
+                <para>After the server is built, if you change the server name in the API
+                                        or change the host name directly, the names are not updated in the
+                                        dashboard.</para>
+                <para>Server names are not guaranteed to be unique when created so you
+                                        could have two instances with the same host name.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Count</term>
+            <listitem>
+              <para>To launch multiple instances, enter a value greater than <literal>1</literal>. The
+                                    default is <literal>1</literal>.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><guilabel>Source</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Instance Boot Source</term>
+            <listitem>
+              <para>Your options are:</para>
+              <variablelist>
+                <varlistentry>
+                  <term>Boot from image</term>
+                  <listitem>
+                    <para>If you choose this option, a new field for <guilabel>Image Name</guilabel>
+                                                displays. You can select the image from the list.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Boot from snapshot</term>
+                  <listitem>
+                    <para>If you choose this option, a new field for <guilabel>Instance
+                                                    Snapshot</guilabel> displays. You can select the snapshot from the list.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Boot from volume</term>
+                  <listitem>
+                    <para>If you choose this option, a new field for <guilabel>Volume</guilabel>
+                                                displays. You can select the volume from the list.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Boot from image (creates a new volume)</term>
+                  <listitem>
+                    <para>With this option, you can boot from an image and create a volume
+                                                by entering the <guilabel>Device Size</guilabel> and <guilabel>Device
+                                                    Name</guilabel> for your volume. Click the <guilabel>Delete Volume on
+                                                    Instance Delete</guilabel> option to delete the volume on deleting the
+                                                instance.</para>
+                  </listitem>
+                </varlistentry>
+                <varlistentry>
+                  <term>Boot from volume snapshot (creates a new volume)</term>
+                  <listitem>
+                    <para>Using this option, you can boot from a volume snapshot and create
+                                                a new volume by choosing <guilabel>Volume Snapshot</guilabel> from a list
+                                                and adding a <guilabel>Device Name</guilabel> for your volume. Click the
+                                                <guilabel>Delete Volume on Instance Delete</guilabel> option to delete the
+                                                volume on deleting the instance.</para>
+                  </listitem>
+                </varlistentry>
+              </variablelist>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Image Name</term>
+            <listitem>
+              <para>This field changes based on your previous selection. If you have
+                                    chosen to launch an instance using an image, the <guilabel>Image Name</guilabel>
+                                    field displays. Select the image name from the dropdown list.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Instance Snapshot</term>
+            <listitem>
+              <para>This field changes based on your previous selection. If you have
+                                    chosen to launch an instance using a snapshot, the
+                                    <guilabel>Instance Snapshot</guilabel> field displays.
+                                    Select the snapshot name from the dropdown list.</para>
+            </listitem>
+          </varlistentry>
+          <varlistentry>
+            <term>Volume</term>
+            <listitem>
+              <para>This field changes based on your previous selection. If you have
+                                    chosen to launch an instance using a volume, the <guilabel>Volume</guilabel>
+                                    field displays. Select the volume name from the dropdown list.
+                                    If you want to delete the volume on instance delete,
+                                    check the <guilabel>Delete Volume on Instance Delete</guilabel> option.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><guilabel>Flavor</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Flavor</term>
+            <listitem>
+              <para>Specify the size of the instance to launch.</para>
+              <note>
+                <para>The flavor is selected based on the size of the image selected
+                                        for launching an instance. For example, while creating an image, if
+                                        you have entered the value in the <guilabel>Minimum RAM (MB)</guilabel> field
+                                        as 2048, then on selecting the image, the default flavor is
+                                        <literal>m1.small</literal>.</para>
+              </note>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><guilabel>Networks</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Selected Networks</term>
+            <listitem>
+              <para>To add a network to the instance, click the <guilabel>+</guilabel> in the
+                                    <guilabel>Available</guilabel> field.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><guilabel>Network Ports</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Ports</term>
+            <listitem>
+              <para>Activate the ports that you want to assign to the instance.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><guilabel>Security Groups</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Security Groups</term>
+            <listitem>
+              <para>Activate the security groups that you want to assign to the instance.</para>
+              <para>Security groups are a kind of cloud firewall that define which
+                                    incoming network traffic is forwarded to instances.</para>
+              <para>If you have not created any security groups, you can assign
+                                    only the default security group to the instance.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><guilabel>Key Pair</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Key Pair</term>
+            <listitem>
+              <para>Specify a key pair.</para>
+              <para>If the image uses a static root password or a static key set
+                                    (neither is recommended), you do not need to provide a key pair
+                                    to launch the instance.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><guilabel>Configuration</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Customization Script Source</term>
+            <listitem>
+              <para>Specify a customization script that runs after your instance
+                                    launches.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+        <para><guilabel>Metadata</guilabel> tab</para>
+        <variablelist>
+          <varlistentry>
+            <term>Available Metadata</term>
+            <listitem>
+              <para>Add Metadata items to your instance.</para>
+            </listitem>
+          </varlistentry>
+        </variablelist>
+      </step>
+      <step>
+        <para>Click <guilabel>Launch Instance</guilabel>.</para>
+        <para>The instance starts on a compute node in the cloud.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>If you did not provide a key pair, security groups, or rules, users
+                    can access the instance only from inside the cloud through VNC. Even
+                    pinging the instance is not possible without an ICMP rule configured.</para>
+    </note>
+    <para>You can also launch an instance from the <guilabel>Images</guilabel> or
+                <guilabel>Volumes</guilabel> category when you launch an instance from
+                an image or a volume respectively.</para>
+    <para>When you launch an instance from an image, OpenStack creates a local
+                copy of the image on the compute node where the instance starts.</para>
+    <para>For details on creating images, see <link xlink:href="https://docs.openstack.org/image-guide/create-images-manually.html">Creating images
+                    manually</link>
+                in the <emphasis>OpenStack Virtual Machine Image Guide</emphasis>.</para>
+    <para>When you launch an instance from a volume, note the following steps:</para>
+    <itemizedlist>
+      <listitem>
+        <para>To select the volume from which to launch, launch an instance from
+                        an arbitrary image on the volume. The arbitrary image that you select
+                        does not boot. Instead, it is replaced by the image on the volume that
+                        you choose in the next steps.</para>
+        <para>To boot a Xen image from a volume, the image you launch in must be
+                        the same type, fully virtualized or paravirtualized, as the one on
+                        the volume.</para>
+      </listitem>
+      <listitem>
+        <para>Select the volume or volume snapshot from which to boot. Enter a
+                        device name. Enter <literal>vda</literal> for KVM images or <literal>xvda</literal> for Xen images.</para>
+      </listitem>
+    </itemizedlist>
+    <note>
+      <para>When running QEMU without support for the hardware virtualization, set
+                    <literal>cpu_mode="none"</literal> alongside <literal>virt_type=qemu</literal> in
+                    <literal>/etc/nova/nova-compute.conf</literal> to solve the following error:</para>
+      <screen language="console">libvirtError: unsupported configuration: CPU mode 'host-model'
+for ``x86_64`` qemu domain on ``x86_64`` host is not supported by hypervisor</screen>
+    </note>
+  </section>
+  <section>
+    <title>Connect to your instance by using SSH</title>
+    <para>To use SSH to connect to your instance, use the downloaded keypair
+                file.</para>
+    <note>
+      <para>The user name is <literal>ubuntu</literal> for the Ubuntu cloud images on TryStack.</para>
+    </note>
+    <procedure>
+      <step>
+        <para>Copy the IP address for your instance.</para>
+      </step>
+      <step>
+        <para>Use the <command>ssh</command> command to make a secure connection to the instance.
+                        For example:</para>
+        <screen language="console">$ ssh -i MyKey.pem ubuntu@10.0.0.2</screen>
+      </step>
+      <step>
+        <para>At the prompt, type <literal>yes</literal>.</para>
+      </step>
+    </procedure>
+    <para>It is also possible to SSH into an instance without an SSH keypair, if the
+                administrator has enabled root password injection.  For more information
+                about root password injection, see <link xlink:href="https://docs.openstack.org/nova/latest/admin/admin-password-injection.html">Injecting the administrator password</link>
+                in the <emphasis>OpenStack Administrator Guide</emphasis>.</para>
+  </section>
+  <section>
+    <title>Track usage for instances</title>
+    <para>You can track usage for instances for each project. You can track costs
+                per month by showing meters like number of vCPUs, disks, RAM, and
+                uptime for all your instances.</para>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard.</para>
+      </step>
+      <step>
+        <para>Select the appropriate project from the drop down menu at the top left.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Project</guilabel> tab, open the <guilabel>Compute</guilabel> tab and
+                        click <guilabel>Overview</guilabel> category.</para>
+      </step>
+      <step>
+        <para>To query the instance usage for a month, select a month and click
+                        <guilabel>Submit</guilabel>.</para>
+      </step>
+      <step>
+        <para>To download a summary, click <guilabel>Download CSV Summary</guilabel>.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Create an instance snapshot</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard.</para>
+      </step>
+      <step>
+        <para>Select the appropriate project from the drop down menu at the top left.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Project</guilabel> tab, open the <guilabel>Compute</guilabel> tab and
+                        click the <guilabel>Instances</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Select the instance from which to create a snapshot.</para>
+      </step>
+      <step>
+        <para>In the actions column, click <guilabel>Create Snapshot</guilabel>.</para>
+      </step>
+      <step>
+        <para>In the <guilabel>Create Snapshot</guilabel> dialog box, enter a name for the
+                        snapshot, and click <guilabel>Create Snapshot</guilabel>.</para>
+        <para>The <guilabel>Images</guilabel> category shows the instance snapshot.</para>
+      </step>
+    </procedure>
+    <para>To launch an instance from the snapshot, select the snapshot and click
+                <guilabel>Launch</guilabel>. Proceed with launching an instance.</para>
+  </section>
+  <section>
+    <title>Manage an instance</title>
+    <procedure>
+      <step>
+        <para>Log in to the dashboard.</para>
+      </step>
+      <step>
+        <para>Select the appropriate project from the drop down menu at the top left.</para>
+      </step>
+      <step>
+        <para>On the <guilabel>Project</guilabel> tab, open the <guilabel>Compute</guilabel> tab and
+                        click <guilabel>Instances</guilabel> category.</para>
+      </step>
+      <step>
+        <para>Select an instance.</para>
+      </step>
+      <step>
+        <para>In the menu list in the actions column, select the state.</para>
+        <para>You can resize or rebuild an instance. You can also choose to view
+                        the instance console log, edit instance or the security groups.
+                        Depending on the current state of the instance, you can pause,
+                        resume, suspend, soft or hard reboot, or terminate it.</para>
+      </step>
+    </procedure>
+  </section>
+</section>
