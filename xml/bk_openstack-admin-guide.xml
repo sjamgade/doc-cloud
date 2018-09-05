@@ -22,9 +22,16 @@
   ?>
  </info>
 <chapter xml:id="cha.cinder.admin">
-<title>o_blockstore Administrator Guide</title>
- <xi:include href="admin-blockstorage-api-throughput.xml"/>
- <xi:include href="admin-blockstorage-manage-volumes.xml"/>
- <!-- <xi:include href="admin-blockstorage-troubleshoot.xml"/> -->
+<title>&o_blockstore; Administrator Guide</title>
+ <xi:include href="cinder_admin.xml"/>
 </chapter>
+<chapter xml:id="cha.horizon.admin">
+<title>&o_dash; Administrator Guide</title>
+ <xi:include href="horizon_admin.xml"/>
+</chapter>
+<chapter xml:id="cha.swift.admin">
+<title>&o_objstore; Administrator Guide</title>
+ <xi:include href="swift_admin.xml"/>
+</chapter>
+<xi:include href="openstack_glossary.xml"/>
 </book>

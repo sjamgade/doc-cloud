@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Configure a GlusterFS back end</title>
   <para>This section explains how to configure OpenStack Block Storage to use
             GlusterFS as a back end. You must be able to access the GlusterFS shares
@@ -40,7 +40,7 @@
                 package instead.</para>
   </note>
   <para>For information on how to install and configure GlusterFS, refer to the
-            <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://gluster.readthedocs.io/en/latest/">GlusterFS Documentation</link> page.</para>
+            <link xlink:href="https://gluster.readthedocs.io/en/latest/">GlusterFS Documentation</link> page.</para>
   <para>
     <emphasis role="bold">Configure GlusterFS for OpenStack Block Storage</emphasis>
   </para>

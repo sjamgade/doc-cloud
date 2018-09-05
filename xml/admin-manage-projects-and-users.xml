@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>Manage projects and users</title>
+  <para>OpenStack administrators can create projects, and create accounts for new users
+            using the OpenStack Dasboard. Projects own specific resources in your
+            OpenStack environment. You can associate users with roles, projects, or both.</para>
+  <section>
+    <title>Add a new project</title>
+    <procedure>
+      <step>
+        <para>Log into the OpenStack Dashboard as the Admin user.</para>
+      </step>
+      <step>
+        <para>Click on the <guimenu>Identity</guimenu> label on the left column, and click
+                        <guimenu>Projects</guimenu>.</para>
+      </step>
+      <step>
+        <para>Select the <guimenu>Create Project</guimenu> push button.
+                        The <guimenu>Create Project</guimenu> window will open.</para>
+      </step>
+      <step>
+        <para>Enter the Project name and description. Leave the <guimenu>Domain ID</guimenu>
+                        field set at <emphasis>default</emphasis>.</para>
+      </step>
+      <step>
+        <para>Click <guimenu>Create Project</guimenu>.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>Your new project will appear in the list of projects displayed under the
+                    <guimenu>Projects</guimenu> page of the dashboard. Projects are listed in
+                    alphabetical order, and you can check on the <emphasis role="bold">Project ID</emphasis>, <emphasis role="bold">Domain
+                        name</emphasis>, and status of the project in this section.</para>
+    </note>
+  </section>
+  <section>
+    <title>Delete a project</title>
+    <procedure>
+      <step>
+        <para>Log into the OpenStack Dashboard as the Admin user.</para>
+      </step>
+      <step>
+        <para>Click on the <guimenu>Identity</guimenu> label on the left column, and click
+                        <guimenu>Projects</guimenu>.</para>
+      </step>
+      <step>
+        <para>Select the checkbox to the left of the project you would like to delete.</para>
+      </step>
+      <step>
+        <para>Click on the <guimenu>Delete Projects</guimenu> push button.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Update a project</title>
+    <procedure>
+      <step>
+        <para>Log into the OpenStack Dashboard as the Admin user.</para>
+      </step>
+      <step>
+        <para>Click on the <guimenu>Identity</guimenu> label on the left column, and click
+                        <guimenu>Projects</guimenu>.</para>
+      </step>
+      <step>
+        <para>Locate the project you wish to update, and under the <guimenu>Actions</guimenu>
+                        column click on the drop down arrow next to the <guimenu>Manage Members</guimenu>
+                        push button. The <guimenu>Update Project</guimenu> window will open.</para>
+      </step>
+      <step>
+        <para>Update the name of the project, enable the project, or disable the project
+                        as needed.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Add a new user</title>
+    <procedure>
+      <step>
+        <para>Log into the OpenStack Dashboard as the Admin user.</para>
+      </step>
+      <step>
+        <para>Click on the <guimenu>Identity</guimenu> label on the left column, and click
+                        <guimenu>Users</guimenu>.</para>
+      </step>
+      <step>
+        <para>Click <guimenu>Create User</guimenu>.</para>
+      </step>
+      <step>
+        <para>Enter a <guimenu>Domain Name</guimenu>, the <guimenu>Username</guimenu>, and a
+                        <guimenu>password</guimenu> for the new user. Enter an email for the new user,
+                        and specify which <guimenu>Primary Project</guimenu> they belong to. Leave the
+                        <guimenu>Domain ID</guimenu> field set at <emphasis>default</emphasis>. You can also enter a
+                        decription for the new user.</para>
+      </step>
+      <step>
+        <para>Click the <guimenu>Create User</guimenu> push button.</para>
+      </step>
+    </procedure>
+    <note>
+      <para>The new user will then appear in the list of projects displayed under
+                    the <guimenu>Users</guimenu> page of the dashboard. You can check on the
+                    <emphasis role="bold">User Name</emphasis>, <emphasis role="bold">User ID</emphasis>, <emphasis role="bold">Domain name</emphasis>, and the User status in this
+                    section.</para>
+    </note>
+  </section>
+  <section>
+    <title>Delete a new user</title>
+    <procedure>
+      <step>
+        <para>Log into the OpenStack Dashboard as the Admin user.</para>
+      </step>
+      <step>
+        <para>Click on the <guimenu>Identity</guimenu> label on the left column, and click
+                        <guimenu>Users</guimenu>.</para>
+      </step>
+      <step>
+        <para>Select the checkbox to the left of the user you would like to delete.</para>
+      </step>
+      <step>
+        <para>Click on the <guimenu>Delete Users</guimenu> push button.</para>
+      </step>
+    </procedure>
+  </section>
+  <section>
+    <title>Update a user</title>
+    <procedure>
+      <step>
+        <para>Log into the OpenStack Dashboard as the Admin user.</para>
+      </step>
+      <step>
+        <para>Click on the <guimenu>Identity</guimenu> label on the left column, and click
+                        <guimenu>Users</guimenu>.</para>
+      </step>
+      <step>
+        <para>Locate the User you would like to update, and select the <guimenu>Edit</guimenu>
+                        push button under the <guimenu>Actions</guimenu> column.</para>
+      </step>
+      <step>
+        <para>Adjust the <guimenu>Domain Name</guimenu>, <guimenu>User Name</guimenu>,
+                        <guimenu>Description</guimenu>, <guimenu>Email</guimenu>, and <guimenu>Primary Project</guimenu>.</para>
+      </step>
+    </procedure>
+    <section>
+      <title>Enable or disable a user</title>
+      <procedure>
+        <step>
+          <para>Log into the OpenStack Dashboard as the Admin user.</para>
+        </step>
+        <step>
+          <para>Click on the <guimenu>Identity</guimenu> label on the left column, and click
+                            <guimenu>Users</guimenu>.</para>
+        </step>
+        <step>
+          <para>Locate the User you would like to update, and select the arrow to the right
+                            of the <guimenu>Edit</guimenu> push button. This will open a drop down menu.</para>
+        </step>
+        <step>
+          <para>Select <guimenu>Disable User</guimenu>.</para>
+        </step>
+      </procedure>
+      <note>
+        <para>To reactivate a disabled user, select <guimenu>Enable User</guimenu> under
+                        the drop down menu.</para>
+      </note>
+    </section>
+  </section>
+</section>

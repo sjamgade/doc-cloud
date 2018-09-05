@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
   <title>Back up Block Storage service disks</title>
   <para>While you can use the LVM snapshot to create snapshots, you can also use
             it to back up your volumes. By using LVM snapshot, you reduce the size
@@ -200,7 +200,7 @@ Block device           251:14</screen>
       <para>Automate your backups</para>
       <para>Because more and more volumes might be allocated to your Block Storage
                     service, you might want to automate your backups.
-                    The <link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/Razique/BashStuff/blob/master/SYSTEMS/OpenStack/SCR_5005_V01_NUAC-OPENSTACK-EBS-volumes-backup.sh">SCR_5005_V01_NUAC-OPENSTACK-EBS-volumes-backup.sh</link> script assists
+                    The <link xlink:href="https://github.com/Razique/BashStuff/blob/master/SYSTEMS/OpenStack/SCR_5005_V01_NUAC-OPENSTACK-EBS-volumes-backup.sh">SCR_5005_V01_NUAC-OPENSTACK-EBS-volumes-backup.sh</link> script assists
                     you with this task. The script performs the operations from the previous
                     example, but also provides a mail report and runs the backup based on
                     the <literal>backups_retention_days</literal> setting.</para>

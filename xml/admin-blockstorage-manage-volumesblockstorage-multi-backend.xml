@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<section xmlns="http://docbook.org/ns/docbook" xml:id="multi-backend">
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1" xml:id="multi-backend">
   <title>Configure multiple-storage back ends</title>
   <para>When you configure multiple-storage back ends, you can create several
             back-end storage solutions that serve the same OpenStack Compute

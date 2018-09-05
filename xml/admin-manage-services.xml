@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<section xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.1">
+  <title>View services information</title>
+  <para>As an administrative user, you can view information for OpenStack services.</para>
+  <procedure>
+    <step>
+      <para>Log in to the Dashboard and select the
+                    <guimenu>admin</guimenu> project from the drop-down list.</para>
+    </step>
+    <step>
+      <para>On the <guimenu>Admin</guimenu> tab, open the <guimenu>System</guimenu> tab
+                    and click the <guimenu>System Information</guimenu> category.</para>
+      <para>View the following information on these tabs:</para>
+      <itemizedlist>
+        <listitem>
+          <para><guimenu>Services</guimenu>:
+                            Displays the internal name and the public OpenStack name
+                            for each service, the host on which the service runs,
+                            and whether or not the service is enabled.</para>
+        </listitem>
+        <listitem>
+          <para><guimenu>Compute Services</guimenu>:
+                            Displays information specific to the Compute service. Both host
+                            and zone are listed for each service, as well as its
+                            activation status.</para>
+        </listitem>
+        <listitem>
+          <para><guimenu>Block Storage Services</guimenu>:
+                            Displays information specific to the Block Storage service. Both host
+                            and zone are listed for each service, as well as its
+                            activation status.</para>
+        </listitem>
+        <listitem>
+          <para><guimenu>Network Agents</guimenu>:
+                            Displays the network agents active within the cluster, such as L3 and
+                            DHCP agents, and the status of each agent.</para>
+        </listitem>
+        <listitem>
+          <para><guimenu>Orchestration Services</guimenu>:
+                            Displays information specific to the Orchestration service. Name,
+                            engine id, host and topic are listed for each service, as well as its
+                            activation status.</para>
+        </listitem>
+      </itemizedlist>
+    </step>
+  </procedure>
+</section>
