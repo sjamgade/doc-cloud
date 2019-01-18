@@ -611,7 +611,7 @@ The following tables show the locations of all repositories that can be used for
       </para>
      </entry>
      <entry>
-      <para>&smt_url;/Products/OpenStack-Cloud/7/x86_64/product/</para>
+      <para>&smt_url;/Products/OpenStack-Cloud-Crowbar/8/x86_64/product/</para>
      </entry>
     </row>
     <row>
@@ -621,7 +621,7 @@ The following tables show the locations of all repositories that can be used for
       </para>
      </entry>
      <entry>
-      <para>&smt_url;/Updates/OpenStack-Cloud/7/x86_64/update/</para>
+      <para>&smt_url;/Updates/OpenStack-Cloud-Crowbar/8/x86_64/update/</para>
      </entry>
     </row>
     <row>
