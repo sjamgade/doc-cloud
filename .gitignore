@@ -5,3 +5,5 @@ build/
 *~
 working/
 *.xpr
+scripts/devel
+scripts/openstack-docs-html
